@@ -1,0 +1,13 @@
+# Python 3.11.15 (conda env: oliveyoung)
+# conda create -n oliveyoung python=3.11
+# pip install -r requirements.txt
+
+# 브라우저 자동화
+selenium==4.44.0
+webdriver-manager==4.0.2
+
+# HTTP 요청
+requests==2.34.1
+
+# 진행률 표시
+tqdm==4.67.3
