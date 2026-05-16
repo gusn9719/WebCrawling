@@ -14,8 +14,8 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.common.exceptions import TimeoutException, NoSuchElementException
 
-from browser import OliveYoungBrowser
-from config import PAGE_LOAD_TIMEOUT_SECONDS, MIN_VALID_PRICE, MAX_VALID_PRICE
+from ..browser import OliveYoungBrowser
+from ..config import PAGE_LOAD_TIMEOUT_SECONDS, MIN_VALID_PRICE, MAX_VALID_PRICE
 
 logger = logging.getLogger(__name__)
 

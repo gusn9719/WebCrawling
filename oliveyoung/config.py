@@ -82,8 +82,10 @@ USER_AGENT = (
 
 DEFAULT_MAX_PRODUCTS = 50
 
-OUTPUT_DIR = Path(__file__).parent / "output"
-LOG_FILE = Path(__file__).parent / "crawler.log"
+# 이 파일은 oliveyoung/ 안에 있으므로 한 단계 위(레포 루트)에 출력한다.
+_ROOT = Path(__file__).resolve().parent.parent
+OUTPUT_DIR = _ROOT / "output"
+LOG_FILE = _ROOT / "crawler.log"
 
 # 가격 파싱 시 노이즈(0원, 적립금 등)를 거르는 유효 범위
 MIN_VALID_PRICE = 100

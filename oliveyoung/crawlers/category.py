@@ -13,8 +13,8 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.common.exceptions import TimeoutException
 
-from browser import OliveYoungBrowser
-from config import ranking_url, PAGE_LOAD_TIMEOUT_SECONDS
+from ..browser import OliveYoungBrowser
+from ..config import ranking_url, PAGE_LOAD_TIMEOUT_SECONDS
 
 logger = logging.getLogger(__name__)
 
