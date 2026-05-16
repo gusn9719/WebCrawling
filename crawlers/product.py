@@ -33,7 +33,8 @@ class ProductCrawler:
 
     def fetch(self, product_url: str, category: str) -> Optional[dict]:
         """
-        상품 메타데이터 dict 를 반환한다. 실패하면 None → 호출 측에서 skip.
+        상품 메타데이터 dict 를 반환한다. 실패하면 None 을 반환하고,
+        호출하는 쪽에서 그 상품을 건너뛴다.
 
         반환 형태:
             {goods_no, name, brand, price, category, url}
@@ -62,11 +63,9 @@ class ProductCrawler:
             "url": product_url,
         }
 
-    # ── 내부 헬퍼 ───────────────────────────────────────────────────────────
-
     @staticmethod
     def goods_no_from_url(url: str) -> str:
-        """URL 에서 goodsNo 추출. 상세 페이지를 열기 전 품질 게이트에도 쓰인다."""
+        """URL 에서 goodsNo 를 뽑는다. 상세 페이지를 열기 전 품질 게이트에서도 쓴다."""
         match = _GOODS_NO_PATTERN.search(url)
         return match.group(1) if match else ""
 

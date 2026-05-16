@@ -1,8 +1,8 @@
 """
 저장 담당.
 
-책임: 리뷰를 JSONL 에 append 하고, review_id 로 중복을 막는다.
-재시작하면 기존 파일에서 seen_ids 를 복원하므로 "이어서 수집" 이 가능하다.
+리뷰를 JSONL 에 append 하고 review_id 로 중복을 막는다.
+다시 실행하면 기존 파일에서 seen_ids 를 복원해 이어서 수집한다.
 """
 import json
 import logging
@@ -27,9 +27,10 @@ class ReviewStorage:
         """
         기존 JSONL 에서 review_id(중복 방지)와 product_id(완료 상품)를 복원한다.
 
-        리뷰는 상품 단위로 한 번에 저장되므로(중간에 429면 그 상품은 한 줄도
-        안 들어감), 파일에 product_id 가 있으면 그 상품은 '완료'로 간주해
-        재실행 시 통째로 건너뛴다 → API 재호출 없이 끊긴 지점부터 이어짐.
+        리뷰는 상품 단위로 한 번에 저장되므로, 중간에 429가 나면 그 상품은
+        한 줄도 안 들어간다. 따라서 파일에 product_id 가 있으면 그 상품은
+        끝난 것으로 보고 다시 실행할 때 통째로 건너뛴다. API 를 다시 부르지
+        않으니 끊긴 지점부터 곧장 이어진다.
         """
         if not self.path.exists():
             logger.info("[storage] 신규 파일: %s", self.path.name)
