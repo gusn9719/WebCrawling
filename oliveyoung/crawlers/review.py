@@ -15,7 +15,7 @@ from typing import Optional
 
 import requests
 
-from config import (
+from ..config import (
     REVIEW_API_URL,
     REVIEW_STATS_URL,
     REVIEW_HEADERS,
@@ -29,7 +29,7 @@ from config import (
     SLEEP_MIN_SECONDS,
     SLEEP_MAX_SECONDS,
 )
-from schema import ReviewSchema
+from ..schema import ReviewSchema
 
 logger = logging.getLogger(__name__)
 

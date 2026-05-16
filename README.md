@@ -64,19 +64,25 @@ raw_url         상품 페이지 URL
 
 ```
 oliveyoung_crawler/
-├── main.py            # 진입점. 흐름만 잡는다
-├── config.py          # 모든 상수 (URL, 정렬, 재시도, 게이트 기준)
-├── schema.py          # ReviewSchema dataclass
-├── browser.py         # OliveYoungBrowser. 드라이버 생성/종료
-├── storage.py         # ReviewStorage. JSONL append, 중복/이어받기
-└── crawlers/
-    ├── category.py    # CategoryCrawler. 판매랭킹에서 상품 URL
-    ├── product.py     # ProductCrawler. 상품 페이지에서 메타데이터
-    └── review.py      # ReviewCrawler. 리뷰 API(커서) 호출·파싱
+├── main.py             # 진입점. 인자 파싱 + 로깅 + Pipeline 실행만
+├── README.md
+├── requirements.txt
+├── output/             # 수집 결과 jsonl
+└── oliveyoung/         # 패키지 (실제 코드)
+    ├── pipeline.py     # CrawlPipeline. 수집 흐름을 잡는다
+    ├── config.py       # 모든 상수 (URL, 정렬, 재시도, 게이트 기준)
+    ├── schema.py       # ReviewSchema dataclass
+    ├── browser.py      # OliveYoungBrowser. 드라이버 생성/종료
+    ├── storage.py      # ReviewStorage. JSONL append, 중복/이어받기
+    └── crawlers/
+        ├── category.py # CategoryCrawler. 판매랭킹에서 상품 URL
+        ├── product.py  # ProductCrawler. 상품 페이지에서 메타데이터
+        └── review.py   # ReviewCrawler. 리뷰 API(커서) 호출·파싱
 ```
 
+진입점만 루트에 두고 코드는 `oliveyoung/` 패키지로 묶었다.
 각 클래스는 역할이 하나다. 크롤러끼리 서로 import 하지 않고
-`config` 와 `schema` 만 공유한다.
+`config` 와 `schema` 만 공유하며, 엮는 순서는 `pipeline` 이 정한다.
 (`crawlers/__init__.py` 는 `crawlers` 를 패키지로 인식시키는 빈 표시 파일이다.)
 
 ## 수집 전략 & 설계 고민

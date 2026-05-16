@@ -7,8 +7,8 @@
 import json
 import logging
 
-from config import OUTPUT_DIR
-from schema import ReviewSchema
+from .config import OUTPUT_DIR
+from .schema import ReviewSchema
 
 logger = logging.getLogger(__name__)
 
