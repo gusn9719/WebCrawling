@@ -1,8 +1,8 @@
 """
 리뷰 크롤러.
 
-책임: 상품 dict 를 받아 모바일 리뷰 API 를 POST 호출하고
-ReviewSchema 리스트를 돌려준다. (Selenium 없이 requests 만 사용 — 빠름)
+상품 dict 를 받아 모바일 리뷰 API 를 POST 호출하고 ReviewSchema
+리스트를 돌려준다. Selenium 없이 requests 만 쓰므로 빠르다.
 
 정렬 타입 5종을 모두 돌려 합치고 review_id 로 중복을 제거한다.
 429(rate limit) 는 재시도해도 소용없으므로 RateLimitError 를 던져
@@ -38,7 +38,7 @@ class RateLimitError(Exception):
     """API 가 429 를 반환했을 때. main 에서 잡아 전체 크롤링을 중단한다."""
 
 
-# API 코드 → 한글 (수집 단계에서 사람이 읽을 수 있게 변환)
+# API 코드를 사람이 읽을 수 있는 한글로 바꾼다.
 _SKIN_TYPE = {
     "A01": "건성", "A02": "복합성", "A03": "지성",
     "A04": "민감성", "A05": "중성",
@@ -58,7 +58,7 @@ class ReviewCrawler:
     def review_count(self, goods_no: str) -> int:
         """
         상품 통계 API 로 총 리뷰 수만 싸게 조회한다(품질 게이트용).
-        조회 실패 시 0 을 반환 → 게이트에서 보수적으로 스킵된다.
+        조회에 실패하면 0 을 반환한다. 그러면 게이트에서 안전하게 스킵된다.
         """
         try:
             resp = self._session.get(
@@ -92,8 +92,6 @@ class ReviewCrawler:
 
         return collected
 
-    # ── 정렬 타입 1개 수집 ──────────────────────────────────────────────────
-
     def _collect_one_sort(
         self,
         product: dict,
@@ -102,12 +100,12 @@ class ReviewCrawler:
         collected: list[ReviewSchema],
     ) -> None:
         """
-        한 정렬 타입을 커서로 끝까지 넘기며 신규 리뷰를 collected 에 채운다.
+        한 정렬 타입을 커서로 끝까지 넘기며 새 리뷰를 collected 에 채운다.
 
         이 API 는 page 번호가 아니라 커서 방식이다. 직전 응답의
-        nextCursorId/Score/Count 를 다음 요청의 cursorId/Score/Count 로 넘긴다.
-        (첫 요청은 모두 None) 비로그인은 정렬당 100개에서 hasNext=False 로 끝나고,
-        로그인 시 그 이상도 이어진다.
+        nextCursorId/Score/Count 를 다음 요청의 cursorId/Score/Count 로
+        넘긴다. 첫 요청은 셋 다 None 으로 보낸다. 보통 정렬당 100개쯤에서
+        hasNext 가 False 가 되며 멈춘다.
         """
         cursor_id = cursor_score = cursor_count = None
 
@@ -139,8 +137,6 @@ class ReviewCrawler:
             cursor_score = data.get("nextCursorScore")
             cursor_count = data.get("nextCursorCount")
             time.sleep(random.uniform(SLEEP_MIN_SECONDS, SLEEP_MAX_SECONDS))
-
-    # ── API 호출 (재시도 / 429 처리) ────────────────────────────────────────
 
     def _request_page(
         self,
@@ -174,7 +170,7 @@ class ReviewCrawler:
                 )
                 if resp.status_code == 429:
                     raise RateLimitError(
-                        f"API 429 (rate limit) — goods_no={goods_no}"
+                        f"API 429 (rate limit), goods_no={goods_no}"
                     )
                 resp.raise_for_status()
 
@@ -185,12 +181,12 @@ class ReviewCrawler:
                 return body.get("data") or {}
 
             except RateLimitError:
-                raise  # 재시도 금지 — 위로 전파해 전체 중단
+                raise  # 재시도하지 않고 위로 던져 전체를 멈춘다
             except Exception as e:
                 if attempt == MAX_RETRIES:
                     logger.warning("  리뷰 API 재시도 초과, 이 정렬 건너뜀: %s", e)
                     return {}
-                wait = BACKOFF_BASE_SECONDS * (2 ** attempt)  # 1s → 2s → 4s
+                wait = BACKOFF_BASE_SECONDS * (2 ** attempt)  # 1s, 2s, 4s
                 logger.warning(
                     "  리뷰 API 실패(%s), %ds 후 재시도 (%d/%d)",
                     e, wait, attempt + 1, MAX_RETRIES,
@@ -198,8 +194,6 @@ class ReviewCrawler:
                 time.sleep(wait)
 
         return {}
-
-    # ── 파싱 ────────────────────────────────────────────────────────────────
 
     @staticmethod
     def _parse(raw: dict, product: dict) -> Optional[ReviewSchema]:

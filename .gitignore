@@ -1,20 +1,6 @@
-# 수집 결과물 (용량 크고 재현 가능하므로 제외)
-output/
-*.jsonl
-
 # 로그
 *.log
 crawler.log
-
-# 진단용 임시 파일
-diagnose.py
-find_review_api.py
-review_api_found.json
-find_api_output.txt
-api_test_output.txt
-api_fields_output.txt
-run_output*.txt
-run_final.txt
 
 # 환경 설정 (민감 정보 포함 가능)
 .env
