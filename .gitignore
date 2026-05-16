@@ -30,3 +30,6 @@ dist/
 # IDE
 .vscode/
 .idea/
+
+# AI 어시스턴트 가이드 (로컬 전용 — 깃에 올리지 않음)
+CLAUDE.md
