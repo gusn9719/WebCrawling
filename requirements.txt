@@ -1,12 +1,12 @@
-# Python 3.11.15 (conda env: oliveyoung)
+# Python 3.11 (conda env: oliveyoung)
 # conda create -n oliveyoung python=3.11
 # pip install -r requirements.txt
 
-# 브라우저 자동화
+# 브라우저 자동화 (로그인 / 카테고리 / 상품 페이지)
 selenium==4.44.0
-webdriver-manager==4.0.2
+undetected-chromedriver==3.5.5
 
-# HTTP 요청
+# 리뷰 모바일 API 직접 호출
 requests==2.34.1
 
 # 진행률 표시
