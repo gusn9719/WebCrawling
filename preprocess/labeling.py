@@ -11,6 +11,8 @@ text_rule_label 은 사람이 검수한 정답 라벨이 아니다. 본문에 �
 
 from __future__ import annotations
 
+import re
+
 import pandas as pd
 
 from . import config
@@ -34,13 +36,43 @@ def _contains_any(text: str, keywords: list[str]) -> bool:
     return any(keyword in text for keyword in keywords)
 
 
+def _mask_keywords(text: str, keywords: list[str]) -> str:
+    masked = text
+    for keyword in keywords:
+        masked = masked.replace(keyword, " ")
+    return masked
+
+
+def _contains_any_pattern(text: str, patterns: list[str]) -> bool:
+    return any(re.search(pattern, text) for pattern in patterns)
+
+
+def _mask_patterns(text: str, patterns: list[str]) -> str:
+    masked = text
+    for pattern in patterns:
+        masked = re.sub(pattern, " ", masked)
+    return masked
+
+
 def _text_rule_label(text: str) -> str:
     """간단한 도메인 키워드로 본문 감성 단서를 찾는다.
 
     이 값은 사람이 직접 붙인 정답이 아니라 규칙 기반 힌트다.
     """
-    positive = _contains_any(text, config.POSITIVE_KEYWORDS)
-    negative = _contains_any(text, config.NEGATIVE_KEYWORDS)
+    absence_positive = _contains_any(
+        text, config.NEGATIVE_ABSENCE_KEYWORDS
+    ) or _contains_any_pattern(text, config.NEGATIVE_ABSENCE_PATTERNS)
+    negative_scan_text = _mask_keywords(
+        text,
+        config.NEGATIVE_ABSENCE_KEYWORDS + config.NEGATIVE_CONTEXT_EXCEPTIONS,
+    )
+    negative_scan_text = _mask_patterns(
+        negative_scan_text,
+        config.NEGATIVE_ABSENCE_PATTERNS,
+    )
+
+    positive = absence_positive or _contains_any(text, config.POSITIVE_KEYWORDS)
+    negative = _contains_any(negative_scan_text, config.NEGATIVE_KEYWORDS)
 
     if positive and negative:
         return "mixed"
