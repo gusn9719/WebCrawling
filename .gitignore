@@ -2,8 +2,14 @@
 *.log
 crawler.log
 
+# OS / filesystem
+.DS_Store
+Thumbs.db
+desktop.ini
+
 # 환경 설정 (민감 정보 포함 가능)
 .env
+.env.*
 secrets.py
 
 # Python
@@ -11,11 +17,38 @@ __pycache__/
 *.py[cod]
 *.egg-info/
 .venv/
+venv/
 dist/
+build/
+
+# Test / coverage cache
+.pytest_cache/
+.coverage
+htmlcov/
 
 # IDE
 .vscode/
 .idea/
 
+# 크롤링/전처리 산출물 (대용량 생성 데이터)
+output/
+preprocessed/
+*.parquet
+
+# 모델/전처리 직렬화 산출물 (재생성 가능, 대용량 가능)
+models/
+*.pt
+*.pth
+*.ckpt
+*.keras
+*.h5
+*.pkl
+*.joblib
+*.npy
+*.npz
+
 # AI 어시스턴트 가이드 (로컬 전용 — 깃에 올리지 않음)
 CLAUDE.md
+
+# 상세 구현 해설 (로컬 전용)
+README2*.md

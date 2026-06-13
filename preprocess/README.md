@@ -41,6 +41,9 @@ python run_preprocess.py --sample 5000
 
 ```
 
+토큰화는 KoNLPy Okt를 사용한다. 환경에 따라 Java/JVM 설치가 필요할 수 있으므로,
+Windows/conda 환경에서는 Java 설치와 PATH 설정을 먼저 확인한다.
+
 ## 출력 스키마
 
 ```
