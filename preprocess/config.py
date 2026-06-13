@@ -1,0 +1,118 @@
+"""전처리 파이프라인의 모든 상수.
+
+크롤러 쪽 oliveyoung/config.py 와 같은 컨벤션:
+    - 모든 임계값과 경로를 한 곳에 모은다
+    - 모듈끼리는 이 파일만 import 하고 서로는 참조하지 않는다
+경로는 패키지 한 단계 위(레포 루트)를 기준으로 잡는다.
+크롤러가 output/ 에 jsonl 을 떨구므로, 전처리 입력은 거기서 읽고
+결과는 같은 레벨의 preprocessed/ 에 저장한다.
+"""
+
+from pathlib import Path
+
+# ───────── 경로 ─────────
+# __file__ = .../oliveyoung_crawler/preprocess/config.py
+# parents[1] = .../oliveyoung_crawler  (레포 루트)
+_ROOT = Path(__file__).resolve().parents[1]
+
+INPUT_DIR = _ROOT / "output"               # 크롤러 산출물
+OUTPUT_DIR = _ROOT / "preprocessed"        # 전처리 산출물
+RESOURCES_DIR = Path(__file__).parent / "resources"
+
+KNU_DICT_PATH = RESOURCES_DIR / "knu_sentiword.json"
+DOMAIN_DICT_PATH = RESOURCES_DIR / "domain_sentiword.json"
+STOPWORDS_PATH = Path(__file__).parent / "stopwords.txt"
+
+# ───────── 수집 대상 카테고리 ─────────
+# 크롤러가 만드는 파일명 규칙: output/{category}_reviews.jsonl
+CATEGORIES = ["skincare", "maskpack", "cleansing", "suncare"]
+
+# ───────── 라벨링 ─────────
+# 별점은 정답이 아니라 1차 후보 라벨로만 쓴다.
+# 본문에 나타난 간단한 감성 단서와 비교해 명백한 충돌은 ambiguous 로 분리한다.
+POS_RATINGS = {4.0, 5.0}
+NEG_RATINGS = {1.0, 2.0}
+NEUTRAL_RATINGS = {3.0}
+
+LABEL_TO_ID = {
+    "negative": 0,
+    "neutral": 1,
+    "positive": 2,
+}
+
+# text_rule_label 은 사람이 직접 붙인 정답이 아니라 규칙 기반 감성 단서다.
+# 화장품 리뷰에서 자주 나오는 표현을 작게 두고, 명백한 충돌을 찾는 데만 쓴다.
+POSITIVE_KEYWORDS = [
+    "좋",
+    "만족",
+    "촉촉",
+    "순하",
+    "재구매",
+    "추천",
+    "흡수",
+    "진정",
+    "부드럽",
+    "잘 맞",
+    "잘맞",
+    "효과",
+    "개선",
+    "편하",
+    "보습",
+    "산뜻",
+    "괜찮",
+    "무난",
+    "자극 없",
+    "자극없",
+]
+
+NEGATIVE_KEYWORDS = [
+    "별로",
+    "아쉽",
+    "따갑",
+    "트러블",
+    "건조",
+    "끈적",
+    "밀림",
+    "자극",
+    "안 맞",
+    "안맞",
+    "뒤집",
+    "가렵",
+    "붉어",
+    "비추",
+    "재구매 안",
+    "재구매는 안",
+    "실망",
+    "불편",
+    "미끌",
+    "뾰루지",
+    "답답",
+    "안 좋",
+    "안좋",
+    "부족",
+]
+
+# ───────── 정제 ─────────
+# 수업(0526)에서 쓴 정규식: 한글과 공백만 남기고 모두 공백으로 치환.
+# 영어/숫자/이모티콘이 다 날아간다. 화장품 리뷰의 "SPF50", "100ml" 같은
+# 정보가 손실되는 단점이 있지만, RNN 감성분류에서는 영향 미미하다.
+HANGUL_ONLY_PATTERN = r"[^ 가-힣]+"
+
+# 토큰화 후 너무 짧은 리뷰는 학습 신호가 빈약하므로 제거.
+MIN_TOKEN_LEN = 2   # 토큰 수 기준
+MIN_CHAR_LEN = 5    # 정제 후 글자 수 기준 (이전 단계 필터)
+
+# ───────── 토큰화 ─────────
+# Okt(stem=True): "갔어요" → "가다" 처럼 어간으로 통일.
+# 토큰 vocab 이 줄어들고 RNN 학습이 안정된다.
+OKT_STEM = True
+# 1글자 토큰은 조사/어미 잔여물이 대부분이라 제거.
+# 단, 화장품 리뷰에서 의미 있는 1글자("팩", "젤") 는 화이트리스트로 유지.
+DROP_SINGLE_CHAR = True
+SINGLE_CHAR_WHITELIST = {"팩", "젤", "겔", "톤", "잼"}
+
+# ───────── 분리 ─────────
+# 수업 흐름에 맞춰 확정 데이터만 train/validation = 8:2 로 나눈다.
+TRAIN_RATIO = 0.8
+VAL_RATIO = 0.2
+RANDOM_SEED = 42

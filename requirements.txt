@@ -11,3 +11,9 @@ requests==2.34.1
 
 # 진행률 표시
 tqdm==4.67.3
+
+# 전처리 / 데이터셋 생성
+pandas
+scikit-learn
+konlpy
+pyarrow

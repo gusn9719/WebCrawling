@@ -38,6 +38,40 @@ python main.py --category all --max-products 100
 
 출력: `output/{category}_reviews.jsonl` (JSONL, UTF-8)
 
+## 전처리와 라벨링 정책
+
+수집한 리뷰는 `run_preprocess.py` 로 감성분석용 학습 데이터로 정리한다.
+
+```bash
+python run_preprocess.py
+python run_preprocess.py --sample 5000
+```
+
+처음에는 별점만으로 감성 라벨을 만들려고 했다. 하지만 실제 리뷰를 보면
+높은 별점을 주고도 본문에는 단점이나 불만을 쓰는 경우가 있었다. 그래서
+별점을 정답으로 그대로 쓰지 않고, 리뷰 본문에 있는 감성 표현과 비교해
+충돌하는 리뷰를 `ambiguous` 로 분리했다.
+
+`text_rule_label` 은 사람이 직접 붙인 정답 라벨이 아니라, 화장품 리뷰에서
+자주 보이는 표현을 바탕으로 만든 간단한 규칙 기반 감성 단서다. 이 방식은
+사람 라벨링을 대체하는 완벽한 방법은 아니지만, 별점만 사용하는 것보다
+명백한 라벨 노이즈를 줄이기 위한 1차 시도다.
+
+전처리 결과는 기본적으로 다음 파일로 저장한다.
+
+```txt
+preprocessed/train.parquet
+preprocessed/val.parquet
+preprocessed/ambiguous.parquet
+preprocessed/train_preview.csv
+preprocessed/ambiguous_preview.csv
+```
+
+확정 데이터만 `train/validation = 8:2` 로 나눈다. 이번 프로젝트는 수업 흐름에
+맞춰 train/validation = 8:2로 진행한다. 별도 test set은 현재 단계에서는
+만들지 않고, 추후 데이터가 충분해지면 최종 일반화 성능 확인용으로 분리하는
+개선 방향으로 남긴다.
+
 ## 수집 데이터 스키마
 
 ```
