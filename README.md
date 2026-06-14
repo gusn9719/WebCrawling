@@ -75,6 +75,106 @@ preprocessed/ambiguous_preview.csv
 만들지 않고, 추후 데이터가 충분해지면 최종 일반화 성능 확인용으로 분리하는
 개선 방향으로 남긴다.
 
+## 감성 분석 학습 흐름
+
+현재 프로젝트 흐름은 다음과 같다.
+
+```txt
+올리브영 리뷰 크롤링
+→ 전처리
+→ 별점 기반 후보 라벨 생성
+→ 본문 키워드 기반 text_rule_label 생성
+→ 별점 후보와 본문 감성 단서 충돌 / mixed 리뷰를 ambiguous로 분리
+→ train/validation 8:2 stratified split
+→ TF-IDF baseline과 BiLSTM 학습
+→ accuracy, macro F1, class별 precision/recall/f1, confusion matrix, neutral recall 비교
+```
+
+기본 학습 입력은 `preprocessed/train.parquet` 와 `preprocessed/val.parquet` 다.
+`preprocessed/ambiguous.parquet` 는 검토/제외 근거용 데이터이며 기본 학습에는
+사용하지 않는다. 별도 `test.parquet` 도 현재 학습 흐름에서는 만들거나 사용하지
+않는다.
+
+모델 입력 feature에는 `rating`, `score`, `star` 등 별점 관련 컬럼을 사용하지
+않는다. 모델이 별점 숫자를 보고 감성을 맞히는 구조가 되지 않도록, 텍스트 입력은
+`tokens_str` 를 우선 사용하고 해당 컬럼이 없을 때만 `clean_review` 를 사용한다.
+
+최종 학습 클래스는 세 개로 고정한다.
+
+| label | id |
+|---|---:|
+| negative | 0 |
+| neutral | 1 |
+| positive | 2 |
+
+`mixed` 는 최종 학습 라벨이 아니다. 본문 안에 긍정/부정 단서가 함께 보이는 리뷰를
+`ambiguous` 로 분리하기 위한 중간 판정값이다. 이 라벨링은 사람 검수 라벨이 아니라
+별점 후보와 규칙 기반 텍스트 단서를 조합한 약한 라벨링이다. 따라서 완전한 정답
+라벨이라고 주장하기보다, 별점만 사용하는 경우의 명백한 노이즈를 줄이기 위한
+전처리 기준으로 본다.
+
+## 모델 학습 실행
+
+TF-IDF + LogisticRegression baseline은 class weight 미적용/적용 모델을 함께
+학습한다.
+
+```bash
+python train_baseline.py
+```
+
+BiLSTM은 TensorFlow/Keras 기반으로 학습한다. `--class-weight` 옵션으로
+불균형 보정 여부를 선택할 수 있다.
+
+```bash
+python train_lstm.py --class-weight none --epochs 1
+python train_lstm.py --class-weight balanced --epochs 1
+```
+
+평가 결과는 `reports/` 에 저장한다.
+
+```txt
+reports/*_metrics.json
+reports/*_classification_report.csv
+reports/*_confusion_matrix.csv
+reports/lstm_*_history.csv
+```
+
+모델 산출물은 `models/` 에 저장하지만 Git 에 올리지 않는다.
+
+```txt
+models/tfidf_vectorizer.joblib
+models/baseline_logreg_*.joblib
+models/lstm_*.keras
+models/lstm_vocab.txt
+models/label_map.json
+```
+
+## 모델 비교 결과
+
+현재 결과는 validation split 기준 1차 실험이다. 단일 최고 모델을 단정하기보다,
+클래스 불균형 상황에서 모델별 trade-off 를 비교하기 위한 기준으로 본다.
+
+| model | accuracy | macro_f1 | negative recall | neutral recall | positive recall |
+|---|---:|---:|---:|---:|---:|
+| baseline_none | 0.9514 | 0.6250 | 0.7996 | 0.0271 | 0.9939 |
+| baseline_balanced | 0.9198 | 0.6859 | 0.8805 | 0.4793 | 0.9358 |
+| lstm_none | 0.9501 | 0.6344 | 0.8188 | 0.0494 | 0.9893 |
+| lstm_balanced | 0.8571 | 0.6476 | 0.7266 | 0.8615 | 0.8736 |
+
+`none` 계열 모델은 accuracy 는 높지만 neutral recall 이 매우 낮아 positive 쪽
+예측 쏠림이 크다. class weight 를 `balanced` 로 적용하면 neutral recall 은 크게
+개선된다. `baseline_balanced` 는 현재 macro F1 이 가장 높고, `lstm_balanced` 는
+neutral recall 이 가장 높다. 다만 `lstm_balanced` 는 positive 일부가 neutral 로
+이동하면서 accuracy 가 낮아졌다.
+
+## Windows / TensorFlow 참고
+
+- Windows native 환경의 TensorFlow 2.11 이상에서는 CUDA/cuDNN 이 설치되어 있어도
+  GPU 대신 CPU 로 실행된다는 경고가 나올 수 있다.
+- `conda run` 으로 Keras 진행바를 출력할 때 Windows CP949 인코딩 문제로
+  `UnicodeEncodeError` 가 날 수 있다. 이 경우 학습 코드 실패가 아니라 출력 래퍼
+  문제일 수 있으므로, 같은 conda 환경의 `python.exe` 를 직접 호출해 실행을 확인했다.
+
 ## 수집 데이터 스키마
 
 ```

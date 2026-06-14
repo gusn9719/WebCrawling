@@ -17,3 +17,5 @@ pandas
 scikit-learn
 konlpy
 pyarrow
+joblib
+tensorflow
