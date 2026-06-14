@@ -5,6 +5,7 @@
 크롤링 로직은 여기 두지 않는다.
 """
 import logging
+import os
 
 import undetected_chromedriver as uc
 
@@ -33,9 +34,36 @@ class OliveYoungBrowser:
         options.add_argument("--window-size=1920,1080")
         options.add_argument("--lang=ko-KR")
 
-        self.driver = uc.Chrome(options=options)
+        # 드라이버를 설치된 Chrome 의 메이저 버전에 맞춘다.
+        # uc 의 자동 감지가 실패하면 최신 드라이버를 받아 미스매치가 난다.
+        chrome_major = self._detect_chrome_major()
+        kwargs = {"options": options}
+        if chrome_major is not None:
+            kwargs["version_main"] = chrome_major
+            logger.info("[browser] Chrome 메이저 버전 감지: %d", chrome_major)
+
+        self.driver = uc.Chrome(**kwargs)
         logger.info("[browser] Chrome 드라이버 시작 (headless=%s)", self._headless)
         return self.driver
+
+    @staticmethod
+    def _detect_chrome_major() -> int | None:
+        """설치된 Chrome 의 메이저 버전을 알아낸다. 못 찾으면 None.
+
+        우선순위: 환경변수 CHROME_MAJOR → Windows 레지스트리(BLBeacon).
+        """
+        env = os.getenv("CHROME_MAJOR")
+        if env and env.isdigit():
+            return int(env)
+        try:
+            import winreg  # Windows 전용
+            with winreg.OpenKey(
+                winreg.HKEY_CURRENT_USER, r"Software\Google\Chrome\BLBeacon"
+            ) as key:
+                version, _ = winreg.QueryValueEx(key, "version")
+                return int(version.split(".")[0])
+        except Exception:
+            return None
 
     def quit(self) -> None:
         """드라이버를 닫는다. 이미 닫혔어도 예외를 내지 않는다."""
