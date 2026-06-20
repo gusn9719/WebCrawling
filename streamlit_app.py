@@ -72,10 +72,7 @@ def load_models():
 # ─────────────────────────────────────────────
 @st.cache_data(show_spinner="분석 중... 첫 실행만 시간이 걸립니다")
 def load_and_aggregate():
-    import joblib
-
-    vec = joblib.load(MODEL_DIR / "tfidf_vectorizer.joblib")
-    clf = joblib.load(MODEL_DIR / "baseline_logreg_balanced.joblib")
+    vec, clf = load_models()  # @st.cache_resource 캐시 재사용 — 이중 joblib 로딩 방지
 
     train = pd.read_parquet(DATA_DIR / "train.parquet")
     val = pd.read_parquet(DATA_DIR / "val.parquet")
@@ -97,15 +94,15 @@ def load_and_aggregate():
         product_url=("raw_url", "first"),
     ).reset_index()
 
-    meta["positive_rate"] = (
-        grp["pred_label"].apply(lambda x: (x == "positive").mean()).values
+    rates = (
+        grp["pred_label"]
+        .value_counts(normalize=True)
+        .unstack(fill_value=0)
+        .reindex(columns=["positive", "negative", "neutral"], fill_value=0)
     )
-    meta["negative_rate"] = (
-        grp["pred_label"].apply(lambda x: (x == "negative").mean()).values
-    )
-    meta["neutral_rate"] = (
-        grp["pred_label"].apply(lambda x: (x == "neutral").mean()).values
-    )
+    meta["positive_rate"] = rates["positive"].values
+    meta["negative_rate"] = rates["negative"].values
+    meta["neutral_rate"] = rates["neutral"].values
 
     meta["positive_count"] = (meta["positive_rate"] * meta["review_count"]).round().astype(int)
     meta["negative_count"] = (meta["negative_rate"] * meta["review_count"]).round().astype(int)
@@ -126,9 +123,7 @@ def load_and_aggregate():
 # ─────────────────────────────────────────────
 def get_reviews(df: pd.DataFrame, product_id, label: str, n: int = 3) -> list[str]:
     """pred_label 기준 대표 리뷰. 20~300자, helpful_count 내림차순."""
-    sub = df[
-        (df["product_id"] == product_id) & (df["pred_label"] == label)
-    ].copy()
+    sub = df[(df["product_id"] == product_id) & (df["pred_label"] == label)]
     sub = sub[sub["clean_review"].str.len().between(20, 300)]
     if "helpful_count" in sub.columns:
         sub = sub.sort_values("helpful_count", ascending=False)
@@ -144,7 +139,7 @@ def apply_filters(
     min_reviews: int,
     max_neg: float,
 ) -> pd.DataFrame:
-    f = stats.copy()
+    f = stats
     if cat != "전체":
         f = f[f["category"] == cat]
     if brands:
@@ -185,9 +180,11 @@ with st.sidebar:
     )
     sel_brands = st.multiselect("브랜드", sorted(brand_pool), placeholder="전체 브랜드")
 
-    price_ceiling = min(int(stats["price"].max()), 200_000)
-    price_max_val = st.slider("가격 상한", 0, price_ceiling, price_ceiling, step=1_000, format="%,d원")
     include_high = st.checkbox("20만원 초과 상품 포함", value=False)
+    _raw_max = stats["price"].dropna().max()
+    _abs_max = int(_raw_max) if pd.notna(_raw_max) and _raw_max > 0 else 200_000
+    price_ceiling = _abs_max if include_high else min(_abs_max, 200_000)
+    price_max_val = st.slider("가격 상한", 0, price_ceiling, price_ceiling, step=1_000, format="%,d원")
 
     min_reviews = st.slider("최소 리뷰 수", 1, 300, 10)
     max_neg_pct = st.slider("최대 부정률 (%)", 0, 50, 50)
@@ -533,11 +530,11 @@ with tab4:
             "그냥 평범해요. 특별히 좋거나 나쁜 점은 없는 것 같아요"
         )
 
+    # key="input_text" 사용 — 버튼이 같은 key에 직접 쓰므로 value= 없이도 prefill 동작함
     user_text = st.text_area(
         "리뷰 문장 입력",
-        value=st.session_state["input_text"],
         height=100,
-        key="user_input_area",
+        key="input_text",
     )
 
     if st.button("분석하기", type="primary"):
