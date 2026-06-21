@@ -38,12 +38,15 @@ def _load_one(path: Path) -> pd.DataFrame:
 def load_reviews(
     categories: list[str] | None = None,
     input_dir: Path | None = None,
+    extra_dirs: list[Path] | None = None,
 ) -> pd.DataFrame:
     """전 카테고리의 리뷰 jsonl 을 한 DataFrame 으로.
 
     Args:
-        categories: 로드할 카테고리. None 이면 config.CATEGORIES 전체.
-        input_dir:  입력 디렉토리. None 이면 config.INPUT_DIR.
+        categories:  로드할 카테고리. None 이면 config.CATEGORIES 전체.
+        input_dir:   입력 디렉토리. None 이면 config.INPUT_DIR.
+        extra_dirs:  추가 JSONL 디렉토리 목록. 각 디렉토리의 *.jsonl 을 모두
+                     읽어 합친다. 카테고리 파일명 규칙 적용 안 함.
 
     Returns:
         DataFrame. 컬럼은 크롤러 스키마와 동일하되, 다운스트림에서 쓰지 않는
@@ -65,10 +68,28 @@ def load_reviews(
         dfs.append(df)
         print(f"[io] {cat:>10}: {len(df):>6} 건")
 
+    if extra_dirs:
+        for extra_dir in extra_dirs:
+            extra_dir = Path(extra_dir)
+            if not extra_dir.exists():
+                print(f"[io] WARN: extra_dir {extra_dir} 없음, 건너뜀")
+                continue
+            for jsonl_path in sorted(extra_dir.glob("*.jsonl")):
+                df_extra = _load_one(jsonl_path)
+                dfs.append(df_extra)
+                print(f"[io] {jsonl_path.name:>30}: {len(df_extra):>6} 건")
+
     if not dfs:
         raise FileNotFoundError(f"입력 jsonl 을 한 개도 못 읽었다: {input_dir}")
 
     merged = pd.concat(dfs, ignore_index=True)
+
+    # 소스 간 review_id 중복 제거 (외부 데이터 포함 시 발생 가능)
+    if "review_id" in merged.columns:
+        before = len(merged)
+        merged = merged.drop_duplicates(subset="review_id")
+        if before != len(merged):
+            print(f"[io] review_id 중복 제거: {before:,} → {len(merged):,}")
 
     # 타입 정리:
     #   - rating: float (크롤러 단계에서 float 로 들어옴, 그대로 유지)

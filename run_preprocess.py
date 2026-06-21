@@ -127,12 +127,23 @@ def main() -> None:
         default=config.OUTPUT_DIR,
         help=f"출력 디렉토리 (기본: {config.OUTPUT_DIR})",
     )
+    parser.add_argument(
+        "--include-external",
+        action="store_true",
+        default=False,
+        help="output_external/ 의 외부 JSONL(무신사·쿠팡)도 함께 읽는다",
+    )
     args = parser.parse_args()
 
     t0 = time.time()
 
     print("\n=== [1/5] 로딩 ===")
-    df = io_mod.load_reviews(categories=args.categories)
+    extra_dirs = None
+    if args.include_external:
+        external_dir = config.INPUT_DIR.parent / "output_external"
+        extra_dirs = [external_dir]
+        print(f"[main] --include-external: {external_dir}")
+    df = io_mod.load_reviews(categories=args.categories, extra_dirs=extra_dirs)
     total_reviews = len(df)
     if args.sample:
         df = df.head(args.sample)

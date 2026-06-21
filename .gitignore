@@ -32,7 +32,10 @@ htmlcov/
 
 # 크롤링/전처리 산출물 (대용량 생성 데이터)
 output/
+output_external/
+output_recovered_*/
 preprocessed/
+preprocessed_v2/
 *.parquet
 
 # 모델/전처리 직렬화 산출물 (재생성 가능, 대용량 가능)
