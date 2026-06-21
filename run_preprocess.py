@@ -122,6 +122,12 @@ def main() -> None:
         help="앞에서 N건만 잘라서 처리 (개발/디버그용)",
     )
     parser.add_argument(
+        "--input-dir",
+        type=Path,
+        default=None,
+        help="올리브영 JSONL 입력 디렉토리 (기본: config.INPUT_DIR = output/)",
+    )
+    parser.add_argument(
         "--output",
         type=Path,
         default=config.OUTPUT_DIR,
@@ -143,7 +149,11 @@ def main() -> None:
         external_dir = config.INPUT_DIR.parent / "output_external"
         extra_dirs = [external_dir]
         print(f"[main] --include-external: {external_dir}")
-    df = io_mod.load_reviews(categories=args.categories, extra_dirs=extra_dirs)
+    df = io_mod.load_reviews(
+        categories=args.categories,
+        input_dir=args.input_dir,
+        extra_dirs=extra_dirs,
+    )
     total_reviews = len(df)
     if args.sample:
         df = df.head(args.sample)
