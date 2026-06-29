@@ -17,6 +17,18 @@
 
 ---
 
+## 이 문서를 처음 보는 사람에게
+
+| 보고 싶은 것 | 파일 |
+|---|---|
+| 프로젝트 전체 요약과 실행 방법 | 이 README.md |
+| 크롤링, 전처리, 모델 학습 상세 | `docs/technical_report.md` |
+| 개발 중 판단 흐름과 결정 근거 | `docs/development_journal.md` |
+| 모델 평가 지표와 수동 검수 샘플 | `reports/` |
+| 최종 서비스 실행 파일 | `streamlit_app_v2.py` |
+
+---
+
 ## 전체 파이프라인
 
 ```
@@ -75,14 +87,15 @@ headless=True 모드는 OliveYoung이 봇으로 감지해 차단한다. 실제 C
 
 ### 수집 대상 및 기준
 
-| 카테고리 | 필터 코드 | 리뷰 건수 |
-|---|---|---|
-| skincare | 10000010001 | ~170K |
-| maskpack | 10000010009 | ~70K |
-| cleansing | 10000010010 | ~12K |
-| suncare | 10000010011 | ~18K |
+| 카테고리 | 필터 코드 | 원본 리뷰 수 | product_id 수 |
+|---|---:|---:|---:|
+| skincare | 10000010001 | 73,194건 | 241개 |
+| maskpack | 10000010009 | 58,906건 | 227개 |
+| cleansing | 10000010010 | 51,955건 | 194개 |
+| suncare | 10000010011 | 42,639건 | 176개 |
+| 전체 | - | 226,694건 | 838개 |
 
-카테고리별 판매랭킹 상위 100개 상품. **MIN_REVIEW_COUNT=100** 미만 상품은 제외 (품질 게이트).
+위 수치는 최종 정리된 OliveYoung 원본 JSONL 기준이다. GitHub Release의 `oliveyoung_raw_data_v3.tar.gz`를 프로젝트 루트에서 압축 해제하면 `output/` 폴더가 복원된다.
 
 ### rate limit 처리
 
@@ -121,11 +134,13 @@ Coupang은 skin_type 컬럼이 없어서 피부타입 기반 집계에서 전체
 
 ### 플랫폼별 skin_type 커버리지
 
+아래 표는 `service_reviews.parquet` 기준의 전처리 후 서비스 데이터 현황이다. OliveYoung 원본 JSONL(226,694건)과 전처리 후 서비스 데이터(172,109건)는 다른 기준이다.
+
 | 플랫폼 | 전체 리뷰 | base_skin_type 있음 | 피부타입 추천 사용 |
 |---|---|---|---|
-| OliveYoung | ~270K | 39.3% | O |
-| Musinsa | ~100K | 62.9% | O |
-| **Coupang** | ~32K | **0.0%** | **X** |
+| OliveYoung | 172,109 | 39.3% | O |
+| Musinsa | 194,144 | 62.9% | O |
+| **Coupang** | 36,185 | **0.0%** | **X** |
 | **전체** | **402,438** | **47.1%** | - |
 
 skin_concern은 OliveYoung에만 존재 (전체의 17.3%).
@@ -486,7 +501,7 @@ streamlit run streamlit_app_v2.py
 
 | 파일 | 크기 | 배치 경로 | 설명 | 다운로드 |
 |---|---|---|---|---|
-| `oliveyoung_raw_data_v3.tar.gz` | 11MB (원본 ~87MB) | 프로젝트 루트에서 압축 해제하면 `output/` 폴더가 복원됨 | OliveYoung 수집 원본 JSONL (4개 카테고리) | [다운로드](https://github.com/gusn9719/WebCrawling/releases/download/v1.0.0/oliveyoung_raw_data_v3.tar.gz) |
+| `oliveyoung_raw_data_v3.tar.gz` | 35.9MB | 프로젝트 루트에서 압축 해제하면 `output/` 폴더가 복원됨 | 최종 OliveYoung 원본 JSONL 226,694건 (4개 카테고리) | [다운로드](https://github.com/gusn9719/WebCrawling/releases/download/v1.0.0/oliveyoung_raw_data_v3.tar.gz) |
 | `service_reviews.parquet` | 106MB | `preprocessed_v3/service_reviews.parquet` | 서비스 실행 필수 | [다운로드](https://github.com/gusn9719/WebCrawling/releases/download/v1.0.0/service_reviews.parquet) |
 | `train.parquet` | 119.8MB | `preprocessed_v3/train.parquet` | 모델 학습 재현용 | [다운로드](https://github.com/gusn9719/WebCrawling/releases/download/v1.0.0/train.parquet) |
 | `val.parquet` | 30.3MB | `preprocessed_v3/val.parquet` | 모델 평가 재현용 | [다운로드](https://github.com/gusn9719/WebCrawling/releases/download/v1.0.0/val.parquet) |
@@ -501,7 +516,7 @@ streamlit run streamlit_app_v2.py
 
 | 파일 | 역할 |
 |---|---|
-| `output/*.jsonl` | OliveYoung 수집 원본 (~87MB) |
+| `output/*.jsonl` | 최종 OliveYoung 원본 JSONL 226,694건 (Git 미포함, Releases 제공) |
 | `preprocessed_v3/product_recommendation_scores.parquet` | 피부타입별 추천 점수 (6,008행) |
 | `preprocessed_v3/product_skin_aggregates.parquet` | 피부타입별 부정 신호 집계 |
 | `preprocessed_v3/lstm_v3_preds.parquet` | BiLSTM v3 전체 예측 캐시 |
