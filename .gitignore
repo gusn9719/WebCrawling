@@ -69,6 +69,16 @@ models/transformer_final_v2/
 models/transformer_final_v3/runs/
 models/transformer_klue-bert-base_balanced/
 
+# 이전 버전 BiLSTM 어휘/레이블 파일 (최종 v3 vocab만 직접 Git 포함)
+models/lstm_vocab.txt
+models/label_map.json
+models/lstm_balanced_e3_earlystop_vocab.txt
+models/lstm_balanced_e3_earlystop_label_map.json
+models/lstm_none_e3_earlystop_vocab.txt
+models/lstm_none_e3_earlystop_label_map.json
+models/lstm_final_v2_vocab.txt
+models/lstm_final_v2_label_map.json
+
 # AI 어시스턴트 가이드 (로컬 전용 — 깃에 올리지 않음)
 CLAUDE.md
 
