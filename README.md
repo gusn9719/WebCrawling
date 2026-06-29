@@ -436,7 +436,7 @@ streamlit run streamlit_app_v2.py
 
 ### 모드 B — 표준 실행
 
-GitHub Releases에서 다운로드 후 아래 경로에 배치:
+**[GitHub Releases v1.0.0](https://github.com/gusn9719/WebCrawling/releases/tag/v1.0.0)** 에서 다운로드 후 아래 경로에 배치:
 
 | 파일 | 배치 경로 |
 |---|---|
@@ -482,16 +482,18 @@ streamlit run streamlit_app_v2.py
 
 ## GitHub Releases 파일 목록
 
-| 파일 | 크기 | 설명 |
-|---|---|---|
-| `oliveyoung_raw_data_v3.tar.gz` | ~87MB | OliveYoung 수집 원본 JSONL (4개 카테고리) |
-| `service_reviews.parquet` | 106MB | 서비스 실행 필수 |
-| `train.parquet` | 119.8MB | 모델 학습 재현용 |
-| `val.parquet` | 30.3MB | 모델 평가 재현용 |
-| `lstm_final_v3.keras` | 119MB | BiLSTM v3 모델 |
-| `tfidf_vectorizer.joblib` | 4.3MB | Baseline TF-IDF |
-| `baseline_logreg_balanced.joblib` | 2.3MB | Baseline LogReg |
-| `transformer_final_v3/model.safetensors` | 422MB | KLUE-BERT fine-tuned |
+**Release**: https://github.com/gusn9719/WebCrawling/releases/tag/v1.0.0
+
+| 파일 | 크기 | 배치 경로 | 설명 | 다운로드 |
+|---|---|---|---|---|
+| `oliveyoung_raw_data_v3.tar.gz` | 11MB (원본 ~87MB) | 프로젝트 루트에서 압축 해제하면 `output/` 폴더가 복원됨 | OliveYoung 수집 원본 JSONL (4개 카테고리) | [다운로드](https://github.com/gusn9719/WebCrawling/releases/download/v1.0.0/oliveyoung_raw_data_v3.tar.gz) |
+| `service_reviews.parquet` | 106MB | `preprocessed_v3/service_reviews.parquet` | 서비스 실행 필수 | [다운로드](https://github.com/gusn9719/WebCrawling/releases/download/v1.0.0/service_reviews.parquet) |
+| `train.parquet` | 119.8MB | `preprocessed_v3/train.parquet` | 모델 학습 재현용 | [다운로드](https://github.com/gusn9719/WebCrawling/releases/download/v1.0.0/train.parquet) |
+| `val.parquet` | 30.3MB | `preprocessed_v3/val.parquet` | 모델 평가 재현용 | [다운로드](https://github.com/gusn9719/WebCrawling/releases/download/v1.0.0/val.parquet) |
+| `lstm_final_v3.keras` | 119MB | `models/lstm_final_v3.keras` | BiLSTM v3 모델 | [다운로드](https://github.com/gusn9719/WebCrawling/releases/download/v1.0.0/lstm_final_v3.keras) |
+| `tfidf_vectorizer.joblib` | 4.3MB | `models/tfidf_vectorizer.joblib` | Baseline TF-IDF | [다운로드](https://github.com/gusn9719/WebCrawling/releases/download/v1.0.0/tfidf_vectorizer.joblib) |
+| `baseline_logreg_balanced.joblib` | 2.3MB | `models/baseline_logreg_balanced.joblib` | Baseline LogReg | [다운로드](https://github.com/gusn9719/WebCrawling/releases/download/v1.0.0/baseline_logreg_balanced.joblib) |
+| `model.safetensors` | 422MB | `models/transformer_final_v3/model.safetensors` | KLUE-BERT fine-tuned | [다운로드](https://github.com/gusn9719/WebCrawling/releases/download/v1.0.0/model.safetensors) |
 
 ---
 

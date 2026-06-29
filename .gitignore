@@ -95,3 +95,6 @@ backups/
 # 개발 중 임시 확인 파일 (문서 반영 후 제거 예정)
 inspect_*.txt
 edge_case_analysis.txt
+
+# Release 생성용 아카이브 (로컬 전용, Git 제외)
+/oliveyoung_raw_data_v3.tar.gz
