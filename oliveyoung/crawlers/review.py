@@ -73,19 +73,56 @@ class ReviewCrawler:
             logger.warning("  리뷰 수 조회 실패(%s): %s", goods_no, e)
             return 0
 
-    def fetch_all(self, product: dict, seen_ids: set[str]) -> list[ReviewSchema]:
+    def fetch_all(
+        self,
+        product: dict,
+        seen_ids: set[str],
+        sort_types: list[str] | None = None,
+        max_pages: int | None = None,
+        stop_on_duplicate_page: bool = False,
+        max_duplicate_pages: int | None = None,
+        progress_interval: int | None = None,
+        page_sleep: tuple[float, float] | None = None,
+        max_collected: int | None = None,
+        max_rating: float | None = None,
+    ) -> list[ReviewSchema]:
         """
-        한 상품의 리뷰를 정렬 타입 5종으로 모아 중복 제거 후 반환한다.
+        한 상품의 리뷰를 정렬 타입별로 모아 중복 제거 후 반환한다.
 
-        seen_ids: 이미 저장된 review_id (재시작 안전용). 원본은 수정하지 않는다.
+        sort_types: 수집할 정렬 타입 목록 (기본값: config.SORT_TYPES 전체)
+        max_pages:  정렬당 최대 커서 횟수 (기본값: config.MAX_PAGES_PER_SORT)
+        seen_ids:   이미 저장된 review_id (재시작 안전용). 원본은 수정하지 않는다.
+        stop_on_duplicate_page: 신규 저장 리뷰가 없는 페이지에서 바로 멈출지 여부
+        max_duplicate_pages: 신규 저장 리뷰가 없는 페이지가 연속 몇 번이면 멈출지
+        progress_interval: 지정하면 해당 페이지 간격마다 진행 로그를 남긴다
+        page_sleep: (min, max) 페이지 간 sleep 시간. None 이면 config 기본값 사용
         429 발생 시 RateLimitError 를 그대로 위로 던진다.
         """
+        if sort_types is None:
+            sort_types = SORT_TYPES
+        if max_pages is None:
+            max_pages = MAX_PAGES_PER_SORT
+
         collected: list[ReviewSchema] = []
         local_seen = set(seen_ids)  # 정렬 타입 간 중복까지 이 안에서 걸러낸다
 
-        for sort_type in SORT_TYPES:
+        for sort_type in sort_types:
+            if max_collected is not None and len(collected) >= max_collected:
+                break
             before = len(collected)
-            self._collect_one_sort(product, sort_type, local_seen, collected)
+            self._collect_one_sort(
+                product,
+                sort_type,
+                local_seen,
+                collected,
+                max_pages,
+                stop_on_duplicate_page,
+                max_duplicate_pages,
+                progress_interval,
+                page_sleep,
+                max_collected,
+                max_rating,
+            )
             logger.info(
                 "  └ [%s] +%d개", sort_type, len(collected) - before
             )
@@ -98,6 +135,13 @@ class ReviewCrawler:
         sort_type: str,
         local_seen: set[str],
         collected: list[ReviewSchema],
+        max_pages: int = MAX_PAGES_PER_SORT,
+        stop_on_duplicate_page: bool = False,
+        max_duplicate_pages: int | None = None,
+        progress_interval: int | None = None,
+        page_sleep: tuple[float, float] | None = None,
+        max_collected: int | None = None,
+        max_rating: float | None = None,
     ) -> None:
         """
         한 정렬 타입을 커서로 끝까지 넘기며 새 리뷰를 collected 에 채운다.
@@ -108,8 +152,13 @@ class ReviewCrawler:
         hasNext 가 False 가 되며 멈춘다.
         """
         cursor_id = cursor_score = cursor_count = None
+        duplicate_pages = 0
+        start_count = len(collected)
 
-        for _ in range(MAX_PAGES_PER_SORT):
+        for page_no in range(1, max_pages + 1):
+            if max_collected is not None and len(collected) >= max_collected:
+                break
+
             data = self._request_page(
                 product["goods_no"], sort_type,
                 cursor_id, cursor_score, cursor_count,
@@ -119,24 +168,71 @@ class ReviewCrawler:
                 break
 
             new_on_page = 0
+            reached_rating_ceiling = False
             for raw in raw_list:
                 review = self._parse(raw, product)
-                if review and review.review_id not in local_seen:
-                    local_seen.add(review.review_id)
-                    collected.append(review)
-                    new_on_page += 1
+                if not review:
+                    continue
+                if max_rating is not None and review.rating > max_rating:
+                    if sort_type == "RATING_ASC":
+                        reached_rating_ceiling = True
+                        break
+                    continue
+                if review.review_id in local_seen:
+                    continue
+
+                local_seen.add(review.review_id)
+                collected.append(review)
+                new_on_page += 1
+
+                if max_collected is not None and len(collected) >= max_collected:
+                    break
+
+            if new_on_page == 0:
+                duplicate_pages += 1
+            else:
+                duplicate_pages = 0
+
+            if progress_interval and page_no % progress_interval == 0:
+                logger.info(
+                    "    [%s] page %d/%d: +%d개 (정렬 누적 +%d개)",
+                    sort_type,
+                    page_no,
+                    max_pages,
+                    new_on_page,
+                    len(collected) - start_count,
+                )
+
+            if max_collected is not None and len(collected) >= max_collected:
+                break
+            if reached_rating_ceiling:
+                break
 
             if not data.get("hasNext"):
                 break
 
-            # 안전장치: 커서가 안 움직여 같은 페이지가 반복되면 중단
-            if new_on_page == 0:
+            # 신규 리뷰가 없으면 보통 이미 수집한 구간이므로 기본 크롤러는 멈춘다.
+            if new_on_page == 0 and stop_on_duplicate_page:
+                break
+            if max_duplicate_pages and duplicate_pages >= max_duplicate_pages:
+                logger.info(
+                    "    [%s] 신규 0개 페이지가 %d번 연속이라 다음 상품으로 넘어감",
+                    sort_type,
+                    duplicate_pages,
+                )
                 break
 
-            cursor_id = data.get("nextCursorId")
-            cursor_score = data.get("nextCursorScore")
-            cursor_count = data.get("nextCursorCount")
-            time.sleep(random.uniform(SLEEP_MIN_SECONDS, SLEEP_MAX_SECONDS))
+            next_cursor = (
+                data.get("nextCursorId"),
+                data.get("nextCursorScore"),
+                data.get("nextCursorCount"),
+            )
+            if next_cursor == (cursor_id, cursor_score, cursor_count):
+                break
+
+            cursor_id, cursor_score, cursor_count = next_cursor
+            sl_min, sl_max = page_sleep if page_sleep is not None else (SLEEP_MIN_SECONDS, SLEEP_MAX_SECONDS)
+            time.sleep(random.uniform(sl_min, sl_max))
 
     def _request_page(
         self,

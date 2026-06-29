@@ -1,0 +1,121 @@
+﻿sample_group,platform,product_id,review_id,skin_type,base_skin_type,skin_type_tags,skin_need_tags,skin_type_normalization_status,skin_concern,skin_concern_tags,skin_concern_codes,skin_concern_normalization_status
+top_skin_type_samples,oliveyoung,A000000197743,58411870,,,[],[],missing,,,,
+top_skin_type_samples,musinsa,4265743,musinsa_4265743_bb5e212a,nan,,[],[],missing,,,,
+top_skin_type_samples,oliveyoung,A000000232724,59650673,지성,지성,['지성'],[],ok,,,,
+top_skin_type_samples,oliveyoung,A000000205435,43692231,복합성,복합성,['복합성'],[],ok,,,,
+top_skin_type_samples,oliveyoung,A000000185112,36578381,건성,건성,['건성'],[],ok,,,,
+top_skin_type_samples,musinsa,2570504,musinsa_2570504_d74a9caa,복합성 · 진정/보습,복합성,['복합성'],"['진정', '보습']",ok,,,,
+top_skin_type_samples,oliveyoung,A000000190369,28781790,민감성,민감성,['민감성'],[],ok,,,,
+top_skin_type_samples,musinsa,3376843,musinsa_3376843_33407e13,건성 · 진정/보습,건성,['건성'],"['진정', '보습']",ok,,,,
+top_skin_type_samples,musinsa,3505072,musinsa_3505072_329fab50,지성 · 진정/보습,지성,['지성'],"['진정', '보습']",ok,,,,
+top_skin_type_samples,musinsa,6239507,musinsa_6239507_614a4fd3,복합성 · 모공,복합성,['복합성'],['모공'],ok,,,,
+top_skin_type_samples,musinsa,3462426,musinsa_3462426_edddacec,복합성 · 유수분조절,복합성,['복합성'],['유수분 조절'],ok,,,,
+top_skin_type_samples,musinsa,3417533,musinsa_3417533_215a5718,복합성 · 진정/보습 · 모공 · 여드름,복합성,['복합성'],"['진정', '보습', '모공', '트러블']",ok,,,,
+top_skin_type_samples,musinsa,6239322,musinsa_6239322_3ca7f915,민감성 · 진정/보습,민감성,['민감성'],"['진정', '보습']",ok,,,,
+top_skin_type_samples,musinsa,2172345,musinsa_2172345_b2fa0016,복합성 · 진정/보습 · 모공 · 유수분조절,복합성,['복합성'],"['진정', '보습', '모공', '유수분 조절']",ok,,,,
+top_skin_type_samples,musinsa,2632600,musinsa_2632600_64d7966a,복합성 · 여드름,복합성,['복합성'],['트러블'],ok,,,,
+top_skin_type_samples,musinsa,1532646,musinsa_1532646_4c245f23,지성 · 여드름,지성,['지성'],['트러블'],ok,,,,
+top_skin_type_samples,musinsa,6183155,musinsa_6183155_633094ba,복합성 · 진정/보습 · 유수분조절,복합성,['복합성'],"['진정', '보습', '유수분 조절']",ok,,,,
+top_skin_type_samples,musinsa,1619465,musinsa_1619465_0d3f8ac1,복합성 · 진정/보습 · 여드름 · 유수분조절,복합성,['복합성'],"['진정', '보습', '트러블', '유수분 조절']",ok,,,,
+top_skin_type_samples,musinsa,4485242,musinsa_4485242_c0585e7c,지성 · 진정/보습 · 모공 · 여드름,지성,['지성'],"['진정', '보습', '모공', '트러블']",ok,,,,
+top_skin_type_samples,musinsa,2496302,musinsa_2496302_b2cb5b37,지성 · 유수분조절,지성,['지성'],['유수분 조절'],ok,,,,
+random_skin_type_samples,oliveyoung,A000000205435,43692231,복합성,복합성,['복합성'],[],ok,,,,
+random_skin_type_samples,musinsa,5848372,musinsa_5848372_490859a1,복합성 · 진정/보습,복합성,['복합성'],"['진정', '보습']",ok,,,,
+random_skin_type_samples,musinsa,2959816,musinsa_2959816_8fd008a9,건성 · 진정/보습 · 모공 · 유수분조절,건성,['건성'],"['진정', '보습', '모공', '유수분 조절']",ok,,,,
+random_skin_type_samples,musinsa,2637406,musinsa_2637406_cfa77e11,복합성 · 진정/보습 · 모공 · 미백,복합성,['복합성'],"['진정', '보습', '모공', '미백']",ok,,,,
+random_skin_type_samples,musinsa,6213430,musinsa_6213430_c0f99318,건성 · 진정/보습 · 유수분조절 · 미백,건성,['건성'],"['진정', '보습', '유수분 조절', '미백']",ok,,,,
+random_skin_type_samples,oliveyoung,A000000185112,36578381,건성,건성,['건성'],[],ok,,,,
+random_skin_type_samples,musinsa,1619465,musinsa_1619465_0d3f8ac1,복합성 · 진정/보습 · 여드름 · 유수분조절,복합성,['복합성'],"['진정', '보습', '트러블', '유수분 조절']",ok,,,,
+random_skin_type_samples,musinsa,2570504,musinsa_2570504_d74a9caa,복합성 · 진정/보습,복합성,['복합성'],"['진정', '보습']",ok,,,,
+random_skin_type_samples,musinsa,4485242,musinsa_4485242_c0585e7c,지성 · 진정/보습 · 모공 · 여드름,지성,['지성'],"['진정', '보습', '모공', '트러블']",ok,,,,
+random_skin_type_samples,musinsa,4701719,musinsa_4701719_3fd41dfe,복합성 · 진정/보습 · 미백,복합성,['복합성'],"['진정', '보습', '미백']",ok,,,,
+random_skin_type_samples,oliveyoung,A000000254406,59732218,지성,지성,['지성'],[],ok,,,,
+random_skin_type_samples,musinsa,3098201,musinsa_3098201_ec8ef9b9,복합성 · 여드름 · 유수분조절 · 진정/보습,복합성,['복합성'],"['트러블', '유수분 조절', '진정', '보습']",ok,,,,
+random_skin_type_samples,oliveyoung,A000000232724,59650673,지성,지성,['지성'],[],ok,,,,
+random_skin_type_samples,musinsa,2172345,musinsa_2172345_b2fa0016,복합성 · 진정/보습 · 모공 · 유수분조절,복합성,['복합성'],"['진정', '보습', '모공', '유수분 조절']",ok,,,,
+random_skin_type_samples,oliveyoung,A000000190369,28781790,민감성,민감성,['민감성'],[],ok,,,,
+random_skin_type_samples,musinsa,3775064,musinsa_3775064_cc336937,복합성 · 탄력 · 진정/보습,복합성,['복합성'],"['탄력', '진정', '보습']",ok,,,,
+random_skin_type_samples,musinsa,4240698,musinsa_4240698_98454150,복합성 · 모공 · 진정/보습 · 유수분조절,복합성,['복합성'],"['모공', '진정', '보습', '유수분 조절']",ok,,,,
+random_skin_type_samples,oliveyoung,A000000205004,32076115,건성,건성,['건성'],[],ok,,,,
+random_skin_type_samples,musinsa,2172345,musinsa_2172345_9192cabc,복합성 · 진정/보습 · 여드름 · 모공,복합성,['복합성'],"['진정', '보습', '트러블', '모공']",ok,,,,
+random_skin_type_samples,musinsa,3505072,musinsa_3505072_329fab50,지성 · 진정/보습,지성,['지성'],"['진정', '보습']",ok,,,,
+no_base_skin_type_samples,musinsa,2959816,musinsa_2959816_1c00ad65,진정/보습 · 유수분조절,,[],"['진정', '보습', '유수분 조절']",no_base_skin_type,,,,
+no_base_skin_type_samples,musinsa,6330688,musinsa_6330688_8df43d13,진정/보습,,[],"['진정', '보습']",no_base_skin_type,,,,
+no_base_skin_type_samples,musinsa,2638240,musinsa_2638240_cc3273e0,모공,,[],['모공'],no_base_skin_type,,,,
+no_base_skin_type_samples,musinsa,6163905,musinsa_6163905_f3b2322d,진정/보습 · 모공 · 여드름,,[],"['진정', '보습', '모공', '트러블']",no_base_skin_type,,,,
+no_base_skin_type_samples,musinsa,2959816,musinsa_2959816_e9b53eb3,진정/보습 · 모공,,[],"['진정', '보습', '모공']",no_base_skin_type,,,,
+no_base_skin_type_samples,musinsa,2172345,musinsa_2172345_1d96c49e,진정/보습 · 모공 · 여드름,,[],"['진정', '보습', '모공', '트러블']",no_base_skin_type,,,,
+no_base_skin_type_samples,musinsa,3505072,musinsa_3505072_ec6f0a2a,모공,,[],['모공'],no_base_skin_type,,,,
+no_base_skin_type_samples,musinsa,3505072,musinsa_3505072_39e3ab9d,진정/보습 · 여드름 · 유수분조절,,[],"['진정', '보습', '트러블', '유수분 조절']",no_base_skin_type,,,,
+no_base_skin_type_samples,musinsa,3674930,musinsa_3674930_388c2f4e,모공 · 여드름,,[],"['모공', '트러블']",no_base_skin_type,,,,
+no_base_skin_type_samples,musinsa,2605792,musinsa_2605792_5908f66c,여드름 · 유수분조절,,[],"['트러블', '유수분 조절']",no_base_skin_type,,,,
+no_base_skin_type_samples,musinsa,2822853,musinsa_2822853_281cfd5d,모공 · 유수분조절 · 탄력,,[],"['모공', '유수분 조절', '탄력']",no_base_skin_type,,,,
+no_base_skin_type_samples,musinsa,2959816,musinsa_2959816_d037aa16,여드름 · 유수분조절,,[],"['트러블', '유수분 조절']",no_base_skin_type,,,,
+no_base_skin_type_samples,musinsa,2496302,musinsa_2496302_2ab8ea1f,진정/보습,,[],"['진정', '보습']",no_base_skin_type,,,,
+no_base_skin_type_samples,musinsa,3098202,musinsa_3098202_2d34c57d,진정/보습 · 모공 · 여드름,,[],"['진정', '보습', '모공', '트러블']",no_base_skin_type,,,,
+no_base_skin_type_samples,musinsa,2496302,musinsa_2496302_f10d5b47,진정/보습 · 모공 · 여드름,,[],"['진정', '보습', '모공', '트러블']",no_base_skin_type,,,,
+no_base_skin_type_samples,musinsa,2959816,musinsa_2959816_9cea37e1,진정/보습 · 모공 · 여드름,,[],"['진정', '보습', '모공', '트러블']",no_base_skin_type,,,,
+no_base_skin_type_samples,musinsa,2782655,musinsa_2782655_323e50f1,유수분조절,,[],['유수분 조절'],no_base_skin_type,,,,
+no_base_skin_type_samples,musinsa,2959816,musinsa_2959816_adbbf709,진정/보습 · 여드름,,[],"['진정', '보습', '트러블']",no_base_skin_type,,,,
+no_base_skin_type_samples,musinsa,3098202,musinsa_3098202_62918e2c,여드름,,[],['트러블'],no_base_skin_type,,,,
+no_base_skin_type_samples,musinsa,2996090,musinsa_2996090_190bc3a3,모공,,[],['모공'],no_base_skin_type,,,,
+missing_skin_type_samples,oliveyoung,A000000197743,58411870,,,[],[],missing,,,,
+missing_skin_type_samples,oliveyoung,A000000182782,31237564,,,[],[],missing,,,,
+missing_skin_type_samples,coupang,coupang_9488566,coupang_13509394,,,[],[],missing,,,,
+missing_skin_type_samples,musinsa,4265743,musinsa_4265743_bb5e212a,nan,,[],[],missing,,,,
+missing_skin_type_samples,oliveyoung,A000000231175,53320933,,,[],[],missing,,,,
+missing_skin_type_samples,oliveyoung,A000000208231,18269940,,,[],[],missing,,,,
+missing_skin_type_samples,coupang,coupang_18114848,coupang_182927413,,,[],[],missing,,,,
+missing_skin_type_samples,oliveyoung,A000000254427,58756825,,,[],[],missing,,,,
+missing_skin_type_samples,musinsa,3341580,musinsa_3341580_34affaea,nan,,[],[],missing,,,,
+missing_skin_type_samples,musinsa,3341580,musinsa_3341580_5d7cdf39,nan,,[],[],missing,,,,
+missing_skin_type_samples,oliveyoung,A000000222849,57887020,,,[],[],missing,,,,
+missing_skin_type_samples,oliveyoung,A000000253619,59711180,,,[],[],missing,,,,
+missing_skin_type_samples,musinsa,2151083,musinsa_2151083_d87db492,nan,,[],[],missing,,,,
+missing_skin_type_samples,oliveyoung,A000000226493,44539077,,,[],[],missing,,,,
+missing_skin_type_samples,oliveyoung,A000000123594,57855861,,,[],[],missing,,,,
+missing_skin_type_samples,oliveyoung,A000000252924,58038368,,,[],[],missing,,,,
+missing_skin_type_samples,musinsa,2570504,musinsa_2570504_834dc158,nan,,[],[],missing,,,,
+missing_skin_type_samples,oliveyoung,A000000235364,58974700,,,[],[],missing,,,,
+missing_skin_type_samples,oliveyoung,A000000130319,28551971,,,[],[],missing,,,,
+missing_skin_type_samples,coupang,coupang_18481065,coupang_862821178,,,[],[],missing,,,,
+skin_concern_code_mixed_samples,oliveyoung,A000000190369,28781790,,,,,,"보습, C09",['보습'],['C09'],ok
+skin_concern_code_mixed_samples,oliveyoung,A000000147080,27014220,,,,,,"주름, C10",['주름'],['C10'],ok
+skin_concern_code_mixed_samples,oliveyoung,A000000223207,43884623,,,,,,"미백, C13",['미백'],['C13'],ok
+skin_concern_code_mixed_samples,oliveyoung,A000000169509,49226767,,,,,,"홍조, C09",['홍조'],['C09'],ok
+skin_concern_code_mixed_samples,oliveyoung,A000000206904,59155909,,,,,,"탄력, C10",['탄력'],['C10'],ok
+skin_concern_code_mixed_samples,oliveyoung,A000000204081,45232033,,,,,,"보습, C13",['보습'],['C13'],ok
+skin_concern_code_mixed_samples,oliveyoung,A000000254406,59555577,,,,,,"미백, C11",['미백'],['C11'],ok
+skin_concern_code_mixed_samples,oliveyoung,A000000244392,53011899,,,,,,"보습, C09",['보습'],['C09'],ok
+skin_concern_code_mixed_samples,oliveyoung,A000000251277,22723801,,,,,,"홍조, C12",['홍조'],['C12'],ok
+skin_concern_code_mixed_samples,oliveyoung,A000000185115,44200990,,,,,,"미백, C11",['미백'],['C11'],ok
+skin_concern_code_mixed_samples,oliveyoung,A000000222839,59152117,,,,,,"홍조, C09",['홍조'],['C09'],ok
+skin_concern_code_mixed_samples,oliveyoung,A000000243433,51809754,,,,,,"모공, C13",['모공'],['C13'],ok
+skin_concern_code_mixed_samples,oliveyoung,A000000231589,34265073,,,,,,"모공, C09",['모공'],['C09'],ok
+skin_concern_code_mixed_samples,oliveyoung,A000000243440,44701916,,,,,,"주름, C10",['주름'],['C10'],ok
+skin_concern_code_mixed_samples,oliveyoung,A000000254058,58648313,,,,,,"보습, C09",['보습'],['C09'],ok
+skin_concern_code_mixed_samples,oliveyoung,A000000165177,22304097,,,,,,"트러블, C09",['트러블'],['C09'],ok
+skin_concern_code_mixed_samples,oliveyoung,A000000173966,57895470,,,,,,"보습, C12",['보습'],['C12'],ok
+skin_concern_code_mixed_samples,oliveyoung,A000000185175,58849731,,,,,,"보습, C09",['보습'],['C09'],ok
+skin_concern_code_mixed_samples,oliveyoung,A000000242719,58687831,,,,,,"보습, C09",['보습'],['C09'],ok
+skin_concern_code_mixed_samples,oliveyoung,A000000249535,52968734,,,,,,"보습, C11",['보습'],['C11'],ok
+skin_concern_code_only_samples,oliveyoung,A000000156007,37604241,,,,,,"C09, C13",[],"['C09', 'C13']",code_only
+skin_concern_code_only_samples,oliveyoung,A000000185429,33016758,,,,,,"C11, C12",[],"['C11', 'C12']",code_only
+skin_concern_code_only_samples,oliveyoung,A000000145898,12667049,,,,,,C09,[],['C09'],code_only
+skin_concern_code_only_samples,oliveyoung,A000000212817,49388909,,,,,,"C11, C12",[],"['C11', 'C12']",code_only
+skin_concern_code_only_samples,oliveyoung,A000000185112,37357804,,,,,,C09,[],['C09'],code_only
+skin_concern_code_only_samples,oliveyoung,A000000187479,28827109,,,,,,C11,[],['C11'],code_only
+skin_concern_code_only_samples,oliveyoung,A000000202359,59295801,,,,,,"C09, C11",[],"['C09', 'C11']",code_only
+skin_concern_code_only_samples,oliveyoung,A000000204081,28486131,,,,,,C11,[],['C11'],code_only
+skin_concern_code_only_samples,oliveyoung,A000000209853,57974241,,,,,,C09,[],['C09'],code_only
+skin_concern_code_only_samples,oliveyoung,A000000177758,55891291,,,,,,C13,[],['C13'],code_only
+skin_concern_code_only_samples,oliveyoung,A000000229775,49482194,,,,,,C09,[],['C09'],code_only
+skin_concern_code_only_samples,oliveyoung,A000000183509,35769221,,,,,,C10,[],['C10'],code_only
+skin_concern_code_only_samples,oliveyoung,A000000225083,40183032,,,,,,C10,[],['C10'],code_only
+skin_concern_code_only_samples,oliveyoung,A000000233335,59544981,,,,,,"C09, C10",[],"['C09', 'C10']",code_only
+skin_concern_code_only_samples,oliveyoung,A000000235842,49843275,,,,,,C11,[],['C11'],code_only
+skin_concern_code_only_samples,oliveyoung,A000000246297,59614369,,,,,,C10,[],['C10'],code_only
+skin_concern_code_only_samples,oliveyoung,A000000163503,28405637,,,,,,C09,[],['C09'],code_only
+skin_concern_code_only_samples,oliveyoung,A000000148112,57537335,,,,,,C11,[],['C11'],code_only
+skin_concern_code_only_samples,oliveyoung,A000000234081,59064910,,,,,,"C09, C10",[],"['C09', 'C10']",code_only
+skin_concern_code_only_samples,oliveyoung,A000000228836,48920084,,,,,,C11,[],['C11'],code_only

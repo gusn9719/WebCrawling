@@ -42,18 +42,18 @@ MIN_REVIEW_COUNT = 100
 # 리뷰 API. 정렬을 바꾸면 다른 리뷰가 나오므로 5종을 모두 돌려
 # 합친 뒤 review_id 로 중복을 제거한다.
 SORT_TYPES: list[str] = [
+    "RATING_ASC",         # 평점 낮은순 (부정 리뷰 우선 수집)
     "USEFUL_SCORE_DESC",  # 유용한순
     "DATETIME_DESC",      # 최신순
     "RECOMMENDED_DESC",   # 도움순
     "RATING_DESC",        # 평점 높은순
-    "RATING_ASC",         # 평점 낮은순
 ]
 
 REVIEW_PAGE_SIZE = 10  # 커서 1회 요청당 리뷰 수 (서버 권장값)
 
-# 커서를 따라 넘길 최대 횟수. 안전 상한일 뿐이고, 보통은
-# hasNext=False 가 되면 정렬당 100개쯤에서 알아서 멈춘다.
-MAX_PAGES_PER_SORT = 12
+# 커서를 따라 넘길 최대 횟수. 실제 상한은 hasNext=False 이므로
+# 넉넉히 잡아둔다 (10개×100페이지 = 최대 1000개 시도).
+MAX_PAGES_PER_SORT = 100
 REVIEW_REVIEW_TYPE = "ALL"  # 텍스트/포토 구분 없이 전부
 
 # Origin/Referer 가 없으면 API 가 CORS 로 막는다.

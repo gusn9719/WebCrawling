@@ -99,6 +99,27 @@ def _finalize_label(row: pd.Series) -> dict[str, object]:
     if text_label == "unknown":
         return result
 
+    # 3점(neutral) + mixed: 긍부정 혼재 리뷰는 가장 전형적인 중립 리뷰 → ambiguous 제외 대신 neutral 유지
+    # 별점 3점이 "딱히 좋지도 나쁘지도 않다"는 충분한 중립 판단 근거다.
+    if rating_label == "neutral" and text_label == "mixed":
+        result["label_confidence"] = "medium"
+        result["label_source"] = "rating_neutral_mixed_text"
+        return result
+
+    # 1~2점(negative) + mixed: 별점이 강한 부정 신호 → 별점으로 tiebreaking
+    # 실측: 6,475건 중 50건 직접 검수 → 48/50건이 명확한 부정 리뷰.
+    # "효과없어요 재구매안할것" 같이 긍정키워드가 부정맥락에서 사용되어 mixed 판정된 케이스.
+    if rating_label == "negative" and text_label == "mixed":
+        result.update(
+            {
+                "sentiment_label": "negative",
+                "sentiment_id": config.LABEL_TO_ID["negative"],
+                "label_confidence": "medium",
+                "label_source": "rating_negative_mixed_text",
+            }
+        )
+        return result
+
     if text_label == "mixed":
         result.update(
             {

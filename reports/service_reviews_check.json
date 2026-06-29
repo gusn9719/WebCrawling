@@ -1,0 +1,244 @@
+{
+  "total_rows": 402438,
+  "load_info": {
+    "train_rows": 321950,
+    "val_rows": 80488,
+    "total_before_merge": 402438,
+    "review_id_duplicates_before_merge": 0,
+    "missing_required_cols": []
+  },
+  "merge_info": {
+    "rows_before_merge": 402438,
+    "rows_after_merge": 402438,
+    "lstm_v3_pred_missing": 0,
+    "pred_col_original": "lstm_v3_pred",
+    "predicted_sentiment_unexpected": 0,
+    "unexpected_values": {}
+  },
+  "verify": {
+    "reload_rows": 402438,
+    "review_id_dup_after_reload": 0,
+    "product_key_null": 0,
+    "predicted_sentiment_null": 0,
+    "predicted_sentiment_unique": [
+      "negative",
+      "neutral",
+      "positive"
+    ],
+    "ps_only_3_values": true,
+    "bst_ok_count": 189665,
+    "bst_nobase_count": 831,
+    "bst_missing_count": 211942,
+    "protected_mtime_changes": [],
+    "mtimes_after": {
+      "D:\\_WebCrawling\\oliveyoung_crawler\\preprocessed_v3\\train.parquet": 1782136033.770854,
+      "D:\\_WebCrawling\\oliveyoung_crawler\\preprocessed_v3\\val.parquet": 1782136034.5072987,
+      "D:\\_WebCrawling\\oliveyoung_crawler\\preprocessed_v3\\ambiguous.parquet": 1782136035.058802,
+      "D:\\_WebCrawling\\oliveyoung_crawler\\preprocessed_v3\\lstm_v3_preds.parquet": 1782166244.7122045
+    }
+  },
+  "sentiment": {
+    "predicted_sentiment_dist": {
+      "positive": 330159,
+      "neutral": 36479,
+      "negative": 35800
+    },
+    "sentiment_label_dist": {
+      "positive": 352240,
+      "negative": 37409,
+      "neutral": 12789
+    },
+    "mismatch_count": 33454,
+    "mismatch_pct": 8.31
+  },
+  "skin_type": {
+    "base_skin_type_dist": {
+      "nan": 212773,
+      "복합성": 74016,
+      "지성": 58062,
+      "건성": 37605,
+      "민감성": 18974,
+      "중성": 1008
+    },
+    "status_dist": {
+      "missing": 211942,
+      "ok": 189665,
+      "no_base_skin_type": 831
+    },
+    "has_base_skin_type_count": 189665,
+    "has_base_skin_type_pct": 47.1,
+    "no_base_skin_type_count": 831,
+    "missing_count": 211942,
+    "platform_bst_coverage": {
+      "oliveyoung": {
+        "has_base": 67606,
+        "total": 172109,
+        "pct": 39.3
+      },
+      "musinsa": {
+        "has_base": 122059,
+        "total": 194144,
+        "pct": 62.9
+      },
+      "coupang": {
+        "has_base": 0,
+        "total": 36185,
+        "pct": 0.0
+      }
+    }
+  },
+  "skin_concern": {
+    "status_dist": {
+      "missing": 332831,
+      "ok": 66884,
+      "code_only": 2723
+    },
+    "has_tags_count": 66884,
+    "has_tags_pct": 16.6,
+    "top_codes": [
+      [
+        "C09",
+        6279
+      ],
+      [
+        "C10",
+        2358
+      ],
+      [
+        "C11",
+        2061
+      ],
+      [
+        "C13",
+        1298
+      ],
+      [
+        "C12",
+        545
+      ]
+    ],
+    "top_tags": [
+      [
+        "미백",
+        32255
+      ],
+      [
+        "주름",
+        22157
+      ],
+      [
+        "보습",
+        20519
+      ],
+      [
+        "모공",
+        11955
+      ],
+      [
+        "트러블",
+        9984
+      ],
+      [
+        "각질",
+        9475
+      ],
+      [
+        "홍조",
+        7631
+      ],
+      [
+        "탄력",
+        3061
+      ]
+    ],
+    "platform_sc_coverage": {
+      "oliveyoung": {
+        "has_tags": 66884,
+        "total": 172109,
+        "pct": 38.9
+      },
+      "musinsa": {
+        "has_tags": 0,
+        "total": 194144,
+        "pct": 0.0
+      },
+      "coupang": {
+        "has_tags": 0,
+        "total": 36185,
+        "pct": 0.0
+      }
+    }
+  },
+  "service": {
+    "platform_counts": {
+      "musinsa": 194144,
+      "oliveyoung": 172109,
+      "coupang": 36185
+    },
+    "category_counts": {
+      "beauty": 230329,
+      "skincare": 53036,
+      "maskpack": 45161,
+      "cleansing": 40534,
+      "suncare": 33378
+    },
+    "product_key_count": 2221,
+    "product_key_review_stats": {
+      "min": 1,
+      "max": 11221,
+      "mean": 181.2,
+      "median": 113.0,
+      "top10": {
+        "musinsa::2959816": 11221,
+        "musinsa::2172345": 5697,
+        "musinsa::1246381": 5123,
+        "musinsa::2458627": 4256,
+        "musinsa::2632600": 3075,
+        "musinsa::2172337": 3048,
+        "musinsa::2417998": 2856,
+        "musinsa::2638240": 2820,
+        "musinsa::6239507": 2656,
+        "musinsa::3098201": 2631
+      }
+    },
+    "bst_predicted_sentiment_dist": {
+      "복합성": {
+        "positive": 66881,
+        "neutral": 4882,
+        "negative": 2253
+      },
+      "민감성": {
+        "positive": 16295,
+        "neutral": 1543,
+        "negative": 1136
+      },
+      "건성": {
+        "positive": 33115,
+        "neutral": 2747,
+        "negative": 1743
+      },
+      "지성": {
+        "positive": 50144,
+        "neutral": 4749,
+        "negative": 3169
+      },
+      "중성": {
+        "positive": 771,
+        "negative": 124,
+        "neutral": 113
+      }
+    },
+    "bst_negative_counts": {
+      "건성": 1743,
+      "민감성": 1136,
+      "복합성": 2253,
+      "중성": 124,
+      "지성": 3169
+    },
+    "platform_negative_counts": {
+      "oliveyoung": 28575,
+      "coupang": 4755,
+      "musinsa": 2470
+    }
+  }
+}

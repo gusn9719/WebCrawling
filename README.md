@@ -1,274 +1,523 @@
-# 올리브영 화장품 리뷰 크롤러
+# 화장품 리뷰 기반 피부타입 맞춤 부정 신호 리뷰 확인 서비스
 
-올리브영(oliveyoung.co.kr)의 판매랭킹 상위 상품 리뷰를 카테고리별로 수집해
-JSONL 로 저장하는 크롤러.
+> 기말 프로젝트 — 화장품 리뷰 크롤링 → 전처리 → 감성 분석 모델 학습 → Streamlit 배포
 
-> 기말 프로젝트 — 화장품 리뷰 데이터 수집 및 분석 파이프라인 구축
+---
 
-## 기술 스택
+## 프로젝트 개요
 
-| 목적 | 라이브러리 |
+화장품 플랫폼의 평균 별점은 "일반적으로 좋다"는 신호다. 그런데 화장품은 피부타입에 따라 반응이 다르다. 건성 피부에 좋은 제품이 지성 피부에는 트러블을 일으킬 수 있다.
+
+이 프로젝트는 같은 피부타입 리뷰에서 감성 분석 모델이 부정으로 감지한 리뷰 비율을 기준으로 상품을 평가하는 서비스를 구현한다.
+
+**데이터 파이프라인**:
+```
+크롤링 → 전처리 → 라벨링 → 모델 학습 → 모델 평가 → 추론 → Streamlit 배포
+```
+
+---
+
+## 전체 파이프라인
+
+```
+[크롤링]
+  OliveYoung: Selenium(헤드풀) + requests(모바일 API 커서 페이지네이션)
+  Musinsa/Coupang: 외부 CSV → normalize_external.py 변환
+        ↓
+[전처리]
+  결측치·중복 제거 → 컬럼 통일 → 텍스트 정제
+  별점 후보 라벨 × 4계층 키워드 → sentiment_label / ambiguous 분리
+  Okt 형태소 분석(stem=True) → tokens_str
+  stratified 8:2 split → train.parquet / val.parquet
+        ↓
+[모델 학습]
+  Baseline: TF-IDF + LogisticRegression
+  BiLSTM: TextVectorization → Embedding → BiLSTM → Dense
+  Transformer: klue/bert-base fine-tuning
+        ↓
+[모델 평가]
+  metrics.json / classification_report.csv / confusion_matrix.csv / history.csv
+  수동 검수: 오분류 샘플 직접 확인 (181건)
+        ↓
+[추론 / 서비스 데이터 생성]
+  precompute_preds.py → lstm_v3_preds.parquet
+  build_service_reviews.py → service_reviews.parquet
+  build_product_skin_aggregates.py → product_skin_aggregates.parquet
+  build_recommendation_scores.py → product_recommendation_scores.parquet
+        ↓
+[Streamlit 배포]
+  streamlit_app_v2.py (5개 탭)
+```
+
+---
+
+## 크롤링 설계
+
+### OliveYoung — Selenium + requests 혼용
+
+OliveYoung은 상품 목록/상세 페이지가 JavaScript로 렌더링된다. 리뷰 데이터는 모바일 API 엔드포인트에서 JSON으로 제공된다.
+
+| 역할 | 도구 | 이유 |
+|---|---|---|
+| 판매랭킹·상품 페이지 로딩 | Selenium (Chrome, headless=False) | JS 렌더링 필요 |
+| 리뷰 수집 | requests (모바일 API) | JSON 직접 응답, 속도 우위 |
+
+headless=True 모드는 OliveYoung이 봇으로 감지해 차단한다. 실제 Chrome 창이 뜨는 헤드풀 모드에서만 정상 동작한다.
+
+### 커서 기반 페이지네이션
+
+리뷰 API는 `page` 파라미터가 있지만 무시된다. 커서 방식으로만 동작한다.
+
+- **엔드포인트**: `POST https://m.oliveyoung.co.kr/review/api/v2/reviews/cursor`
+- 응답의 `nextCursorId / nextCursorScore / nextCursorCount` → 다음 요청의 `cursorId / cursorScore / cursorCount`
+- 필수 헤더: `Origin: https://www.oliveyoung.co.kr`, `Referer: https://www.oliveyoung.co.kr/`
+- `hasNext=false`가 될 때까지 반복
+
+### 수집 대상 및 기준
+
+| 카테고리 | 필터 코드 | 리뷰 건수 |
+|---|---|---|
+| skincare | 10000010001 | ~170K |
+| maskpack | 10000010009 | ~70K |
+| cleansing | 10000010010 | ~12K |
+| suncare | 10000010011 | ~18K |
+
+카테고리별 판매랭킹 상위 100개 상품. **MIN_REVIEW_COUNT=100** 미만 상품은 제외 (품질 게이트).
+
+### rate limit 처리
+
+약 70개 상품(~2.5시간) 수집 후 HTTP 429 발생 → 즉시 중단. 재실행하면 완료된 상품을 건너뛰고 이어서 수집한다.
+
+### Musinsa / Coupang 외부 데이터
+
+외부 CSV를 `normalize_external.py`로 공통 스키마로 변환했다.
+
+| 플랫폼 | 날짜 형식 변환 | review_id | skin_type 커버리지 |
+|---|---|---|---|
+| Musinsa | '26.05.04' → '2026-05-04' | SHA256 해시 | 62.9% |
+| Coupang | Excel 일련번호 → datetime | SHA256 해시 | **0.0%** |
+
+Coupang은 skin_type 컬럼이 없어서 피부타입 기반 집계에서 전체 제외됐다.
+
+---
+
+## 원본 데이터 구조와 플랫폼별 차이
+
+### OliveYoung JSONL 스키마 (각 줄이 리뷰 1건)
+
+| 컬럼 | 타입 | 설명 |
+|---|---|---|
+| platform | str | "oliveyoung" |
+| product_id | str | 상품 고유 ID |
+| product_name | str | 상품명 |
+| brand | str | 브랜드명 |
+| category | str | skincare / maskpack / cleansing / suncare |
+| rating | float | 별점 (1.0~5.0) |
+| review_text | str | 리뷰 원문 |
+| skin_type | str | 사용자 선택 피부타입 (null 가능) |
+| skin_concern | str | 피부 고민 (null 가능, OliveYoung 전용) |
+| raw_url | str | 상품 페이지 URL |
+| review_id | str | 리뷰 고유 ID |
+
+### 플랫폼별 skin_type 커버리지
+
+| 플랫폼 | 전체 리뷰 | base_skin_type 있음 | 피부타입 추천 사용 |
+|---|---|---|---|
+| OliveYoung | ~270K | 39.3% | O |
+| Musinsa | ~100K | 62.9% | O |
+| **Coupang** | ~32K | **0.0%** | **X** |
+| **전체** | **402,438** | **47.1%** | - |
+
+skin_concern은 OliveYoung에만 존재 (전체의 17.3%).
+
+---
+
+## 전처리 설계
+
+### 처리 흐름
+
+| 단계 | 처리 내용 | 코드 |
+|---|---|---|
+| 결측치·중복 제거 | review_text 결측, review_id 중복 제거 | `preprocess/cleaning.py` |
+| 컬럼 통일 | 플랫폼별 → ReviewSchema 공통 스키마 | `normalize_external.py`, `preprocess/io.py` |
+| 텍스트 정제 | HTML·특수문자 제거 → `clean_review` | `preprocess/cleaning.py` |
+| 형태소 분석 | Okt(stem=True) + 불용어 제거 → `tokens_str` | `preprocess/tokenize.py` |
+| 라벨링 | 별점 후보 × 4계층 키워드 → sentiment_label / ambiguous | `preprocess/labeling.py` |
+| 정규화 | skin_type → `base_skin_type` 5종 추출 | `recommendation/normalization.py` |
+| 분리 | stratified 8:2 → train / val | `preprocess/split.py` |
+
+### 클래스 분포
+
+| 클래스 | 건수 | 비율 |
+|---|---|---|
+| positive | ~352K | 87.5% |
+| negative | ~37K | 9.3% |
+| neutral | ~13K | 3.2% |
+
+모든 모델에 `class_weight=balanced`를 적용했다.
+
+---
+
+## 라벨링 기준과 한계
+
+### 약한 라벨(Weak Label) 방식
+
+정답 라벨이 없어서 별점과 텍스트 규칙을 교차하는 방식을 사용했다.
+
+1. **별점 기반 후보 라벨**: ★4~5 → positive, ★1~2 → negative, ★3 → neutral
+2. **4계층 키워드 교차 검증**:
+
+| 계층 | 역할 |
 |---|---|
-| 브라우저 자동화 (판매랭킹·상품 페이지) | Selenium 4.44 + undetected-chromedriver 3.5 |
-| 리뷰 API 직접 호출 | requests 2.34 |
-| 진행률 표시 | tqdm 4.67 |
-| Python | 3.11 |
+| NEGATIVE_ABSENCE_PATTERNS | "자극없이", "트러블없는" 등 부재 표현 보호 |
+| NEGATIVE_ABSENCE_KEYWORDS | 부재 키워드 보호 |
+| NEGATIVE_CONTEXT_EXCEPTIONS | "최악이었는데 좋아졌어요" 같은 긍정 맥락 처리 |
+| NEGATIVE_KEYWORDS / POSITIVE_KEYWORDS | 최종 감성 판단 |
+
+3. **결과**: 일치 → `sentiment_label` 확정 / 불일치 → `ambiguous` 분리 (전체의 22.5%)
+
+### 키워드 확장 (17개 → 55개)
+
+한국어에서 조사 변형("효과 없" vs "효과가 없", "효과는 없")이 전혀 다른 문자열이 된다는 문제를 실측으로 확인했다. 865건의 미포착 케이스를 분석한 뒤 NEGATIVE_KEYWORDS를 55개로 확장했다.
+
+### ★1~2+mixed → negative 복구
+
+별점 ★1~2이면서 텍스트 규칙이 긍정인 케이스 6,475건을 직접 50건 검수한 결과, 48/50건이 부정 리뷰였다. 이 케이스를 `negative`로 복구했다.
+
+---
+
+## 모델 학습
+
+### Baseline (TF-IDF + LogisticRegression)
 
 ```bash
-pip install -r requirements.txt
+python train_baseline.py --class-weight balanced
 ```
 
-## 실행
-
-```bash
-# 단일 카테고리
-python main.py --category skincare --max-products 100
-
-# 전체 카테고리(skincare, maskpack, cleansing, suncare) 순회
-python main.py --category all --max-products 100
-
-# 중단(429 등) 후 같은 명령 재실행하면 완료 상품은 건너뛰고 이어서 수집
-python main.py --category all --max-products 100
-```
-
-| 인자 | 설명 |
+| 파라미터 | 값 |
 |---|---|
-| `--category` | `skincare` / `maskpack` / `cleansing` / `suncare` / `all` |
-| `--max-products` | 카테고리당 최대 상품 수 (판매랭킹 천장 100) |
+| vectorizer | TF-IDF (n-gram 1~2) |
+| class_weight | balanced |
+| 입력 | tokens_str |
 
-출력: `output/{category}_reviews.jsonl` (JSONL, UTF-8)
-
-## 전처리와 라벨링 정책
-
-수집한 리뷰는 `run_preprocess.py` 로 감성분석용 학습 데이터로 정리한다.
+### BiLSTM
 
 ```bash
-python run_preprocess.py
-python run_preprocess.py --sample 5000
+# 스모킹 테스트 먼저
+python train_lstm.py --class-weight balanced --sample 5000 --epochs 1
+
+# 전체 학습
+python train_lstm.py --class-weight balanced
 ```
 
-처음에는 별점만으로 감성 라벨을 만들려고 했다. 하지만 실제 리뷰를 보면
-높은 별점을 주고도 본문에는 단점이나 불만을 쓰는 경우가 있었다. 그래서
-별점을 정답으로 그대로 쓰지 않고, 리뷰 본문에 있는 감성 표현과 비교해
-충돌하는 리뷰를 `ambiguous` 로 분리했다.
+| 파라미터 | 값 | 이유 |
+|---|---|---|
+| MAX_TOKENS | 80,000 | 한국어 형태소 어휘 범위 |
+| SEQUENCE_LENGTH | 120 | 화장품 리뷰 평균 길이 고려 |
+| EMBEDDING_DIM | 128 | 경량+성능 균형 |
+| LSTM_UNITS | 64 | 과적합 방지 |
+| DROPOUT_RATE | 0.4 | 정규화 |
+| BATCH_SIZE | 256 | GPU 메모리 한계 내 최대 |
+| EPOCHS | 10 (EarlyStopping patience=2) | |
+| class_weight | balanced | |
+| 입력 | tokens_str | |
 
-`text_rule_label` 은 사람이 직접 붙인 정답 라벨이 아니라, 화장품 리뷰에서
-자주 보이는 표현을 바탕으로 만든 간단한 규칙 기반 감성 단서다. 이 방식은
-사람 라벨링을 대체하는 완벽한 방법은 아니지만, 별점만 사용하는 것보다
-명백한 라벨 노이즈를 줄이기 위한 1차 시도다.
-특히 `자극 없이`, `끈적임없이`, `밀림 없이` 처럼 부정 단어가 없다는 뜻의
-표현은 먼저 보호해 단순 키워드 매칭으로 부정 단서가 과하게 잡히지 않도록
-정리했다.
-
-전처리 결과는 기본적으로 다음 파일로 저장한다.
-
-```txt
-preprocessed/train.parquet
-preprocessed/val.parquet
-preprocessed/ambiguous.parquet
-preprocessed/train_preview.csv
-preprocessed/ambiguous_preview.csv
-```
-
-확정 데이터만 `train/validation = 8:2` 로 나눈다. 이번 프로젝트는 수업 흐름에
-맞춰 train/validation = 8:2로 진행한다. 별도 test set은 현재 단계에서는
-만들지 않고, 추후 데이터가 충분해지면 최종 일반화 성능 확인용으로 분리하는
-개선 방향으로 남긴다.
-
-## 감성 분석 학습 흐름
-
-현재 프로젝트 흐름은 다음과 같다.
-
-```txt
-올리브영 리뷰 크롤링
-→ 전처리
-→ 별점 기반 후보 라벨 생성
-→ 본문 키워드 기반 text_rule_label 생성
-→ 별점 후보와 본문 감성 단서 충돌 / mixed 리뷰를 ambiguous로 분리
-→ train/validation 8:2 stratified split
-→ TF-IDF baseline과 BiLSTM 학습
-→ accuracy, macro F1, class별 precision/recall/f1, confusion matrix, neutral recall 비교
-```
-
-기본 학습 입력은 `preprocessed/train.parquet` 와 `preprocessed/val.parquet` 다.
-`preprocessed/ambiguous.parquet` 는 검토/제외 근거용 데이터이며 기본 학습에는
-사용하지 않는다. 별도 `test.parquet` 도 현재 학습 흐름에서는 만들거나 사용하지
-않는다.
-
-모델 입력 feature에는 `rating`, `score`, `star` 등 별점 관련 컬럼을 사용하지
-않는다. 모델이 별점 숫자를 보고 감성을 맞히는 구조가 되지 않도록, 텍스트 입력은
-`tokens_str` 를 우선 사용하고 해당 컬럼이 없을 때만 `clean_review` 를 사용한다.
-
-최종 학습 클래스는 세 개로 고정한다.
-
-| label | id |
-|---|---:|
-| negative | 0 |
-| neutral | 1 |
-| positive | 2 |
-
-`mixed` 는 최종 학습 라벨이 아니다. 본문 안에 긍정/부정 단서가 함께 보이는 리뷰를
-`ambiguous` 로 분리하기 위한 중간 판정값이다. 이 라벨링은 사람 검수 라벨이 아니라
-별점 후보와 규칙 기반 텍스트 단서를 조합한 약한 라벨링이다. 따라서 완전한 정답
-라벨이라고 주장하기보다, 별점만 사용하는 경우의 명백한 노이즈를 줄이기 위한
-전처리 기준으로 본다.
-
-## 모델 학습 실행
-
-TF-IDF + LogisticRegression baseline은 class weight 미적용/적용 모델을 함께
-학습한다.
+### Transformer (KLUE-BERT)
 
 ```bash
-python train_baseline.py
+# 스모킹 테스트 먼저 (필수 — 설정 오류 사전 확인)
+python train_transformer.py --run-name transformer_final_v3 --epochs 1 --sample 5000
+
+# 전체 학습
+python train_transformer.py --run-name transformer_final_v3 --epochs 5
 ```
 
-BiLSTM은 TensorFlow/Keras 기반으로 학습한다. `--class-weight` 옵션으로
-불균형 보정 여부를 선택할 수 있다.
+| 파라미터 | 값 | 이유 |
+|---|---|---|
+| model_name | klue/bert-base | 한국어 특화 사전학습 |
+| MAX_LENGTH | 160 | 화장품 리뷰 길이 + 여유 |
+| BATCH_SIZE | 16 | 메모리 제약 |
+| EPOCHS | 5 (EarlyStopping) | |
+| LEARNING_RATE | 2e-5 | BERT fine-tuning 표준 |
+| WEIGHT_DECAY | 0.01 | L2 정규화 |
+| class_weight | balanced | |
+| fp16 | False | Windows GPU 환경 불안정 |
+| dataloader_num_workers | 0 | Windows 멀티프로세스 데드락 방지 |
+| 입력 | clean_review (원문) | AutoTokenizer 직접 처리 |
 
-```bash
-python train_lstm.py --class-weight none --epochs 1
-python train_lstm.py --class-weight balanced --epochs 1
+---
+
+## 모델 성능 비교
+
+| 모델 | accuracy | macro_f1 | neg_recall | neu_recall | pos_recall |
+|---|---|---|---|---|---|
+| Baseline (none) | 0.9514 | 0.6250 | 0.7996 | 0.0271 | 0.9939 |
+| Baseline (balanced) | 0.9067 | 0.6692 | 0.8098 | 0.4410 | 0.9339 |
+| LSTM v1 | 0.880 | 0.661 | 0.742 | 0.242 | — |
+| LSTM v2 | 0.906 | 0.628 | 0.819 | 0.589 | — |
+| **LSTM v3** | **0.893** | **0.666** | **0.732** | **0.586** | **0.921** |
+| Transformer v1 | 0.979 | 0.728 | 0.895 | 0.252 | — |
+| Transformer v2 | 0.964 | 0.788 | 0.871 | 0.475 | 0.991 |
+| **Transformer v3** | **0.964** | **0.788** | **0.871** | **0.475** | **0.991** |
+
+v1→v2→v3 반복 개선 이유:
+- v1→v2: 외부 데이터 추가, 라벨링 개선 → neutral_recall 2배 향상
+- v2→v3: 키워드 17→55개 확장, ★1~2 복구
+
+자세한 내용: `docs/technical_report.md`
+
+---
+
+## 오분류 분석
+
+### neutral 과예측 문제
+
+LSTM v3 neutral_precision=0.196. class_weight=balanced 적용으로 neutral recall이 0.242→0.586으로 개선됐지만, neutral precision이 낮아지는 trade-off가 있다.
+
+부정 신호 탐지 목적에서는 이 trade-off를 수용했다.
+
+### 수동 검수에서 확인한 오분류
+
+`reports/service_reviews_manual_review_samples.md` (181건 직접 확인):
+
+| 별점 | 약한 라벨 | LSTM | 실제 내용 |
+|---|---|---|---|
+| ★4 | positive | **negative** | "눈에 따가워요, 다이소 토너 쓸 것 같아요" |
+| ★5 | positive | **negative** | "코 옆에 살짝 따가워요" |
+
+별점 기반 약한 라벨보다 LSTM 예측이 더 정확한 케이스가 있었다.
+
+---
+
+## 추천 점수 산식
+
+```
+recommendation_score = skin_component + overall_component - caution_penalty
+
+skin_component (0~65)   = (1 - skin_negative_rate) × evidence_weight × 65
+overall_component (0~35) = (avg_rating/5)×20 + positive_rate×10 + (1-neg_rate)×5
+caution_penalty          = 부정 신호 높음 → 20 / 중간 → 10 / 기타 → 0
 ```
 
-평가 결과는 `reports/` 에 저장한다.
+**evidence_weight**: 해당 피부타입 리뷰 건수에 따라 다름
 
-```txt
-reports/*_metrics.json
-reports/*_classification_report.csv
-reports/*_confusion_matrix.csv
-reports/lstm_*_history.csv
-```
+| 수준 | 조건 | 가중치 |
+|---|---|---|
+| strong | ≥ 20건 | 1.0 |
+| limited | ≥ 5건 | 0.7 |
+| insufficient | < 5건 | 0.3 |
 
-모델 산출물은 `models/` 에 저장하지만 Git 에 올리지 않는다.
+집계 결과: 6,008행, 1,521개 상품, 평균 점수 70.56
 
-```txt
-models/tfidf_vectorizer.joblib
-models/baseline_logreg_*.joblib
-models/lstm_*.keras
-models/lstm_vocab.txt
-models/label_map.json
-```
+---
 
-## 모델 비교 결과
+## 서비스 구조 (Streamlit 5개 탭)
 
-현재 결과는 validation split 기준 1차 실험이다. 단일 최고 모델을 단정하기보다,
-클래스 불균형 상황에서 모델별 trade-off 를 비교하기 위한 기준으로 본다.
+**파일**: `streamlit_app_v2.py`
 
-| model | accuracy | macro_f1 | negative recall | neutral recall | positive recall |
-|---|---:|---:|---:|---:|---:|
-| baseline_none | 0.9514 | 0.6250 | 0.7996 | 0.0271 | 0.9939 |
-| baseline_balanced | 0.9198 | 0.6859 | 0.8805 | 0.4793 | 0.9358 |
-| lstm_none | 0.9501 | 0.6344 | 0.8188 | 0.0494 | 0.9893 |
-| lstm_balanced | 0.8571 | 0.6476 | 0.7266 | 0.8615 | 0.8736 |
+| 탭 | 이름 | 주요 기능 |
+|---|---|---|
+| tab_skin | 피부타입 맞춤 추천 | 피부타입별 추천 점수 상위 상품 |
+| tab1 | 일반 상품 추천 | 부정 신호 비율 기반 상품 리스트 |
+| tab2 | 상품 비교 | 상품 2개 병렬 부정 신호 비교 |
+| tab3 | 모델·데이터 리포트 | 학습 지표, 혼동 행렬, 하이퍼파라미터 |
+| tab4 | 리뷰 직접 분석 | 3개 모델 실시간 추론 |
 
-`none` 계열 모델은 accuracy 는 높지만 neutral recall 이 매우 낮아 positive 쪽
-예측 쏠림이 크다. class weight 를 `balanced` 로 적용하면 neutral recall 은 크게
-개선된다. `baseline_balanced` 는 현재 macro F1 이 가장 높고, `lstm_balanced` 는
-neutral recall 이 가장 높다. 다만 `lstm_balanced` 는 positive 일부가 neutral 로
-이동하면서 accuracy 가 낮아졌다.
+사이드바: platform → category → brand cascade 필터 (상위 선택 변경 시 하위 자동 초기화)
 
-## Windows / TensorFlow 참고
+---
 
-- Windows native 환경의 TensorFlow 2.11 이상에서는 CUDA/cuDNN 이 설치되어 있어도
-  GPU 대신 CPU 로 실행된다는 경고가 나올 수 있다.
-- `conda run` 으로 Keras 진행바를 출력할 때 Windows CP949 인코딩 문제로
-  `UnicodeEncodeError` 가 날 수 있다. 이 경우 학습 코드 실패가 아니라 출력 래퍼
-  문제일 수 있으므로, 같은 conda 환경의 `python.exe` 를 직접 호출해 실행을 확인했다.
-
-## 수집 데이터 스키마
-
-```
-platform        고정값 oliveyoung
-product_id      상품 고유번호 (goodsNo)
-review_id       리뷰 고유번호 (중복 제거 키)
-product_name    상품명
-brand           브랜드명
-category        skincare, maskpack, cleansing, suncare
-price           판매가 (원, 정수). 없으면 null
-rating          별점 (1.0~5.0)
-review_text     리뷰 본문
-review_date     작성일 (YYYY-MM-DD)
-skin_type       피부타입 (건성/복합성/지성/민감성/중성)
-skin_concern    피부고민 (미백, 모공, 트러블 등 복수)
-reviewer_age    나이대 (API 가 안 줘서 null)
-helpful_count   도움이요 수
-photo_exists    사진 첨부 여부
-crawled_at      수집 일시
-raw_url         상품 페이지 URL
-```
-
-## 디렉터리 구조
+## 프로젝트 디렉터리 구조
 
 ```
 oliveyoung_crawler/
-├── main.py             # 진입점. 인자 파싱 + 로깅 + Pipeline 실행만
 ├── README.md
 ├── requirements.txt
-├── output/             # 수집 결과 jsonl
-└── oliveyoung/         # 패키지 (실제 코드)
-    ├── pipeline.py     # CrawlPipeline. 수집 흐름을 잡는다
-    ├── config.py       # 모든 상수 (URL, 정렬, 재시도, 게이트 기준)
-    ├── schema.py       # ReviewSchema dataclass
-    ├── browser.py      # OliveYoungBrowser. 드라이버 생성/종료
-    ├── storage.py      # ReviewStorage. JSONL append, 중복/이어받기
-    └── crawlers/
-        ├── category.py # CategoryCrawler. 판매랭킹에서 상품 URL
-        ├── product.py  # ProductCrawler. 상품 페이지에서 메타데이터
-        └── review.py   # ReviewCrawler. 리뷰 API(커서) 호출·파싱
+├── .gitignore
+│
+├── main.py                          # 크롤러 진입점
+├── normalize_external.py            # Musinsa/Coupang CSV → 공통 스키마
+├── run_preprocess.py                # 전처리 파이프라인 진입점
+├── train_baseline.py                # TF-IDF + LogReg 학습
+├── train_lstm.py                    # BiLSTM 학습
+├── train_transformer.py             # KLUE-BERT 학습
+├── precompute_preds.py              # BiLSTM 사전 추론
+├── precompute_transformer.py        # Transformer 사전 추론
+├── streamlit_app_v2.py              # Streamlit 앱 (최종)
+│
+├── oliveyoung/                      # 크롤러 패키지
+│   ├── crawlers/ (category, product, review)
+│   └── pipeline.py / config.py / schema.py / browser.py / storage.py
+│
+├── preprocess/                      # 전처리 패키지
+│   ├── cleaning.py / labeling.py / tokenize.py / split.py / config.py / io.py
+│   └── stopwords.txt
+│
+├── sentiment/                       # 학습 유틸
+│   └── data.py / metrics.py
+│
+├── recommendation/                  # 추천 점수 모듈
+│   └── normalization.py / aggregation.py / scoring.py
+│
+├── scripts/                         # 서비스 데이터 빌드
+│   └── build_service_reviews.py / build_product_skin_aggregates.py / build_recommendation_scores.py / check_normalization.py
+│
+├── preprocessed_v3/                 # 전처리 산출물
+│   ├── product_recommendation_scores.parquet  (0.37MB, Git 포함)
+│   ├── product_skin_aggregates.parquet        (0.32MB, Git 포함)
+│   ├── lstm_v3_preds.parquet                  (4.6MB, Git 포함)
+│   ├── transformer_v3_preds.parquet           (4.6MB, Git 포함)
+│   ├── service_reviews.parquet                (106MB, Releases)
+│   ├── train.parquet                          (119.8MB, Releases)
+│   └── val.parquet                            (30.3MB, Releases)
+│
+├── models/
+│   ├── README.md
+│   ├── lstm_final_v3_vocab.txt                (458KB, Git 포함)
+│   ├── transformer_final_v3/                  (config/tokenizer, Git 포함)
+│   ├── lstm_final_v3.keras                    (119MB, Releases)
+│   ├── tfidf_vectorizer.joblib                (4.3MB, Releases)
+│   └── baseline_logreg_balanced.joblib        (2.3MB, Releases)
+│
+├── data/
+│   ├── raw/README.md                          # OliveYoung 원본 데이터 설명
+│   ├── external/README.md                     # 외부 CSV 구조/변환 방법
+│   └── processed/README.md                    # 전처리 데이터 설명
+│
+├── reports/                         # 모델 평가 결과
+│   └── *_metrics.json / *_classification_report.csv / *_confusion_matrix.csv / *_history.csv / *_manual_review_samples.md
+│
+└── docs/
+    ├── technical_report.md          # 크롤링~배포 상세 기술 보고서
+    ├── development_journal.md       # 개발 과정 실제 판단 흐름
+    ├── service_design.md            # 서비스 설계 및 데이터 연결 구조
+    ├── setup_verification.md        # 설치 및 실행 검증 가이드
+    ├── adr/ADR-0001-*.md            # 라벨링 설계 ADR
+    └── worklog/                     # 날짜별 개발 기록
 ```
 
-진입점만 루트에 두고 코드는 `oliveyoung/` 패키지로 묶었다.
-각 클래스는 역할이 하나다. 크롤러끼리 서로 import 하지 않고
-`config` 와 `schema` 만 공유하며, 엮는 순서는 `pipeline` 이 정한다.
-(`crawlers/__init__.py` 는 `crawlers` 를 패키지로 인식시키는 빈 표시 파일이다.)
+---
 
-## 수집 전략 & 설계 고민
+## 실행 환경
 
-### 왜 Selenium 과 requests 를 같이 쓰나
+- Python 3.11 (conda env `oliveyoung`)
+- 운영체제: Windows 11 (Transformer 학습 시 Linux/WSL 권장)
+- GPU: NVIDIA GPU 권장 (Transformer 학습 시)
+- Chrome: 최신 버전 (OliveYoung 크롤링 시)
 
-판매랭킹·상품 페이지는 JS 렌더링이 필요해 Selenium 으로 연다.
-리뷰는 모바일 API(`m.oliveyoung.co.kr/review/api/v2/reviews/cursor`)를
-requests 로 직접 부른다. 페이지를 안 열어 훨씬 빠르고 부하가 낮다.
+---
 
-### 왜 판매랭킹에서 상품을 고르나
+## 설치 방법
 
-그냥 카테고리 목록은 정렬 기준이 불분명하다. 판매랭킹은 잘 팔리는 상품이
-위에 모이므로 분석 가치가 높은 상품을 자연스럽게 추릴 수 있다.
-`getBestList.do?dispCatNo=900000100100001&fltDispCatNo={코드}` 가
-카테고리별 상위 100개를 한 페이지에 준다. 페이지네이션은 없다.
+```bash
+conda create -n oliveyoung python=3.11
+conda activate oliveyoung
+pip install -r requirements.txt
+```
 
-### 품질 게이트 (리뷰 수 필터)
+KoNLPy (선택 — 탭4 분석 정밀도 향상):
 
-랭킹 상위라도 리뷰가 적으면 분석용으로 부실하다. 상세 페이지를 열기 전에
-통계 API(`reviews/{goodsNo}/stats`)로 리뷰 수만 싸게 확인해
-`MIN_REVIEW_COUNT`(기본 100) 미만이면 건너뛴다. Selenium 낭비도 없앤다.
+```bash
+java -version    # Java 8 이상 필요
+pip install konlpy
+```
 
-### 왜 커서 페이지네이션인가
+---
 
-이 API 는 `page` 번호를 무시한다. `page=1,2,3` 을 줘도 첫 페이지만 돌려준다.
-응답의 `nextCursorId/Score/Count` 를 다음 요청의 `cursorId/Score/Count` 로
-넘기는 커서 방식이라야 다음 리뷰가 나온다. 정렬 5종(유용한순, 최신순,
-도움순, 평점높은순, 평점낮은순)을 각각 커서로 끝까지 돌려 합친 뒤
-`review_id` 로 중복을 제거한다. 상품당 보통 300개 이상 모인다.
+## 데이터 및 모델 준비 (3가지 모드)
 
-### 중단/재시작 안전 (이어받기)
+### 모드 A — 최소 실행 (git clone만으로 완성)
 
-리뷰는 상품 단위로 한 번에 저장된다. 수집 중 429 가 나면 그 상품은 한 줄도
-안 들어간다. 따라서 JSONL 에 `product_id` 가 있으면 그 상품은 끝난 것이다.
-다시 실행하면 완료 상품은 API 호출 없이 바로 건너뛰고 멈춘 지점부터
-이어서 수집한다. 429 로 끊겨도 같은 명령만 다시 돌리면 된다.
+별도 다운로드 없이 바로 실행 가능. 피부타입 추천 탭만 동작.
 
-### rate limit(429) 대응
+```bash
+streamlit run streamlit_app_v2.py
+```
 
-429 는 재시도해도 소용없으므로 즉시 멈추고(`RateLimitError`) 그때까지를
-저장한다. 요청량 기준 일시 차단이라 보통 수 시간 안에 풀리고, 그 뒤 같은
-명령으로 이어받기 하면 된다. 요청 사이 랜덤 sleep 으로 속도를 조절한다
-(`config.py` 의 `SLEEP_*`).
+### 모드 B — 표준 실행
 
-## 한계 / 알아둘 점
+GitHub Releases에서 다운로드 후 아래 경로에 배치:
 
-- 판매랭킹 천장은 카테고리당 100개. 랭킹은 매일 바뀌므로 여러 세션에 걸쳐
-  돌리면 누적 상품 수가 100을 넘을 수 있다(다양성에는 이득).
-- 10만 건 규모는 한 번에 안 된다. 429 가 세션을 끊으므로 여러 번 나눠
-  이어받기로 모은다.
-- 통계 API 의 리뷰 수와 실제 커서로 받히는 수가 다른 상품이 드물게 있다.
+| 파일 | 배치 경로 |
+|---|---|
+| `service_reviews.parquet` | `preprocessed_v3/service_reviews.parquet` |
+| `tfidf_vectorizer.joblib` | `models/tfidf_vectorizer.joblib` |
+| `baseline_logreg_balanced.joblib` | `models/baseline_logreg_balanced.joblib` |
+| `lstm_final_v3.keras` | `models/lstm_final_v3.keras` |
+
+```bash
+streamlit run streamlit_app_v2.py
+```
+
+### 모드 C — 전체 재현 (크롤링~배포)
+
+```bash
+# 1. OliveYoung 크롤링
+python main.py --category all --max-products 100
+
+# 2. 외부 데이터 변환 (원본 CSV 있을 경우)
+python normalize_external.py
+
+# 3. 전처리
+python run_preprocess.py --include-external --output preprocessed_v3
+
+# 4. 모델 학습
+python train_baseline.py --class-weight balanced
+python train_lstm.py --class-weight balanced
+python train_transformer.py --run-name transformer_final_v3 --epochs 5
+
+# 5. 서비스 데이터 생성
+python precompute_preds.py
+python scripts/build_service_reviews.py
+python scripts/build_product_skin_aggregates.py
+python scripts/build_recommendation_scores.py
+
+# 6. Streamlit 실행
+streamlit run streamlit_app_v2.py
+```
+
+자세한 내용: `docs/setup_verification.md`
+
+---
+
+## GitHub Releases 파일 목록
+
+| 파일 | 크기 | 설명 |
+|---|---|---|
+| `oliveyoung_raw_data_v3.tar.gz` | ~87MB | OliveYoung 수집 원본 JSONL (4개 카테고리) |
+| `service_reviews.parquet` | 106MB | 서비스 실행 필수 |
+| `train.parquet` | 119.8MB | 모델 학습 재현용 |
+| `val.parquet` | 30.3MB | 모델 평가 재현용 |
+| `lstm_final_v3.keras` | 119MB | BiLSTM v3 모델 |
+| `tfidf_vectorizer.joblib` | 4.3MB | Baseline TF-IDF |
+| `baseline_logreg_balanced.joblib` | 2.3MB | Baseline LogReg |
+| `transformer_final_v3/model.safetensors` | 422MB | KLUE-BERT fine-tuned |
+
+---
+
+## 주요 산출물
+
+| 파일 | 역할 |
+|---|---|
+| `output/*.jsonl` | OliveYoung 수집 원본 (~87MB) |
+| `preprocessed_v3/product_recommendation_scores.parquet` | 피부타입별 추천 점수 (6,008행) |
+| `preprocessed_v3/product_skin_aggregates.parquet` | 피부타입별 부정 신호 집계 |
+| `preprocessed_v3/lstm_v3_preds.parquet` | BiLSTM v3 전체 예측 캐시 |
+| `reports/lstm_final_v3_metrics.json` | BiLSTM v3 평가 지표 |
+| `reports/transformer_final_v3_metrics.json` | Transformer v3 평가 지표 |
+| `reports/service_reviews_manual_review_samples.md` | 수동 검수 181건 |
+| `docs/technical_report.md` | 기술 보고서 (크롤링~배포) |
+
+---
+
+## 사용 주의사항
+
+1. **모델 예측은 참고용이다.** 이 서비스의 모든 예측은 약한 라벨(별점+텍스트 규칙)로 학습된 모델의 결과다. 사람이 직접 검수한 정답 라벨이 아니다.
+
+2. **"모델 부정 감지 리뷰"와 "실제 부정 리뷰"는 다를 수 있다.** LSTM v3 neutral_precision=0.196으로, neutral로 예측된 리뷰 중 상당수가 실제로 neutral이 아닐 수 있다.
+
+3. **Coupang 피부타입 추천 불가.** Coupang 데이터에 skin_type 정보가 없어서 피부타입 맞춤 추천 탭(tab_skin)에서 Coupang 데이터가 제외된다.
+
+4. **전체 리뷰의 52.9%는 피부타입 정보가 없다.** base_skin_type 커버리지가 47.1%이므로, 피부타입 집계는 전체 데이터의 절반 미만을 기반으로 한다.
+
+5. **OliveYoung 크롤링은 headless 불가.** Chrome 창이 실제로 열린다. 자동화 환경(CI/CD, headless 서버)에서는 크롤링이 동작하지 않는다.

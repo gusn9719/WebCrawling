@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import argparse
 from pathlib import Path
 
 import joblib
@@ -19,6 +20,13 @@ MAX_DF = 0.95
 RANDOM_STATE = 42
 MAX_ITER = 1_000
 MODELS_DIR = Path("models")
+
+
+def parse_args() -> argparse.Namespace:
+    parser = argparse.ArgumentParser(description="Train TF-IDF baseline models.")
+    parser.add_argument("--train-path", type=Path, default=None)
+    parser.add_argument("--val-path", type=Path, default=None)
+    return parser.parse_args()
 
 
 def train_one_model(name: str, class_weight, train_x, train_y, val_x, val_y) -> None:
@@ -43,9 +51,15 @@ def train_one_model(name: str, class_weight, train_x, train_y, val_x, val_y) -> 
 
 
 def main() -> None:
+    args = parse_args()
     MODELS_DIR.mkdir(parents=True, exist_ok=True)
 
-    train, val = load_train_val()
+    load_kwargs: dict = {}
+    if args.train_path:
+        load_kwargs["train_path"] = args.train_path
+    if args.val_path:
+        load_kwargs["val_path"] = args.val_path
+    train, val = load_train_val(**load_kwargs)
     print_dataset_summary(train, val)
     print("Missing/empty text policy: rows are removed before training.")
 

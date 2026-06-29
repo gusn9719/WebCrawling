@@ -19,3 +19,12 @@ konlpy
 pyarrow
 joblib
 tensorflow
+
+# Transformer fine-tuning
+torch
+transformers
+accelerate
+
+# Streamlit 서비스
+streamlit>=1.35
+plotly>=5.0

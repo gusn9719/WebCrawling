@@ -1,0 +1,61 @@
+{
+  "generated_at": "2026-06-27T21:42:45.560050",
+  "basic": {
+    "total_rows": 6008,
+    "unique_products": 1521,
+    "platform_distribution": {
+      "oliveyoung": 3733,
+      "musinsa": 2275
+    }
+  },
+  "score_distribution": {
+    "mean": 70.56,
+    "std": 19.17,
+    "min": 8.82,
+    "max": 99.82,
+    "p10": 46.92,
+    "p25": 53.15,
+    "p50": 73.68,
+    "p75": 85.53,
+    "p90": 97.32,
+    "bins": {
+      "(-0.001, 20.0]": 12,
+      "(20.0, 40.0]": 300,
+      "(40.0, 60.0]": 1835,
+      "(60.0, 80.0]": 1962,
+      "(80.0, 100.0]": 1899
+    }
+  },
+  "evidence_level_distribution": {
+    "limited_evidence": 2229,
+    "strong_evidence": 2163,
+    "insufficient_evidence": 1616
+  },
+  "recommendation_tier_distribution": {
+    "strong_candidate": 1825,
+    "review_before_buying": 1774,
+    "insufficient_evidence": 1616,
+    "caution_check": 518,
+    "negative_review_first": 275
+  },
+  "flags": {
+    "rank_exposure_flag_true": 2082,
+    "rank_exposure_flag_true_pct": 34.7,
+    "review_first_flag_true": 978,
+    "review_first_flag_true_pct": 16.3
+  },
+  "base_skin_type_distribution": {
+    "복합성": 1461,
+    "건성": 1392,
+    "지성": 1383,
+    "민감성": 1282,
+    "중성": 490
+  },
+  "service_perspective": {
+    "strong_evidence_normal_count": 1825,
+    "strong_evidence_normal_pct": 30.4,
+    "neutral_skin_type_strong_evidence_count": 0,
+    "high_negative_signal_all_review_first": true,
+    "high_negative_signal_count": 275
+  }
+}

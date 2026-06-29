@@ -1,0 +1,521 @@
+﻿sample_group,platform,product_key,product_id,review_id,product_name,brand,category,rating,review_text,sentiment_label,lstm_v3_pred,predicted_sentiment,skin_type,base_skin_type,skin_type_tags,skin_need_tags,skin_type_normalization_status,skin_concern,skin_concern_tags,skin_concern_codes,skin_concern_normalization_status
+merge_check_samples,musinsa,musinsa::6239322,6239322,musinsa_6239322_4869eb7c,스킨 베리어 카밍 로션 이엑스 220ml,ongredients,beauty,5.0,"몇통째 구매인지 모르겟어요!
+메이크업도 잘 먹지만 평소에 아침에 스킨바르고 얘만 두,세겹 바르고 선크림 바르는데",positive,positive,positive,복합성 · 진정/보습,복합성,['복합성'],['진정' '보습'],ok,,[],[],missing
+merge_check_samples,musinsa,musinsa::1246381,1246381,musinsa_1246381_0bc5da4a,[+바디워시 증정] 퍼퓸 데오 바디스프레이 200ml 프레쉬향,dashu,beauty,5.0,이거 한 6개월 정도 쓰고 있는데 냄새 질리지도 않고 너무 좋아요! 포근해요,positive,positive,positive,nan,,[],[],missing,,[],[],missing
+merge_check_samples,musinsa,musinsa::2150772,2150772,musinsa_2150772_e98499e9,빠지는 모발 고민해결 두피강화 샴푸 400ml + 증정,laboh,beauty,5.0,머리가 많이 빠진 아빠가 생각나서 한번 사봤어요 효과가 있었으면 좋겠네요,positive,positive,positive,nan,,[],[],missing,,[],[],missing
+merge_check_samples,musinsa,musinsa::4981848,4981848,musinsa_4981848_a47fcc87,레드수딩 시카밸런스 크림 80ml,physiogel,beauty,5.0,촉촉하고 유수분 잘 잡아주는거 같아서 좋습니다. 복합성 피부에 잘 맞는거 같아요,positive,positive,positive,복합성 · 미백,복합성,['복합성'],['미백'],ok,,[],[],missing
+merge_check_samples,musinsa,musinsa::5114507,5114507,musinsa_5114507_a30ce9fe,이지온 세미 오버핏 스트라이프 카라 반팔 니트 (4color),workonbodyoff,beauty,5.0,밑에 시보리가 짱짱해서 체형을 잘 잡아줍니다. 최고!,positive,positive,positive,nan,,[],[],missing,,[],[],missing
+merge_check_samples,musinsa,musinsa::2959816,2959816,musinsa_2959816_14a80ae4,[SET] 다이브인 저분자 히알루론산 세럼 50ml+40ml (+시카컨트롤세럼 10ml),torriden,beauty,5.0,수분감 짱짱하고 편하게 바르기 너무 좋습니다 추천,positive,positive,positive,복합성 · 진정/보습 · 미백 · 여드름,복합성,['복합성'],['진정' '보습' '미백' '트러블'],ok,,[],[],missing
+merge_check_samples,musinsa,musinsa::3802486,3802486,musinsa_3802486_01ece699,[3PACK]베이비마일드 오가닉 립밤 4g,drbronners,beauty,5.0,자주 써요 오가닉이라 추천드려요 건조하지 않아요,positive,positive,positive,민감성 · 미백,민감성,['민감성'],['미백'],ok,,[],[],missing
+merge_check_samples,coupang,coupang::coupang_1423124805,coupang_1423124805,coupang_892033735,"차앤박 톤 업 프로텍션 선크림 SPF42 PA+++, 50ml, 1개39%29,000원17,500원(10ml",,beauty,5.0,"본제푼은 소장의 지원을 받아 작성되었으며, 솔직한 후기를 담고 있습니다.
+
+차앤박 제품은 피부에 좋잖아요^^
+눈 시림때문에 아무거나 못쓰눈데 시림1도 없구요.
+톤업도 저연스럽게 되어 만족해요
+발림성도 꾸덕함도 적당해요.",positive,positive,positive,,,[],[],missing,,[],[],missing
+merge_check_samples,oliveyoung,oliveyoung::A000000188019,A000000188019,24441663,[1매/5종] 아비브 껌딱지 시트 마스크 스티커 1매 (어성초/수분초/마데카소사이드/콜라겐밀크/비타),아비브,maskpack,5.0,히알루론산 마스크팩이라 그런지 더 촉촉해요 피부 수분감 채워줘요,positive,positive,positive,지성,지성,['지성'],[],ok,"주름, 모공",['주름' '모공'],[],ok
+merge_check_samples,coupang,coupang::coupang_7240689331,coupang_7240689331,coupang_689597052,"시세이도 스팟 커버 파운데이션 20g, S100, 1개14,000원17%11,590원(10g당 5,795원)",,beauty,5.0,"그동안 그리찾던 커버용쿠션
+
+이건 쿠션은 아니고 파운데이션처럼 쓰는거긴한데
+워낙 잡티가 잘 가려저서 쿠션보다 솔직히 굉장히 호 입니다
+
+다만 한꺼번에 많이 묻혀 커버하려하기보다는
+
+조금씩 정성껏 묻혀 얼굴에 잘 두둘겨 주어야 합니자
+왜 예전에 어머님들이 그렇게 시세이도를 썼는지
+이제아 이해가 되더라구요
+
+급한마음에 한꺼번에 많이 묻혀 사용하게되면
+잘 안펴발라지고
+두껍고 촌스런 화장이 되어버린답니다
+
+요런점만 주의하시고 사용하심  될듯 합니다.
+
+✅️장점:커버력이좋다,적은양에 오래쓴다,꾸덕하다
+
+✅️단점: 실수로라도 많이 찍게되어 바르게되면 가부끼 분장이됨",positive,neutral,neutral,,,[],[],missing,,[],[],missing
+merge_check_samples,oliveyoung,oliveyoung::A000000162279,A000000162279,58107702,[1등필링/화잘먹] 닥터지 브라이트닝 필링젤 기획 (120g+60g+히알시카세럼2ml/120g+120g+10g),닥터지,cleansing,4.0,좋아요 장러ㅓ러어어어처ㅓ터너코어어터너너타ㅓㅊ처챠ㅑㅊ챠차챷,positive,positive,positive,,,[],[],missing,,[],[],missing
+merge_check_samples,coupang,coupang::coupang_6641056251,coupang_6641056251,coupang_773572790,BEST AWARDS설명쿠팡 로켓배송 상품 중2025 연간쿠팡 어워즈를 수상한 제품입니다.카테고리:뷰티 기초,,beauty,5.0,"쿠팡체험단 이벤트로 상품을 무료 제공받아 작성한 리뷰입니다.
+
+제가 체험단을 통해 사용해 본 솔직한 후기입니다.
+
+(1) 체험단 신청 이유
+평소 어머님께서 AHC 브랜드를 꾸준히 사용하고 계셔서, 이번 기회에 기초 화장품 세트를 직접 사용해보고 싶어 신청하게 되었습니다.
+
+(2) 사용 후기
+✅가성비 뛰어난 구성
+세럼, 크림, 스킨, 로션 등 기초 케어에 필요한 제품이 모두 포함된 5종 세트임에도 가격이 부담스럽지 않아 만족도가 높았습니다. 사용감도 무난하고, 전반적으로 피부에 순하게 흡수되는 편이었습니다.
+
+✅고급스러운 패키징
+외관 패키지 디자인이 깔끔하고 고급스러워, 선물용으로도 매우 적합한 제품입니다. 부모님이나 친척 등 연령대 있는 분들께 드리기에 부담 없는 선택이라 생각합니다.
+
+✅높은 구매 만족도
+실제로 확인해 보니 별점 5점 비율이 80% 이상일 정도로 만족도가 높은 제품이며, 실사용 후기를 참고해도 기초 세트 입문용으로 적합하다는 의견이 많았습니다.
+
+❌단점
+별도로 아쉬운 점은 없었습니다. 기본에 충실한 구성이며, 기대 이상의 품질을 보여주는 제품이라 평가하고 싶습니다.
+
+(3) 총평
+부담 없는 가격에 기초 케어를 한 번에 해결할 수 있는 실속형 세트입니다.
+선물용이나 입문용 기초 화장품으로 모두 추천드립니다~!⭐️⭐️⭐️⭐️⭐️",positive,positive,positive,,,[],[],missing,,[],[],missing
+merge_check_samples,oliveyoung,oliveyoung::A000000233497,A000000233497,59421038,"[증정이벤트/탄력광채수분진정] 웰더마 겔마스크팩 4매, 4종 택1 (콜라겐/시카/레티놀/PDRN)",웰더마,maskpack,4.0,"잘 받았습니다. 
+마스크 팩은 무조건 행사할때 구매해 둡니다.",positive,positive,positive,,,[],[],missing,,[],[],missing
+merge_check_samples,oliveyoung,oliveyoung::A000000219609,A000000219609,58278221,[대용량/트러블1등] 파티온 노스카나인 트러블 세럼 50ml 리필 기획(+리필40ml+크림10ml),파티온,skincare,1.0,마케팅에 당해버림! ㅋㅋㅋ 이거쓰고 여드름 안날까 기대돼서 사봤는데 아무런 변화도 없었더고 한다! 그리고 예민피구에게는 가끔 따가움 ㅜㅜ,negative,negative,negative,,,[],[],missing,,[],[],missing
+merge_check_samples,oliveyoung,oliveyoung::A000000209910,A000000209910,58937328,제로이드 포밍 클렌저 240ml,제로이드,cleansing,5.0,너무 사용하기 편해서 진작 이걸로 다 살 걸 그랬어요 완전 정착템입니다!,positive,positive,positive,,,[],[],missing,,[],[],missing
+merge_check_samples,coupang,coupang::coupang_9367006601,coupang_9367006601,coupang_855300363,nan,,beauty,5.0,"우리집 온가족 사용하는
+아토세이프 세라제닉 365+카밍 선세럼 SPF50+ PA++++
+사실 선크림은 사계절 내내 발라야한다고 하고
+연예인들 보면 집안 형광등 아래에서도 선크림을 바르던데
+솔직히 그정도까지는 못하지만
+이제 겨울이 지나고 따사로운 봄날 챙겨바르려고
+얼른 주문했어요~
+
+부드럽고 촉촉하게 발려지고
+백탁은 전혀 없어요.
+워터리 텍스춰라 뻑뻑하지 않고 잘 발리는것도 좋고
+저자극 포뮬러라 자극없이 부담없이 챙겨바르기도 좋네요!
+
+단순히 선크림으로 자외선 차단만 하는게 아닌
+피부장벽까지 신경써야한다면
+아토세이프 세라제닉 365+카밍 선세럼 SPF50+ PA++++ 강추!",positive,positive,positive,,,[],[],missing,,[],[],missing
+merge_check_samples,oliveyoung,oliveyoung::A000000180141,A000000180141,18317049,[수분선스틱]닥터지 레드 블레미쉬 수딩 업 선스틱 21g,닥터지,suncare,3.0,"📌 장점
+1. 크림 타입보다 쓱쓱 바르기 편하다 : 시간 절약
+2. 역시 닥터지. 유해 성분 / 알레르기 성분 없이 무해하다.
+3. 보송보송하게 마무리 된다.
+4. 곧 여름인데 작고 휴대성도 좋아서 팔, 목 등 바르기 편할듯 하다!
+
+📌 단점
+1. 내용물에 먼지가 엄청 잘 붙는다.
+2. 여러번 덧발라야 한다. 크림만큼 촥촥 흡수되는 느낌이 부족하다.
+3. 바를 때 드문드문 지우개 가루처럼 뭉쳐서 나온다..",neutral,neutral,neutral,지성,지성,['지성'],[],ok,"홍조, C12",['홍조'],['C12'],ok
+merge_check_samples,oliveyoung,oliveyoung::A000000226493,A000000226493,55977701,[저자극클렌저] 메디큐브 PDRN 젤투폼 클렌저 200ml 기획(+클렌징브러쉬 증정),메디큐브,cleansing,3.0,"저한텐 좀 자극이 있는지 피부 뒤집어질 뻔 했어요.
+조금씩 붉어지고 건조해지길래 사용 중단했습니다.",negative,negative,negative,,,[],[],missing,,[],[],missing
+merge_check_samples,musinsa,musinsa::5693203,5693203,musinsa_5693203_bcaae4a0,[3개부터 구매가능] 퍼퓸드 핸드크림 미스틱 우드 30ml,musinsastandardbt,beauty,5.0,우디한 향이 생각보다 엄청 좋아요 추천드립니다!,positive,positive,positive,복합성 · 진정/보습,복합성,['복합성'],['진정' '보습'],ok,,[],[],missing
+merge_check_samples,musinsa,musinsa::4307508,4307508,musinsa_4307508_edb0c94b,[10ml 추가 증정] 레이저 UV 썬스크린 50ml+50ml,cellfusionc,beauty,5.0,"셀퓨전씨 UV 선스크린
+부드럽게 발림성 좋고 촉촉합니다
+백탁도 없어 슥슥 바르기 좋아요",positive,positive,positive,복합성 · 탄력 · 진정/보습,복합성,['복합성'],['탄력' '진정' '보습'],ok,,[],[],missing
+negative_review_samples,oliveyoung,oliveyoung::A000000182782,A000000182782,31237564,[산뜻진정] 구달 맑은 어성초 진정 쿨링 선스틱 19g 1+1 기획,구달,suncare,3.0,"장단점이긴 한데
+
+끈적거림이 없는대신 밀착력이 없어서 뭔가 지우개똥처럼
+톡톡 떨어짐
+
+그래서 손으로 한번 더 문질해줘야되는 귀찮음 있음",negative,negative,negative,,,[],[],missing,,[],[],missing
+negative_review_samples,oliveyoung,oliveyoung::A000000208231,A000000208231,18269940,[15년연속 1위/4매] 메디힐 에센셜 마스크팩 고기능 7종 골라담기,메디힐,maskpack,1.0,저에게는 맞지 않은 마스크팩이였습니다.. 메디힐 티트리는 잘맞는데 마데카소사이드는 잘 안맞나봐요 다시는 구매 안하려구요.. 트러블난거 진정시키느라 1주일 넘게 걸렸어요ㅠㅠ 재구매의사 없습니다,negative,negative,negative,,,[],[],missing,,[],[],missing
+negative_review_samples,oliveyoung,oliveyoung::A000000232724,A000000232724,59650673,[NO.1 미스트세럼] 달바 퍼스트 스프레이 세럼 100ml 2개 기획,달바,skincare,4.0,자극 없는데 눈에 들어가면 엄청 아파서 조심해서 쓰세용^_^제품력은 딱히 모르겠고 그냥 다이소에 파는 품절대란 토너 사서 쓸듯,positive,negative,negative,지성,지성,['지성'],[],ok,"미백, 보습",['미백' '보습'],[],ok
+negative_review_samples,oliveyoung,oliveyoung::A000000252917,A000000252917,60083784,[온라인단독] 라로슈포제 시카플라스트 밤 B5+& 멀티리페어 크림 B5 100ml 기획 (+시카에센스 7.5ml*2),라로슈포제,skincare,1.0,백탁심한 무기자차 선크림바르는 느낌인데요. 겉은 번들한데 속은 또 건조합니다. 수부지타입이에요. 그래도 샘플쓸땐 괜찮길래 편평사마귀 빼고 샀는데...일주일쓰고 피부 뒤집어졌어요ㅜㅜ 민감성아니라서 왠만하면 괜찮은데 왕건이 트러블이 엄청나고 그게 흉이 되더라구요ㅜ,negative,negative,negative,지성,지성,['지성'],[],ok,"트러블, 각질",['트러블' '각질'],[],ok
+negative_review_samples,oliveyoung,oliveyoung::A000000224292,A000000224292,35914370,라로슈포제 시카플라스트 멀티 리페어 크림 100ml 기획 (+멜라B3 세럼 3ml 증정),라로슈포제,skincare,1.0,"역시 리뷰가 좋다고 좋은건아닌듯 
+제피부에는 최악이엇어요
+따가워죽는줄알앗음 ㄹㅇ",negative,negative,negative,,,[],[],missing,,[],[],missing
+negative_review_samples,oliveyoung,oliveyoung::A000000231833,A000000231833,59974820,[화잘먹] 한율 쑥히알 수분 크림 60ml 기획(+31ml),한율,skincare,5.0,다른 곳은 괜찮은데 코 옆에 바를 때마다 살짝 따가워요 얇은 쪽 피부는 조심해서 발라야 할 거 같아요,positive,negative,negative,,,[],[],missing,,[],[],missing
+negative_review_samples,oliveyoung,oliveyoung::A000000206350,A000000206350,23487695,[기미잡티집착템] 이지듀 EX DW-EGF 멜라토닝 패치 5g*4매,이지듀,maskpack,1.0,제품에 비해 가격이 비싸요. 예민한 피부가 아닌데 자극이 있어요. 붙이고 있는동안 너무 간지러워서 결국 시간 다 못 채우고 뗐어요 ㅠㅠ 시트 마스크보다 뗐을때 피부 미백 차이를 잘 못 느끼겠어요....,negative,negative,negative,,,[],[],missing,,[],[],missing
+negative_review_samples,coupang,coupang::coupang_5511214,coupang_5511214,coupang_107630927,"코리아나 발효 화이트닝 3종 세트, 1세트74%110,000원28,150원(1세트당 28,150원)내일(목)",,beauty,1.0,"다쓰고 나서 후기를 쓰다보니 지각후기입니다
+환절기가 되면서 피부가 너무 아프다
+나이먹어서 피부가 안좋아졌나
+요즘잠을 잘 못자서 당기고 아픈가 싶었는데
+다른 화장품 사용하니 피부가 아프고 당기는 문제가
+해결됐네요
+이건 무슨 의미일까 제품이 별로라는 거 겠죠
+사람마다 체질이 다르고 피부가 다르겠지만
+다시는 구매하지 않겠노라 다짐했습니다~!!!",negative,negative,negative,,,[],[],missing,,[],[],missing
+negative_review_samples,oliveyoung,oliveyoung::A000000219609,A000000219609,37674284,[대용량/트러블1등] 파티온 노스카나인 트러블 세럼 50ml 리필 기획(+리필40ml+크림10ml),파티온,skincare,1.0,"ㅂㄹㄱㄹ 징ㅋ 제품 쓰다가 유튜브 추천으로 한번 써볼까 해서 구매해봤는데 이거 쓰자마자 바로 뒤집어짐 ㅠㅠ 트러블에 효과 전혀 없고 ,, 저하고는 안맞는것같습니다 ,, 대신에 담날 안색이 쫌 밝아지는? 그럼머함 여드름 3개넘게 올라오는데 ,,,,,,,
+저는 너무 별로 였어요 아까워서 메이크업전 스킨케어로 사용중입니다 ,,",negative,negative,negative,,,[],[],missing,,[],[],missing
+negative_review_samples,oliveyoung,oliveyoung::A000000205870,A000000205870,51739981,[여드름/좁쌀] 스트라이덱스 맥스플러스패드 55매,스트라이덱스,maskpack,1.0,좁쌀 사라지는지도 모르겠고 걍 따갑고 건조하기만해요 건성이면 더더욱 사지마세요..,negative,negative,negative,지성,지성,['지성'],[],ok,,[],[],missing
+negative_review_samples,oliveyoung,oliveyoung::A000000209910,A000000209910,48400683,제로이드 포밍 클렌저 240ml,제로이드,cleansing,1.0,"와 이거 쓰자마자 바로 모낭염같이 우두두두 올라와서 겁나 놀람
+쓰던거로 다시 세안하니 다 들어감",negative,negative,negative,,,[],[],missing,,[],[],missing
+negative_review_samples,oliveyoung,oliveyoung::A000000185429,A000000185429,33016758,[1+1] 프리메라 필링 투 폼 클렌저 120ml 1+1 기획/단품,프리메라,cleansing,4.0,"냅다 얼굴에 올리지말고 손에 거품내서 쓰고있는데
+이럴거면 다른거살게융..",positive,negative,negative,민감성,민감성,['민감성'],[],ok,"C11, C12",[],['C11' 'C12'],code_only
+negative_review_samples,oliveyoung,oliveyoung::A000000253295,A000000253295,58999911,[구매인증이벤트/수분촉촉선] 닥터지 스킨부스트 PDRN 선세럼 50ml 기획 (+10ml),닥터지,suncare,3.0,0.1도 안끈적거리는건 좋은데 자꾸 때처럼 밀려서 선세럼 바르기 전에 바르는 앰플 때문인 줄 알고 안밀리는거 찾으려고 집에 있는 앰플들 돌려가면서 써봤는데 진짜 어떤 앰플을 쓰든 다 밀림;;;;,neutral,negative,negative,,,[],[],missing,,[],[],missing
+negative_review_samples,coupang,coupang::coupang_1665858959,coupang_1665858959,coupang_414932959,"미샤 래디언스 퍼펙트핏 쿠션 15g, 23호 샌드, 1개48%22,000원11,230원(10g당 7,487원",,beauty,1.0,"밀어발랐다가 난리남
+왠만하면 후기 안쓰는데 ㅋㅋㅋ써본것 중에 너무 별로라
+아무리 저렴한 제품이라도 참고하고 구매하시라고 리뷰남깁니다.
+밀착이 되는 느낌이 아니라 미스트 뿌리고 파우더팩트 바르는 느낌
+부드럽게 발리는게 아니라 퍼석하게 발리며 오후가 되면 피부가 파우더 제형과 함께 건조하게 일어나여ㅋㅋ
+심지어는 조금 수정하려고 하다가 지우개 처럼 밀려나와서 넘 놀람ㅋㅋㅋㅋ
+내피부가 아주 조금이라도 건조하시다면 이점 꼭 참고하세여!",negative,negative,negative,,,[],[],missing,,[],[],missing
+negative_review_samples,oliveyoung,oliveyoung::A000000233468,A000000233468,61515420,"메디힐 콜라겐 캡슐 패치 60매 2종 (레티놀, 비타민C)",메디힐,maskpack,2.0,젤리처럼 얼굴에 뭐가 남아요. 하고 나서 떼어내면 깔끔한 느낌이 안 나요,negative,negative,negative,,,[],[],missing,,[],[],missing
+negative_review_samples,oliveyoung,oliveyoung::A000000165797,A000000165797,54370048,[대용량/올영단독] 넘버즈인 1번 말끔 순삭 클렌징 오일 400ml 대용량,넘버즈인,cleansing,1.0,"아니 이거 지성인들 완전 비추임 아니 그리고 건성들도 
+
+아니 오일로만 단독 세안을 하진 않지만, 이걸로 단독 세안을 하면 얼굴에 기름기가 생겨요 
+
+어떤 느낌이냐면 얼굴에 콩기름을 묻이고 물로 행구면 얼굴에 기름 둥둥 묻어있는 거 아니죠 딱 그거에요",negative,negative,negative,,,[],[],missing,,[],[],missing
+negative_review_samples,oliveyoung,oliveyoung::A000000245091,A000000245091,53953021,에스트라 아토베리어365 세라-히알 속수분 앰플 30ml+30ml 리필 기획,에스트라,skincare,1.0,"환절기 이슈로 애초부터 피부가 살짝 뒤집어져 있는 상태긴 했지만 심한 상태는 아니었습니다 그러나 이 제품을 바른 그 직후부터 심하게 빨개지고 부어오르며 가려움, 진물까지 올라왔습니다 살면서 어느정도 뒤집어져는 봤어도 이 정도로 뒤집어져본건 처음임 피부 뒤집어진 이유가 이 제품 때문은 아니겠지 하는 마음으로 한달동안 일주일 주기로 총 3번정도 발라봤는데 이 앰플 바른 그날부터 확 심해지고 일주일 정도 텀을 둔 후 피부 진정됐다 싶어서 발라보면 더 뒤집어졌음 민감성 피부이신분들은 구매 비추",negative,negative,negative,,,[],[],missing,,[],[],missing
+negative_review_samples,oliveyoung,oliveyoung::A000000198780,A000000198780,32312083,[원조율무팩] 리터니티 율무 요철모공 팩 120g 기획세트,리터니티,maskpack,1.0,"부드럽게 일주일 정도 매일 사용해보았는데 갑자기 
+편평사마귀가 늘어나고 간지러워서 피부과 다녀왔네요 ㅠㅠ
+그리고 나서는 그냥 방치중.. 안맞아서 돈이 아까운 상태
+팩 정말 다양하게 사용해봤지만 이런 경유는 처음이예요
+파부타입 고르라고 되어있어 해당사항없어 임의로 체크했음",negative,negative,negative,,,[],[],missing,,[],[],missing
+negative_review_samples,oliveyoung,oliveyoung::A000000198631,A000000198631,30798759,식물나라 제주 알로에 촉촉 수딩젤 200ml 단품/2입,식물나라,suncare,2.0,알로에가 안 맞는건지 이 제품이 자극 받는건지.. 잘 모르겠지만 ㅜㅜ 저함테는 너무 안 맞아요 발랐다가 괜히 얼굴만 더 뒤집어졌네요,negative,negative,negative,,,[],[],missing,,[],[],missing
+negative_review_samples,oliveyoung,oliveyoung::A000000189837,A000000189837,31090961,[흔적미백] 넘버즈인 5번 글루타치온C 흔적 앰플 30ml+30ml 듀오기획,넘버즈인,skincare,1.0,"정말 만족하며 잘 쓰던 앰플이라 1+1으로 재구매 했는데 갑자기 간지럽고 모낭염이 올라오더라고요
+설마 싶어 며칠 간격을 두고 다시 발라봐도 그래요
+이상이 없던 제품이었는데 왜 그런가 싶어 성분표를 봤더니 제 피부에 트러블 성분인 기존에 없던 비피다발효물이 들어있더러고요
+이번에 리뷰남기러 들어와 다시보니 또 발효성분이 빠져 있습니다
+
+왜 성분이 고지도 없이 변하나요?
+같은 제품도 살때마다 성분체크를 해야하나요?
+배신감 느낍니다
+뽑기도 아니고 다시는 구매 안합니다",negative,negative,negative,복합성,복합성,['복합성'],[],ok,"미백, 주름",['미백' '주름'],[],ok
+positive_review_samples,oliveyoung,oliveyoung::A000000197743,A000000197743,58411870,[5분 마스크팩] 스킨푸드 데일리 마스크 30매 6종,스킨푸드,maskpack,5.0,편하게 꺼내 쓰기좋아여 감자써봤는데 무난한거수같습니다,positive,positive,positive,,,[],[],missing,,[],[],missing
+positive_review_samples,musinsa,musinsa::2637406,2637406,musinsa_2637406_cfa77e11,어반쉐이드 쿨카밍 선스틱 SPF50+ PA++++ 20g,dewytree,beauty,5.0,발림성 좋아요 그리고 시원해지지는 않고 냄새만 시원,positive,positive,positive,복합성 · 진정/보습 · 모공 · 미백,복합성,['복합성'],['진정' '보습' '모공' '미백'],ok,,[],[],missing
+positive_review_samples,musinsa,musinsa::3098201,3098201,musinsa_3098201_ec8ef9b9,[사은품 증정] (대용량) 레티놀 시카 흔적 앰플 50mL + 10mL 2개,innisfree,beauty,5.0,이젠 없어선 안되는 필수 스킨케어 제품입니다 좋아요,positive,positive,positive,복합성 · 여드름 · 유수분조절 · 진정/보습,복합성,['복합성'],['트러블' '유수분 조절' '진정' '보습'],ok,,[],[],missing
+positive_review_samples,coupang,coupang::coupang_9488566,coupang_9488566,coupang_13509394,"보닌 더 스타일 남성 기초 2종 세트, 1세트할인51%55,000원26,870원(1세트당 26,870원)내일",,beauty,5.0,"어제 구매하고 오늘 아침에받았어여~~ ㅎ
+타업체에서 구매하려다가,
+쿠팡에서 찾아보니,
+금액차가있어서 저렴히 구입했어여~^^",positive,positive,positive,,,[],[],missing,,[],[],missing
+positive_review_samples,musinsa,musinsa::4265743,4265743,musinsa_4265743_bb5e212a,[강력고정/24시간 지속력] 포뷰트 프리즈 헤어 스프레이 200ml,forbeaut,beauty,5.0,행사기간이라 합리적인 가격에 좋은 제품을 구매할 수 있었습니다. 고정력도 우수한데 세척력도 좋은 제품이네요,positive,positive,positive,nan,,[],[],missing,,[],[],missing
+positive_review_samples,musinsa,musinsa::2570504,2570504,musinsa_2570504_d74a9caa,DMT 페이셜 수분 크림 150ml+추가증정,physiogel,beauty,5.0,매번쓰는건데 할인 많이 받아서 구매했어요 짱짱맨~,positive,positive,positive,복합성 · 진정/보습,복합성,['복합성'],['진정' '보습'],ok,,[],[],missing
+positive_review_samples,oliveyoung,oliveyoung::A000000190369,A000000190369,28781790,[판매량 1억개 돌파/대용량] AHC 텐 레볼루션 리얼 아이크림 포 페이스 더블 기획,AHC,skincare,5.0,"사용해보니 눈시림 아주 사알짝 잇어요 
+노화의 시작은 25세라더니.  눈 밑 주름까지 신경쓰야서 구매했어요 용량도 많아서 아직까지 잘 쓰고잇어요",positive,positive,positive,민감성,민감성,['민감성'],[],ok,"보습, C09",['보습'],['C09'],ok
+positive_review_samples,oliveyoung,oliveyoung::A000000185112,A000000185112,36578381,브링그린 프레시 마스크 1매/10매 (히알루 수분/티트리 진정/글루타치온 톤업/알로에 수딩),브링그린,maskpack,5.0,알로에 수딩 마스크팩이라서 수분감이 넘쳐서 좋아요 ~~!!,positive,positive,positive,건성,건성,['건성'],[],ok,미백,['미백'],[],ok
+positive_review_samples,musinsa,musinsa::3505072,3505072,musinsa_3505072_329fab50,[SET] 다이브인 저분자 히알루론산 토너 300ml  x  2개 (+다이브인 크림 20ml),torriden,beauty,5.0,토리든 토너 가격도 괜찮아서 여러번 구매하게 되네요,positive,positive,positive,지성 · 진정/보습,지성,['지성'],['진정' '보습'],ok,,[],[],missing
+positive_review_samples,musinsa,musinsa::4240698,4240698,musinsa_4240698_98454150,퍼퓸 버블 대용량 핸드워시 515ml 5종 선물세트,hetrasbeauty,beauty,5.0,세정력 좋고 대용량이라 좋아요 가성비 너무좋은데요? 디자인도 깔꿈하고 향은 전부 대중적인향이라 호불호 없이 잘쓸거같아요,positive,positive,positive,복합성 · 모공 · 진정/보습 · 유수분조절,복합성,['복합성'],['모공' '진정' '보습' '유수분 조절'],ok,,[],[],missing
+positive_review_samples,musinsa,musinsa::2959816,2959816,musinsa_2959816_1c00ad65,[SET] 다이브인 저분자 히알루론산 세럼 50ml+40ml (+시카컨트롤세럼 10ml),torriden,beauty,5.0,몇년째 꾸준히 사용하고 있는 토리든 세럼입니다~,positive,positive,positive,진정/보습 · 유수분조절,,[],['진정' '보습' '유수분 조절'],no_base_skin_type,,[],[],missing
+positive_review_samples,musinsa,musinsa::6213430,6213430,musinsa_6213430_c0f99318,언리시아 선셋 대즐 글로스 밤,unleashia,beauty,3.0,"컬러도 이쁜데 촉촉해서 좋았어요
+근데 저대로 바르기는 조금힘들어서 손으로 퍼뜨려줘야합니다!!",positive,positive,positive,건성 · 진정/보습 · 유수분조절 · 미백,건성,['건성'],['진정' '보습' '유수분 조절' '미백'],ok,,[],[],missing
+positive_review_samples,oliveyoung,oliveyoung::A000000205004,A000000205004,32076115,[피지케어/화잘먹팩] 토르홉 무스타 콩테 체인저블 퀵 마스크 60g/90g,토르홉,maskpack,5.0,"설명서 안읽고 두껍게 올렸다가 약간 당황했어요 ㅎㅎㅎ
+박스포장을 바로 버리는 저로서는 제품 용기에도 설명이 있으면 좋을거같다는 생각이 드네요!
+
+오버휩된 생크림 제형이예요 
+퐁신퐁신~!
+빠르게 롤링해서 워시오프할수있는 장점이 있어요
+자극적이지 않고, 촉촉한 곡물팩 이예요
+
+롤링할수록 챠콜이 퍼지는거같이 신기했어요
+적은양으로도 팩을 할수있어서 오래 쓸거같아요 ㅎㅎ",positive,positive,positive,건성,건성,['건성'],[],ok,"미백, 주름",['미백' '주름'],[],ok
+positive_review_samples,coupang,coupang::coupang_18114848,coupang_18114848,coupang_182927413,"토니모리 루미너스 여신광채 비비크림 SPF37 PA++, 1호 화사한 베이지, 45g, 1개32%15,000",,beauty,5.0,"예전에 토리모리 여신광채 써서 괜찮다는 느낌을 
+받았어서~ 
+다시 한번 발라보려고 주문해봤어용~^^
+가격이 정말 저렴한것 같아요~ 
+좀 매트한 느낌은 있어서 좀묽은 비비크림이라든지
+썬크림 섞어발라도 괜찮아요~^^ 
+썬지수도 35면 좋고~ 
+제가 얼굴이 좀  까무잡잡한편이라~ 
+바르면 하애지지만 좀있음 살짝 날아가긴해요~ 
+발림성도 가격대비 너무 괜찮아서~ 
+아주 굿굿굿~ 
+사실 비싼것도 그락저락 이드라구요ㅜㅜ
+어떻게 요가격에 요런제품이 나올수가 있는지~ 
+남는게 있나요?ㅎ 
+양도 많아서~ 오래쓴 기억입니다~ 
+이번에도 써보고 좋으면 궂이 비싼거 쓸필요없이
+토리모리제품 으로 갈아타야될듯요~^^",positive,positive,positive,,,[],[],missing,,[],[],missing
+positive_review_samples,oliveyoung,oliveyoung::A000000254427,A000000254427,58756825,[100만장 판매/단독기획] 프롬리에 EGF 피지팩 하이퍼 액티브 모공 피지 마스크 4+1 증정 기획세트,프롬리에,maskpack,3.0,궁금해서 구매해봤는데 좋은지도 잘 모르겠고 이제 다시 구매안할 것 같아요. 가격도 비싸고ㅠ,positive,positive,positive,,,[],[],missing,,[],[],missing
+positive_review_samples,musinsa,musinsa::3341580,3341580,musinsa_3341580_34affaea,수퍼 밀크 100g - 컨디셔닝 헤어 프라이머,lush,beauty,5.0,달달한 향이 나요 러쉬갔다가 좋아서 무신사로 구매햇어요,positive,positive,positive,nan,,[],[],missing,,[],[],missing
+positive_review_samples,musinsa,musinsa::3341580,3341580,musinsa_3341580_5d7cdf39,수퍼 밀크 100g - 컨디셔닝 헤어 프라이머,lush,beauty,5.0,이거진짜 뿌리면 머리에서 좋는냄새가요 달달한냄새!!,positive,positive,positive,nan,,[],[],missing,,[],[],missing
+positive_review_samples,oliveyoung,oliveyoung::A000000222849,A000000222849,57887020,[5월 올영픽][속건조해결] 파티온 포도당 하이드로 에센스토너 300ml 더블 기획(2개입),파티온,skincare,5.0,보습력이 좋아서 재구매해서 사용하고있어요 용량이  넉넉하고 수분감이 정말 좋아요,positive,positive,positive,,,[],[],missing,,[],[],missing
+positive_review_samples,oliveyoung,oliveyoung::A000000253619,A000000253619,59711180,[포켓몬에디션/마이크로버블] 마녀공장 퓨어 소이빈 클렌징폼 120ml 2입 기획 (+스티커),마녀공장,cleansing,5.0,처음 사용해봤는데 정말 쫀쫀해요~  조금만 사용해도 거품도 많이 나고 클렌징하는데 전혀 무리가 없어요! 제품이 순하고 뽀득하게 잘 닦여 너무 좋네요~~ 강추해요!,positive,positive,positive,,,[],[],missing,,[],[],missing
+positive_review_samples,musinsa,musinsa::2151083,2151083,musinsa_2151083_d87db492,빠지는 모발 고민해결 두피강화 샴푸 400ml 2입 + 증정,laboh,beauty,5.0,"두피까지 아주 깨끗하게 세정되는 느낌이 좋아요
+향도 너무 강하지 않아서 거부감 없어서 좋고
+용량도 매우 커서 오래 사용중입니다!",positive,positive,positive,nan,,[],[],missing,,[],[],missing
+neutral_review_samples,oliveyoung,oliveyoung::A000000205435,A000000205435,43692231,[빙하수쿨링패드/더블기획] 셀퓨전씨 포스트 알파 쿨링 패드 70매 더블기획(쿨링/시카쿨링),셀퓨전씨,maskpack,2.0,"생각보다 안 시원함... 너무 기대를 해서 그런것도 있는걱
+같은데 ㅠㅠ 생각보다 엄청 시원하다! 이건 아녜요",negative,neutral,neutral,복합성,복합성,['복합성'],[],ok,주름,['주름'],[],ok
+neutral_review_samples,oliveyoung,oliveyoung::A000000231175,A000000231175,53320933,[5월 올영픽/포켓몬에디션] 듀이트리 하이아미노 올 클렌징 밀크 200ml 기획 (+리필200ml+50ml+세안밴드),듀이트리,cleansing,1.0,가성비는 좋은데...... 세정력이 별로에요. 걍 다른 거 사세요,negative,neutral,neutral,,,[],[],missing,,[],[],missing
+neutral_review_samples,musinsa,musinsa::1619465,1619465,musinsa_1619465_0d3f8ac1,울트라리페어 로션 350ml 2 pack + 트러블 미스트 30ml 증정,illiyoon,beauty,4.0,지금까지 썼던 제품 중에서는 제일 좋은 것 같아요! 아쉬운 점은 유분감이 조금 느껴지고 흡수되는 데 시간이 좀 걸려용ㅠ 무거운 제형이라 어쩔 수 없는 것 같아요,positive,neutral,neutral,복합성 · 진정/보습 · 여드름 · 유수분조절,복합성,['복합성'],['진정' '보습' '트러블' '유수분 조절'],ok,,[],[],missing
+neutral_review_samples,oliveyoung,oliveyoung::A000000226493,A000000226493,44539077,[저자극클렌저] 메디큐브 PDRN 젤투폼 클렌저 200ml 기획(+클렌징브러쉬 증정),메디큐브,cleansing,5.0,올영에서 보다가 궁금에서 구매 했어요!!메디큐브는 믿고 쓰니까 pbrn라인 다른 제품도 같이 사용 하고 싶어요😍🫶🩷,positive,neutral,neutral,,,[],[],missing,,[],[],missing
+neutral_review_samples,oliveyoung,oliveyoung::A000000235364,A000000235364,58974700,[3D진동클렌징/모공케어] 메디큐브 에이지알 부스터 진동 클렌저 헤드 (베이지/핑크),메디큐브 에이지알,cleansing,4.0,화장 잘 지워지고 괜찮은데 ems 기능은 효과 있는 건지 잘 모르겠어요,positive,neutral,neutral,,,[],[],missing,,[],[],missing
+neutral_review_samples,musinsa,musinsa::2172345,2172345,musinsa_2172345_9192cabc,아토베리어365 크림 80ml,aestura,beauty,5.0,묵직한 느낌에 부드러움이 있어서 바르기 좋음. 여름에는 좀 어려울 것 같지만 그 외 건조할때 바르면 좋을듯,positive,neutral,neutral,복합성 · 진정/보습 · 여드름 · 모공,복합성,['복합성'],['진정' '보습' '트러블' '모공'],ok,,[],[],missing
+neutral_review_samples,musinsa,musinsa::4701719,4701719,musinsa_4701719_3fd41dfe,레이저 UV 썬스크린 50ml,cellfusionc,beauty,5.0,제가 얼굴에 땀이나 유분이 많은 편은 아닌데도 다른 썬크림은 바르고 시간이 지나면 너무 기름져서 힘든데 이건 좀 덜한 것 같아요!,positive,neutral,neutral,복합성 · 진정/보습 · 미백,복합성,['복합성'],['진정' '보습' '미백'],ok,,[],[],missing
+neutral_review_samples,oliveyoung,oliveyoung::A000000240555,A000000240555,48792806,[대용량] 셀리맥스 브라이트닝 모공잡티패드 기획 (80매+20매),셀리맥스,maskpack,3.0,패드 질감은 너무 좋은데 효과 없음 비싸기도 하고... 재구매텀은 놉,neutral,neutral,neutral,,,[],[],missing,,[],[],missing
+neutral_review_samples,oliveyoung,oliveyoung::A000000250344,A000000250344,61587024,[자극도ZERO]아이오페 레티놀 슈퍼 바운스 세럼 20ml 기획 (+15ml),아이오페,skincare,3.0,정말 자극이 없는데 그렇다고해서 큰 효과보기도 좀 어려워요ㅠㅠ,positive,neutral,neutral,,,[],[],missing,,[],[],missing
+neutral_review_samples,oliveyoung,oliveyoung::A000000245794,A000000245794,55773998,[화잘먹/단독기획]폴라초이스 바하 리퀴드 엑스폴리언트 118ml 기획 (+바하 리퀴드 30ml),폴라초이스,skincare,4.0,아직은 잘 모르겠어요 꾸준히 쓰고 있긴 한데 우선 한 병 다 써봐야 알 것 같음,positive,neutral,neutral,,,[],[],missing,,[],[],missing
+neutral_review_samples,musinsa,musinsa::3098202,3098202,musinsa_3098202_278cd4c8,레티놀 시카 흔적 앰플 30mL,innisfree,beauty,4.0,냄새는 좀 이상한데 발림성 괜찮구여 사실 효과 있는지 모르겠고 안 바른 것 보단 나을 거 같아서 발라요,positive,neutral,neutral,복합성 · 모공 · 여드름,복합성,['복합성'],['모공' '트러블'],ok,,[],[],missing
+neutral_review_samples,musinsa,musinsa::2458627,2458627,musinsa_2458627_d82aef7b,RC BB557 GREEN 선글라스,reclow,beauty,5.0,겉 모습이나 디자인적으로는 이쁘네요. 선글라스의 기능을 제대로 하는지는 아직 사용해보지 않아사 모르겠습니다. 그래도 디자인은 이쁘니 잘 사용할게요,positive,neutral,neutral,nan,,[],[],missing,,[],[],missing
+neutral_review_samples,oliveyoung,oliveyoung::A000000162370,A000000162370,23310644,[더블기획] 마녀공장 갈락 필링젤 대용량 120mlX2 더블 기획,마녀공장,cleansing,3.0,필링젤 주기적으로 사용하는데 세일하고 판매량 많길래 사봤어요,neutral,neutral,neutral,,,[],[],missing,,[],[],missing
+neutral_review_samples,oliveyoung,oliveyoung::A000000188876,A000000188876,28627202,[화잘먹/쌀알춘식이스트레스볼] 조선미녀 맑은쌀 선크림 50ml 2입 기획,조선미녀,suncare,3.0,첨에 사고나서는 맘에 들어서 좋은 평 썼었는데 사용하다 보니 치명적인 단점 발견.. 눈이 시림.. 심지어 전 웬만한 썬크림은 다 괜찮은데 이 순한제형이 눈시림이 있다니 아쉽네요,neutral,neutral,neutral,,,[],[],missing,,[],[],missing
+neutral_review_samples,oliveyoung,oliveyoung::A000000187675,A000000187675,12871007,[하루특가/산뜻청량] 라운드랩 포 맨 자작나무 토너/로션 2종 기획 (+쉐이빙폼 40ml),라운드랩,skincare,3.0,수분감 발림성 뭐 이런건 다 좋은데 토너 뚜껑이 너무 허술?해서 손에 덜다가 너무 많이 덜거나 옆으로 세거나 해서 사용하기 매우매우매우 불편합니다,neutral,neutral,neutral,,,[],[],missing,,[],[],missing
+neutral_review_samples,musinsa,musinsa::1619465,1619465,musinsa_1619465_03aac3c9,울트라리페어 로션 350ml 2 pack + 트러블 미스트 30ml 증정,illiyoon,beauty,5.0,극건성한테 맞습니다 피부가 진짜 건조한 편인데 잘 쓰고있습니다 보습력이 좋아요,positive,neutral,neutral,nan,,[],[],missing,,[],[],missing
+neutral_review_samples,oliveyoung,oliveyoung::A000000245680,A000000245680,58129972,[망곰 콜라보] 넘버즈인 3번 도자기결 파데스킵 톤업베이지 50ml 기획 (+35ml+스패츌라),넘버즈인,suncare,2.0,처음 화장을 하는거라 파데프리형식인걸 구매하고싶어서 구매를 했는데 지인이 추천해줘서 구매하게 됬는데 저랑은 안맞는것같아요 그래서 조금 아쉬웠는데 톤 보정은 짱인것같아요 근데 밝은 호수 쓰고 계신분은 밝은 파데랑 섞어서 쓰면 좋을것같아요,negative,neutral,neutral,,,[],[],missing,,[],[],missing
+neutral_review_samples,oliveyoung,oliveyoung::A000000207439,A000000207439,30121820,[블랙헤드케어템]브링그린 티트리 시카 포어 코팩 5매입,브링그린,maskpack,3.0,어제 사서 바로 해봤는데 진짜 화헤블헤 1도 안불려져서 다음주에 다시 해보려구요..,neutral,neutral,neutral,지성,지성,['지성'],[],ok,"미백, 보습",['미백' '보습'],[],ok
+neutral_review_samples,musinsa,musinsa::3317081,3317081,musinsa_3317081_fc02290f,포어제로 오일 컨트롤 선스틱 2개 세트,obge,beauty,5.0,썬스틱 사용하면 일반 썬크림 귀찮아서 이것만 써요,positive,neutral,neutral,복합성 · 유수분조절,복합성,['복합성'],['유수분 조절'],ok,,[],[],missing
+neutral_review_samples,oliveyoung,oliveyoung::A000000222790,A000000222790,56586277,아누아 어성초 피지쏙 모공 폼 150ml 2입 기획,아누아,cleansing,3.0,알갱이를 잘 녹여서 써야해요 세정력은 괜찮은 듯 해요  잘 사용하고 있어요,neutral,neutral,neutral,,,[],[],missing,,[],[],missing
+base_skin_type_samples,oliveyoung,oliveyoung::A000000205435,A000000205435,43692231,[빙하수쿨링패드/더블기획] 셀퓨전씨 포스트 알파 쿨링 패드 70매 더블기획(쿨링/시카쿨링),셀퓨전씨,maskpack,2.0,"생각보다 안 시원함... 너무 기대를 해서 그런것도 있는걱
+같은데 ㅠㅠ 생각보다 엄청 시원하다! 이건 아녜요",negative,neutral,neutral,복합성,복합성,['복합성'],[],ok,주름,['주름'],[],ok
+base_skin_type_samples,musinsa,musinsa::2637406,2637406,musinsa_2637406_cfa77e11,어반쉐이드 쿨카밍 선스틱 SPF50+ PA++++ 20g,dewytree,beauty,5.0,발림성 좋아요 그리고 시원해지지는 않고 냄새만 시원,positive,positive,positive,복합성 · 진정/보습 · 모공 · 미백,복합성,['복합성'],['진정' '보습' '모공' '미백'],ok,,[],[],missing
+base_skin_type_samples,musinsa,musinsa::3098201,3098201,musinsa_3098201_ec8ef9b9,[사은품 증정] (대용량) 레티놀 시카 흔적 앰플 50mL + 10mL 2개,innisfree,beauty,5.0,이젠 없어선 안되는 필수 스킨케어 제품입니다 좋아요,positive,positive,positive,복합성 · 여드름 · 유수분조절 · 진정/보습,복합성,['복합성'],['트러블' '유수분 조절' '진정' '보습'],ok,,[],[],missing
+base_skin_type_samples,musinsa,musinsa::2570504,2570504,musinsa_2570504_d74a9caa,DMT 페이셜 수분 크림 150ml+추가증정,physiogel,beauty,5.0,매번쓰는건데 할인 많이 받아서 구매했어요 짱짱맨~,positive,positive,positive,복합성 · 진정/보습,복합성,['복합성'],['진정' '보습'],ok,,[],[],missing
+base_skin_type_samples,oliveyoung,oliveyoung::A000000190369,A000000190369,28781790,[판매량 1억개 돌파/대용량] AHC 텐 레볼루션 리얼 아이크림 포 페이스 더블 기획,AHC,skincare,5.0,"사용해보니 눈시림 아주 사알짝 잇어요 
+노화의 시작은 25세라더니.  눈 밑 주름까지 신경쓰야서 구매했어요 용량도 많아서 아직까지 잘 쓰고잇어요",positive,positive,positive,민감성,민감성,['민감성'],[],ok,"보습, C09",['보습'],['C09'],ok
+base_skin_type_samples,oliveyoung,oliveyoung::A000000185112,A000000185112,36578381,브링그린 프레시 마스크 1매/10매 (히알루 수분/티트리 진정/글루타치온 톤업/알로에 수딩),브링그린,maskpack,5.0,알로에 수딩 마스크팩이라서 수분감이 넘쳐서 좋아요 ~~!!,positive,positive,positive,건성,건성,['건성'],[],ok,미백,['미백'],[],ok
+base_skin_type_samples,musinsa,musinsa::3505072,3505072,musinsa_3505072_329fab50,[SET] 다이브인 저분자 히알루론산 토너 300ml  x  2개 (+다이브인 크림 20ml),torriden,beauty,5.0,토리든 토너 가격도 괜찮아서 여러번 구매하게 되네요,positive,positive,positive,지성 · 진정/보습,지성,['지성'],['진정' '보습'],ok,,[],[],missing
+base_skin_type_samples,musinsa,musinsa::4240698,4240698,musinsa_4240698_98454150,퍼퓸 버블 대용량 핸드워시 515ml 5종 선물세트,hetrasbeauty,beauty,5.0,세정력 좋고 대용량이라 좋아요 가성비 너무좋은데요? 디자인도 깔꿈하고 향은 전부 대중적인향이라 호불호 없이 잘쓸거같아요,positive,positive,positive,복합성 · 모공 · 진정/보습 · 유수분조절,복합성,['복합성'],['모공' '진정' '보습' '유수분 조절'],ok,,[],[],missing
+base_skin_type_samples,musinsa,musinsa::6213430,6213430,musinsa_6213430_c0f99318,언리시아 선셋 대즐 글로스 밤,unleashia,beauty,3.0,"컬러도 이쁜데 촉촉해서 좋았어요
+근데 저대로 바르기는 조금힘들어서 손으로 퍼뜨려줘야합니다!!",positive,positive,positive,건성 · 진정/보습 · 유수분조절 · 미백,건성,['건성'],['진정' '보습' '유수분 조절' '미백'],ok,,[],[],missing
+base_skin_type_samples,oliveyoung,oliveyoung::A000000232724,A000000232724,59650673,[NO.1 미스트세럼] 달바 퍼스트 스프레이 세럼 100ml 2개 기획,달바,skincare,4.0,자극 없는데 눈에 들어가면 엄청 아파서 조심해서 쓰세용^_^제품력은 딱히 모르겠고 그냥 다이소에 파는 품절대란 토너 사서 쓸듯,positive,negative,negative,지성,지성,['지성'],[],ok,"미백, 보습",['미백' '보습'],[],ok
+base_skin_type_samples,oliveyoung,oliveyoung::A000000205004,A000000205004,32076115,[피지케어/화잘먹팩] 토르홉 무스타 콩테 체인저블 퀵 마스크 60g/90g,토르홉,maskpack,5.0,"설명서 안읽고 두껍게 올렸다가 약간 당황했어요 ㅎㅎㅎ
+박스포장을 바로 버리는 저로서는 제품 용기에도 설명이 있으면 좋을거같다는 생각이 드네요!
+
+오버휩된 생크림 제형이예요 
+퐁신퐁신~!
+빠르게 롤링해서 워시오프할수있는 장점이 있어요
+자극적이지 않고, 촉촉한 곡물팩 이예요
+
+롤링할수록 챠콜이 퍼지는거같이 신기했어요
+적은양으로도 팩을 할수있어서 오래 쓸거같아요 ㅎㅎ",positive,positive,positive,건성,건성,['건성'],[],ok,"미백, 주름",['미백' '주름'],[],ok
+base_skin_type_samples,musinsa,musinsa::1619465,1619465,musinsa_1619465_0d3f8ac1,울트라리페어 로션 350ml 2 pack + 트러블 미스트 30ml 증정,illiyoon,beauty,4.0,지금까지 썼던 제품 중에서는 제일 좋은 것 같아요! 아쉬운 점은 유분감이 조금 느껴지고 흡수되는 데 시간이 좀 걸려용ㅠ 무거운 제형이라 어쩔 수 없는 것 같아요,positive,neutral,neutral,복합성 · 진정/보습 · 여드름 · 유수분조절,복합성,['복합성'],['진정' '보습' '트러블' '유수분 조절'],ok,,[],[],missing
+base_skin_type_samples,musinsa,musinsa::3775064,3775064,musinsa_3775064_cc336937,비건 핸드크림 3개 골라담기,kamill,beauty,5.0,"카밀 센시티브 핸드크림 너무 좋아요
+허브향은 너무 부담스러워서 이런 보습력에 무향이면 딱 좋겠다고 생각했었는데 무향 정말 좋아요",positive,positive,positive,복합성 · 탄력 · 진정/보습,복합성,['복합성'],['탄력' '진정' '보습'],ok,,[],[],missing
+base_skin_type_samples,oliveyoung,oliveyoung::A000000254406,A000000254406,59732218,NEW[파데프리/톤업선/톤업선크림] 체이싱래빗 올어바웃 글로우 톤업 선 70ml,체이싱래빗,suncare,5.0,톤업크림 자주 바르는데 선크림을 또 발라야해서 귀찮았는데 요건 딱이에요!!!! 톤업도 잘되구 목에랑 얼굴이랑 여름에 파데프리로 바르기도 넘 좋아요 추천합니당!,positive,positive,positive,지성,지성,['지성'],[],ok,"주름, 보습",['주름' '보습'],[],ok
+base_skin_type_samples,musinsa,musinsa::2172345,2172345,musinsa_2172345_9192cabc,아토베리어365 크림 80ml,aestura,beauty,5.0,묵직한 느낌에 부드러움이 있어서 바르기 좋음. 여름에는 좀 어려울 것 같지만 그 외 건조할때 바르면 좋을듯,positive,neutral,neutral,복합성 · 진정/보습 · 여드름 · 모공,복합성,['복합성'],['진정' '보습' '트러블' '모공'],ok,,[],[],missing
+base_skin_type_samples,musinsa,musinsa::2959816,2959816,musinsa_2959816_8fd008a9,[SET] 다이브인 저분자 히알루론산 세럼 50ml+40ml (+시카컨트롤세럼 10ml),torriden,beauty,5.0,수부지 피부에 딱이에요! 화장 전에 발라주면 촉촉하니 화장 들뜸도 없고 밤에 수분케어 용으로도 딱입니다❤️,positive,positive,positive,건성 · 진정/보습 · 모공 · 유수분조절,건성,['건성'],['진정' '보습' '모공' '유수분 조절'],ok,,[],[],missing
+base_skin_type_samples,musinsa,musinsa::4701719,4701719,musinsa_4701719_3fd41dfe,레이저 UV 썬스크린 50ml,cellfusionc,beauty,5.0,제가 얼굴에 땀이나 유분이 많은 편은 아닌데도 다른 썬크림은 바르고 시간이 지나면 너무 기름져서 힘든데 이건 좀 덜한 것 같아요!,positive,neutral,neutral,복합성 · 진정/보습 · 미백,복합성,['복합성'],['진정' '보습' '미백'],ok,,[],[],missing
+base_skin_type_samples,musinsa,musinsa::5848372,5848372,musinsa_5848372_490859a1,리얼 히알루로닉 100 토너 500ml,wellage,beauty,5.0,흡수력이 매우 빠르고 수분감 보충이 좋은 것 같아요,positive,positive,positive,복합성 · 진정/보습,복합성,['복합성'],['진정' '보습'],ok,,[],[],missing
+base_skin_type_samples,musinsa,musinsa::4485242,4485242,musinsa_4485242_c0585e7c,[보이넥스트도어 PICK] 니치퍼퓸 핸드크림 월넛크릭그린,bibiang,beauty,5.0,향이 향수브랜드라 그런가 복합적아고 좋았습니다,positive,positive,positive,지성 · 진정/보습 · 모공 · 여드름,지성,['지성'],['진정' '보습' '모공' '트러블'],ok,,[],[],missing
+base_skin_type_samples,musinsa,musinsa::2172345,2172345,musinsa_2172345_b2fa0016,아토베리어365 크림 80ml,aestura,beauty,5.0,레전드 꿀템이라고 해서 사봤는데 완전 이것저것 퍼주네요!,positive,positive,positive,복합성 · 진정/보습 · 모공 · 유수분조절,복합성,['복합성'],['진정' '보습' '모공' '유수분 조절'],ok,,[],[],missing
+no_base_skin_type_samples,musinsa,musinsa::2959816,2959816,musinsa_2959816_1c00ad65,[SET] 다이브인 저분자 히알루론산 세럼 50ml+40ml (+시카컨트롤세럼 10ml),torriden,beauty,5.0,몇년째 꾸준히 사용하고 있는 토리든 세럼입니다~,positive,positive,positive,진정/보습 · 유수분조절,,[],['진정' '보습' '유수분 조절'],no_base_skin_type,,[],[],missing
+no_base_skin_type_samples,musinsa,musinsa::6330688,6330688,musinsa_6330688_8df43d13,올리고 히알루론산 딥 토너 200ml,thelabbyblancdoux,beauty,5.0,물 같은 토너라서 가볍게 바르기 좋아요 속건조 잡기도 좋고 촉촉하게 쓸 수 있어요,positive,positive,positive,진정/보습,,[],['진정' '보습'],no_base_skin_type,,[],[],missing
+no_base_skin_type_samples,musinsa,musinsa::2638240,2638240,musinsa_2638240_cc3273e0,[2EA] 아쿠아 콜라겐 펩타이드 EX 멀티 크림 80ml(토너 9ml 증정),dewytree,beauty,4.0,촉촉하니 좋아요 좀더 발라 봐야알겠지만 아직은 좋아요,positive,positive,positive,모공,,[],['모공'],no_base_skin_type,,[],[],missing
+no_base_skin_type_samples,musinsa,musinsa::6163905,6163905,musinsa_6163905_f3b2322d,미드나잇 블루 유스 액티베이팅 드롭 20ml,klairs,beauty,5.0,제 피부에 잘 맞았슺니다. 앞으로 잘 쓸거 같아서 좋아요,positive,positive,positive,진정/보습 · 모공 · 여드름,,[],['진정' '보습' '모공' '트러블'],no_base_skin_type,,[],[],missing
+no_base_skin_type_samples,musinsa,musinsa::2959816,2959816,musinsa_2959816_e9b53eb3,[SET] 다이브인 저분자 히알루론산 세럼 50ml+40ml (+시카컨트롤세럼 10ml),torriden,beauty,5.0,원래 쓰던 거 세럼 필요해서 다시 샀는데 역시 좋아용,positive,positive,positive,진정/보습 · 모공,,[],['진정' '보습' '모공'],no_base_skin_type,,[],[],missing
+no_base_skin_type_samples,musinsa,musinsa::2172345,2172345,musinsa_2172345_1d96c49e,아토베리어365 크림 80ml,aestura,beauty,5.0,알갱이가 있는 묵직한 제형의 크림이에요 그렇다고 발림성이 나쁜편은 아님 기본 보습크림같은 느낌이라 겨울에 자주 바를 것 같아여,positive,neutral,neutral,진정/보습 · 모공 · 여드름,,[],['진정' '보습' '모공' '트러블'],no_base_skin_type,,[],[],missing
+no_base_skin_type_samples,musinsa,musinsa::3505072,3505072,musinsa_3505072_ec6f0a2a,[SET] 다이브인 저분자 히알루론산 토너 300ml  x  2개 (+다이브인 크림 20ml),torriden,beauty,5.0,나름 큐폰 써서 저렴하게 구매했어요 무난한 사용감이에요,positive,positive,positive,모공,,[],['모공'],no_base_skin_type,,[],[],missing
+no_base_skin_type_samples,musinsa,musinsa::3505072,3505072,musinsa_3505072_39e3ab9d,[SET] 다이브인 저분자 히알루론산 토너 300ml  x  2개 (+다이브인 크림 20ml),torriden,beauty,5.0,가벼운 물제형의 토너예요. 닦토하기에 매우 무난해서 세일할때 쟁였어요.,positive,neutral,neutral,진정/보습 · 여드름 · 유수분조절,,[],['진정' '보습' '트러블' '유수분 조절'],no_base_skin_type,,[],[],missing
+no_base_skin_type_samples,musinsa,musinsa::3674930,3674930,musinsa_3674930_388c2f4e,다이브인 저분자 히알루론산 수딩크림 80ml,torriden,beauty,5.0,가볍고 여름에 바르기 좋은 크림이예요! 추천합니다,positive,positive,positive,모공 · 여드름,,[],['모공' '트러블'],no_base_skin_type,,[],[],missing
+no_base_skin_type_samples,musinsa,musinsa::2605792,2605792,musinsa_2605792_5908f66c,[증정] 무향 100시간 보습 세라마이드 아토 로션 350ml 2입,illiyoon,beauty,5.0,3번째 재구매입니다! 촉촉하고 순해서 좋아용 네이버스토어에서 항상 구매했는데 무신사로 구매해봤어요~! 포장도꼼꼼하고 무료배송이라서 좋아요!!,positive,positive,positive,여드름 · 유수분조절,,[],['트러블' '유수분 조절'],no_base_skin_type,,[],[],missing
+no_base_skin_type_samples,musinsa,musinsa::2822853,2822853,musinsa_2822853_281cfd5d,[무신사단독] 포 맨 1025 독도 올인원 플루이드 200ml (+독도 클렌저 40ml 증정),roundlab,beauty,5.0,"지난번에 써보고 다시 구매해서 쓰고있어요
+펌핑형 용기라서 맘에 들어요
+거의 무향이고 보습력도 괜찮아요",positive,positive,positive,모공 · 유수분조절 · 탄력,,[],['모공' '유수분 조절' '탄력'],no_base_skin_type,,[],[],missing
+no_base_skin_type_samples,musinsa,musinsa::2959816,2959816,musinsa_2959816_d037aa16,[SET] 다이브인 저분자 히알루론산 세럼 50ml+40ml (+시카컨트롤세럼 10ml),torriden,beauty,5.0,무신사에서 이젠 화장품도 싸게 살수있네요 수분채워주는 용도론 참 좋아요 겨울에 특히 제 역할 하는거같아요,positive,positive,positive,여드름 · 유수분조절,,[],['트러블' '유수분 조절'],no_base_skin_type,,[],[],missing
+no_base_skin_type_samples,musinsa,musinsa::2496302,2496302,musinsa_2496302_2ab8ea1f,그린 마일드 업 선 플러스 50mL 2개,drg,beauty,5.0,항상쓰는 제품인대 블프 세일이라 가장저렴해서 샀네요,positive,positive,positive,진정/보습,,[],['진정' '보습'],no_base_skin_type,,[],[],missing
+no_base_skin_type_samples,musinsa,musinsa::3098202,3098202,musinsa_3098202_2d34c57d,레티놀 시카 흔적 앰플 30mL,innisfree,beauty,5.0,사용하는데 너무 만족해하고 있어요 배송도 빠르게 와서 좋았어요!,positive,positive,positive,진정/보습 · 모공 · 여드름,,[],['진정' '보습' '모공' '트러블'],no_base_skin_type,,[],[],missing
+no_base_skin_type_samples,musinsa,musinsa::2496302,2496302,musinsa_2496302_f10d5b47,그린 마일드 업 선 플러스 50mL 2개,drg,beauty,5.0,"배송이 빨라요
+무기자차 선크림이라 백탁은 있지만 순해서 자극이 없어요",positive,positive,positive,진정/보습 · 모공 · 여드름,,[],['진정' '보습' '모공' '트러블'],no_base_skin_type,,[],[],missing
+no_base_skin_type_samples,musinsa,musinsa::2959816,2959816,musinsa_2959816_9cea37e1,[SET] 다이브인 저분자 히알루론산 세럼 50ml+40ml (+시카컨트롤세럼 10ml),torriden,beauty,5.0,추천받아서 사용하고 있었는데 세일해서 바로 구매했습니다,positive,positive,positive,진정/보습 · 모공 · 여드름,,[],['진정' '보습' '모공' '트러블'],no_base_skin_type,,[],[],missing
+no_base_skin_type_samples,musinsa,musinsa::2782655,2782655,musinsa_2782655_323e50f1,[무신사단독] 1025 독도 선크림 50ml (+클렌저 40ml),roundlab,beauty,5.0,순하고 발림성좋고 하얘지지 않아서 좋네요 다 좋지만 하얘지지 않는게 넘 좋아요 굿굿,positive,positive,positive,유수분조절,,[],['유수분 조절'],no_base_skin_type,,[],[],missing
+no_base_skin_type_samples,musinsa,musinsa::2959816,2959816,musinsa_2959816_adbbf709,[SET] 다이브인 저분자 히알루론산 세럼 50ml+40ml (+시카컨트롤세럼 10ml),torriden,beauty,5.0,역시 믿고 쓰는 토리든이에요!! 여름에 유분기없이 사용하기 좋아요,positive,positive,positive,진정/보습 · 여드름,,[],['진정' '보습' '트러블'],no_base_skin_type,,[],[],missing
+no_base_skin_type_samples,musinsa,musinsa::3098202,3098202,musinsa_3098202_62918e2c,레티놀 시카 흔적 앰플 30mL,innisfree,beauty,5.0,인기가 많길래 한번 구매했습니다 며칠 사용 하고 있는데 솔직히 아직까지는 와! 좋다 이런건 모르겠어요 그래도 약간 여드름 흉터가 엳어진거 같기도 하고.. 기분탓인감,positive,positive,positive,여드름,,[],['트러블'],no_base_skin_type,,[],[],missing
+no_base_skin_type_samples,musinsa,musinsa::2996090,2996090,musinsa_2996090_190bc3a3,밸런스풀 시카 진정 크림 80ml,torriden,beauty,4.0,발림성이 너무 좋아요 순해서 누구나 쓰기 좋을듯해요,positive,positive,positive,모공,,[],['모공'],no_base_skin_type,,[],[],missing
+missing_skin_type_samples,oliveyoung,oliveyoung::A000000197743,A000000197743,58411870,[5분 마스크팩] 스킨푸드 데일리 마스크 30매 6종,스킨푸드,maskpack,5.0,편하게 꺼내 쓰기좋아여 감자써봤는데 무난한거수같습니다,positive,positive,positive,,,[],[],missing,,[],[],missing
+missing_skin_type_samples,oliveyoung,oliveyoung::A000000182782,A000000182782,31237564,[산뜻진정] 구달 맑은 어성초 진정 쿨링 선스틱 19g 1+1 기획,구달,suncare,3.0,"장단점이긴 한데
+
+끈적거림이 없는대신 밀착력이 없어서 뭔가 지우개똥처럼
+톡톡 떨어짐
+
+그래서 손으로 한번 더 문질해줘야되는 귀찮음 있음",negative,negative,negative,,,[],[],missing,,[],[],missing
+missing_skin_type_samples,coupang,coupang::coupang_9488566,coupang_9488566,coupang_13509394,"보닌 더 스타일 남성 기초 2종 세트, 1세트할인51%55,000원26,870원(1세트당 26,870원)내일",,beauty,5.0,"어제 구매하고 오늘 아침에받았어여~~ ㅎ
+타업체에서 구매하려다가,
+쿠팡에서 찾아보니,
+금액차가있어서 저렴히 구입했어여~^^",positive,positive,positive,,,[],[],missing,,[],[],missing
+missing_skin_type_samples,musinsa,musinsa::4265743,4265743,musinsa_4265743_bb5e212a,[강력고정/24시간 지속력] 포뷰트 프리즈 헤어 스프레이 200ml,forbeaut,beauty,5.0,행사기간이라 합리적인 가격에 좋은 제품을 구매할 수 있었습니다. 고정력도 우수한데 세척력도 좋은 제품이네요,positive,positive,positive,nan,,[],[],missing,,[],[],missing
+missing_skin_type_samples,oliveyoung,oliveyoung::A000000231175,A000000231175,53320933,[5월 올영픽/포켓몬에디션] 듀이트리 하이아미노 올 클렌징 밀크 200ml 기획 (+리필200ml+50ml+세안밴드),듀이트리,cleansing,1.0,가성비는 좋은데...... 세정력이 별로에요. 걍 다른 거 사세요,negative,neutral,neutral,,,[],[],missing,,[],[],missing
+missing_skin_type_samples,oliveyoung,oliveyoung::A000000208231,A000000208231,18269940,[15년연속 1위/4매] 메디힐 에센셜 마스크팩 고기능 7종 골라담기,메디힐,maskpack,1.0,저에게는 맞지 않은 마스크팩이였습니다.. 메디힐 티트리는 잘맞는데 마데카소사이드는 잘 안맞나봐요 다시는 구매 안하려구요.. 트러블난거 진정시키느라 1주일 넘게 걸렸어요ㅠㅠ 재구매의사 없습니다,negative,negative,negative,,,[],[],missing,,[],[],missing
+missing_skin_type_samples,coupang,coupang::coupang_18114848,coupang_18114848,coupang_182927413,"토니모리 루미너스 여신광채 비비크림 SPF37 PA++, 1호 화사한 베이지, 45g, 1개32%15,000",,beauty,5.0,"예전에 토리모리 여신광채 써서 괜찮다는 느낌을 
+받았어서~ 
+다시 한번 발라보려고 주문해봤어용~^^
+가격이 정말 저렴한것 같아요~ 
+좀 매트한 느낌은 있어서 좀묽은 비비크림이라든지
+썬크림 섞어발라도 괜찮아요~^^ 
+썬지수도 35면 좋고~ 
+제가 얼굴이 좀  까무잡잡한편이라~ 
+바르면 하애지지만 좀있음 살짝 날아가긴해요~ 
+발림성도 가격대비 너무 괜찮아서~ 
+아주 굿굿굿~ 
+사실 비싼것도 그락저락 이드라구요ㅜㅜ
+어떻게 요가격에 요런제품이 나올수가 있는지~ 
+남는게 있나요?ㅎ 
+양도 많아서~ 오래쓴 기억입니다~ 
+이번에도 써보고 좋으면 궂이 비싼거 쓸필요없이
+토리모리제품 으로 갈아타야될듯요~^^",positive,positive,positive,,,[],[],missing,,[],[],missing
+missing_skin_type_samples,oliveyoung,oliveyoung::A000000254427,A000000254427,58756825,[100만장 판매/단독기획] 프롬리에 EGF 피지팩 하이퍼 액티브 모공 피지 마스크 4+1 증정 기획세트,프롬리에,maskpack,3.0,궁금해서 구매해봤는데 좋은지도 잘 모르겠고 이제 다시 구매안할 것 같아요. 가격도 비싸고ㅠ,positive,positive,positive,,,[],[],missing,,[],[],missing
+missing_skin_type_samples,musinsa,musinsa::3341580,3341580,musinsa_3341580_34affaea,수퍼 밀크 100g - 컨디셔닝 헤어 프라이머,lush,beauty,5.0,달달한 향이 나요 러쉬갔다가 좋아서 무신사로 구매햇어요,positive,positive,positive,nan,,[],[],missing,,[],[],missing
+missing_skin_type_samples,musinsa,musinsa::3341580,3341580,musinsa_3341580_5d7cdf39,수퍼 밀크 100g - 컨디셔닝 헤어 프라이머,lush,beauty,5.0,이거진짜 뿌리면 머리에서 좋는냄새가요 달달한냄새!!,positive,positive,positive,nan,,[],[],missing,,[],[],missing
+missing_skin_type_samples,oliveyoung,oliveyoung::A000000222849,A000000222849,57887020,[5월 올영픽][속건조해결] 파티온 포도당 하이드로 에센스토너 300ml 더블 기획(2개입),파티온,skincare,5.0,보습력이 좋아서 재구매해서 사용하고있어요 용량이  넉넉하고 수분감이 정말 좋아요,positive,positive,positive,,,[],[],missing,,[],[],missing
+missing_skin_type_samples,oliveyoung,oliveyoung::A000000253619,A000000253619,59711180,[포켓몬에디션/마이크로버블] 마녀공장 퓨어 소이빈 클렌징폼 120ml 2입 기획 (+스티커),마녀공장,cleansing,5.0,처음 사용해봤는데 정말 쫀쫀해요~  조금만 사용해도 거품도 많이 나고 클렌징하는데 전혀 무리가 없어요! 제품이 순하고 뽀득하게 잘 닦여 너무 좋네요~~ 강추해요!,positive,positive,positive,,,[],[],missing,,[],[],missing
+missing_skin_type_samples,musinsa,musinsa::2151083,2151083,musinsa_2151083_d87db492,빠지는 모발 고민해결 두피강화 샴푸 400ml 2입 + 증정,laboh,beauty,5.0,"두피까지 아주 깨끗하게 세정되는 느낌이 좋아요
+향도 너무 강하지 않아서 거부감 없어서 좋고
+용량도 매우 커서 오래 사용중입니다!",positive,positive,positive,nan,,[],[],missing,,[],[],missing
+missing_skin_type_samples,oliveyoung,oliveyoung::A000000226493,A000000226493,44539077,[저자극클렌저] 메디큐브 PDRN 젤투폼 클렌저 200ml 기획(+클렌징브러쉬 증정),메디큐브,cleansing,5.0,올영에서 보다가 궁금에서 구매 했어요!!메디큐브는 믿고 쓰니까 pbrn라인 다른 제품도 같이 사용 하고 싶어요😍🫶🩷,positive,neutral,neutral,,,[],[],missing,,[],[],missing
+missing_skin_type_samples,oliveyoung,oliveyoung::A000000123594,A000000123594,57855861,[산뜻보송선스틱/UV에이징케어] 셀퓨전씨 스틱 썬스크린 19g (SPF50+/PA++++),셀퓨전씨,suncare,5.0,아주 만족스럽게 사용중인제품이여서 다쓰고나면 또 재구매해서 사용하려구요,positive,positive,positive,,,[],[],missing,,[],[],missing
+missing_skin_type_samples,oliveyoung,oliveyoung::A000000252924,A000000252924,58038368,NEW 라로슈포제 안뗄리오스 선 플루이드 50ml 기획 (+Crush 양말),라로슈포제,suncare,3.0,"여기서 구하려해도 없었는데 살 수 있어서 좋습니다요!
+사는 김에 왕창 대량구매했습니다!",positive,positive,positive,,,[],[],missing,,[],[],missing
+missing_skin_type_samples,musinsa,musinsa::2570504,2570504,musinsa_2570504_834dc158,DMT 페이셜 수분 크림 150ml+추가증정,physiogel,beauty,5.0,저는 피지오겔 크림만 사용합니다. 너무 간편하고 좋은거 같아요,positive,positive,positive,nan,,[],[],missing,,[],[],missing
+missing_skin_type_samples,oliveyoung,oliveyoung::A000000235364,A000000235364,58974700,[3D진동클렌징/모공케어] 메디큐브 에이지알 부스터 진동 클렌저 헤드 (베이지/핑크),메디큐브 에이지알,cleansing,4.0,화장 잘 지워지고 괜찮은데 ems 기능은 효과 있는 건지 잘 모르겠어요,positive,neutral,neutral,,,[],[],missing,,[],[],missing
+missing_skin_type_samples,oliveyoung,oliveyoung::A000000130319,A000000130319,28551971,바이오더마 센시비오 H2O 850ml(클렌징워터),바이오더마,cleansing,5.0,"여행갈 때 필 수 품!
+
+저는 클렌징워터로 화장지운지 7년다되어갑니다!ㅎㅎ
+
+물론 클렝징워터도 바이오더마만 사용중이구요~
+그래서 이건 떨어지지않게 항상 쟁여두고 있어요^^
+
+요거정도면 제가 6박으로 해외여행 다녀와도 남더라구요~
+
+물론, 얼만큼 화장하냐에따라 다르겠지만,
+저는 저녁에만 사용하는걸로 했을 떄 6~7일은 거뜬했습니다!
+
+화장 잘 지워지고, 땡김없어서 좋아요~",positive,positive,positive,,,[],[],missing,"모공, 트러블",['모공' '트러블'],[],ok
+missing_skin_type_samples,coupang,coupang::coupang_18481065,coupang_18481065,coupang_862821178,"AHC 온리포맨 폼 클렌저, 140ml, 1개68%24,000원7,510원(10ml당 536원)내일(목)도착",,beauty,5.0,"쿠팡체험단 이벤트로 상품을 무료 제공받아 작성한 리뷰입니다.
+
+평소에 사용하던 폼클렌징이 다 떨어져서 새로운걸 찾다가
+선택하게 된 제품인데 거품도 적당하고 세정력이 너무 좋네요
+무엇보다 건성이 사용하기에도 나쁘지 않아요
+세안 후에 얼굴 속당김이 심한데 이번에는 촉촉하게 마무리가 돼어서 그런가 스킨 바르기 전 까지 괜찮았어요!!!
+완전 완전 추천하고 싶어요!!
+
+쿠팡체험단을 통해 무상으로 제품을 제공받아 직접 사용해보고 작성한 솔직 리뷰입니다",positive,positive,positive,,,[],[],missing,,[],[],missing
+skin_concern_code_samples,oliveyoung,oliveyoung::A000000190369,A000000190369,28781790,[판매량 1억개 돌파/대용량] AHC 텐 레볼루션 리얼 아이크림 포 페이스 더블 기획,AHC,skincare,5.0,"사용해보니 눈시림 아주 사알짝 잇어요 
+노화의 시작은 25세라더니.  눈 밑 주름까지 신경쓰야서 구매했어요 용량도 많아서 아직까지 잘 쓰고잇어요",positive,positive,positive,민감성,민감성,['민감성'],[],ok,"보습, C09",['보습'],['C09'],ok
+skin_concern_code_samples,oliveyoung,oliveyoung::A000000147080,A000000147080,27014220,[72관왕/1위] 린제이 프리미엄 쿨티트리 모델링 팩 1Kg,린제이,maskpack,5.0,잘 쓰고 있어요 겨울에는 추워서 손이 잘 안가더라구요ㅋㅋ 날 더워지면 다시 잘 쓸 거 같아요 피부 열감내리는 용으로 특히 좋아요 조금 번거롭지만 확실히 효과있어요,positive,positive,positive,,,[],[],missing,"주름, C10",['주름'],['C10'],ok
+skin_concern_code_samples,oliveyoung,oliveyoung::A000000223207,A000000223207,43884623,[태민PICK]AHC 마스터즈 아쿠아리치 선크림 50ml 1+1 기획,AHC,suncare,5.0,"올영세일때 기획으로 구매했어요.
+일단 수분을 강조한만큼 수분감이 어마어마 했는데요
+스킨케어할때 기름지게 했다면 흡수는 조금 느릴거같아요
+그치만 가볍게 스킨케어하고 딱 이제품을 발라보니까
+수분감이 많아서 촉촉하게 마무리가능하니 좋네요",positive,positive,positive,,,[],[],missing,"미백, C13",['미백'],['C13'],ok
+skin_concern_code_samples,oliveyoung,oliveyoung::A000000156007,A000000156007,37604241,[아침세안] 마녀공장 약산성 퓨리파잉 소다폼 150ml X2 기획,마녀공장,cleansing,5.0,마녀공장 말모라능 자극없이 순하고 새정력도 좋아용 1+1혜자기획시트 갓성비 짱짱,positive,positive,positive,지성,지성,['지성'],[],ok,"C09, C13",[],['C09' 'C13'],code_only
+skin_concern_code_samples,oliveyoung,oliveyoung::A000000185429,A000000185429,33016758,[1+1] 프리메라 필링 투 폼 클렌저 120ml 1+1 기획/단품,프리메라,cleansing,4.0,"냅다 얼굴에 올리지말고 손에 거품내서 쓰고있는데
+이럴거면 다른거살게융..",positive,negative,negative,민감성,민감성,['민감성'],[],ok,"C11, C12",[],['C11' 'C12'],code_only
+skin_concern_code_samples,oliveyoung,oliveyoung::A000000145898,A000000145898,12667049,얼트루 아임쏘리포마이스킨 리바이탈라이징 젤리마스크 (본품4매+1매 추가 증정),얼트루,maskpack,4.0,예전에 사용해보고 너무너무 만족했던 제품이라 눈에 보여서 바로 주문했어요 ㅎㅎ 처음에는 맥주라는 강렬한 이미지를 생각하고 주문했지만 맥주냄새?? 같은거는 크게 잘나지않고 ㅎㅎ 살짝나는 정도인거같네요 ㅎㅎ 일단 제품자체가 보습액이 충분하게 들어있어서 팩하면서 마를일이 없다는게 좋았구요 추천하고싶어요 팩은 15분내외로 사용하시는걸 추천하는편인데 이제품은 촉촉함이 깊어서 20분해도 나쁘지않을거같다는 생각이듭니다 ㅎㅎ 다하고나서 피부가 촉촉하고 탱글탱글 해지는 느낌이들어서 좋습니다 다른제품들도 사용해봤는데 맥주팩이 저한테는 가장맞는거같아요 패키지자채도이쁘고 효능도좋아서 앞으로도 종종 재구매할예정입니다 일주일에 두번정도 하시면 보습에 많은도움이 될거같습니다 추천합니다!,positive,positive,positive,건성,건성,['건성'],[],ok,C09,[],['C09'],code_only
+skin_concern_code_samples,oliveyoung,oliveyoung::A000000169509,A000000169509,49226767,파티온 노스카나인 클렌징워터 500ml,파티온,cleansing,3.0,딱히좋은게없는 것 같아서 그냥 아이리무버 용도로 씁니다.. 아이라인까지는 잘 지워지네요,positive,neutral,neutral,,,[],[],missing,"홍조, C09",['홍조'],['C09'],ok
+skin_concern_code_samples,oliveyoung,oliveyoung::A000000206904,A000000206904,59155909,라로슈포제 시카플라스트 밤 B5+ 100ml 기획 (+3ml 추가증정),라로슈포제,skincare,5.0,하 개비싼데 너무 빨리 써버리네..큰 얼굴을 탓해야하나 세일 자주해주세념ㅜㅜ 장벽 무너졌울때 이거만 바르면 3일안에 복구가능,positive,negative,negative,민감성,민감성,['민감성'],[],ok,"탄력, C10",['탄력'],['C10'],ok
+skin_concern_code_samples,oliveyoung,oliveyoung::A000000204081,A000000204081,45232033,[오선우pick/파데프리] 아누아 매트벗글로우 커버 베이지 50ml,아누아,suncare,1.0,너무너무 따가워요 바를때마다 맨날 간지럽고 따가워서 내피부가 민감한가 햇는데 몇주지나고 발라도 따갑고 간지러움 민감성피부 절대사지마 절대로!!!!!!,negative,negative,negative,지성,지성,['지성'],[],ok,"보습, C13",['보습'],['C13'],ok
+skin_concern_code_samples,oliveyoung,oliveyoung::A000000254406,A000000254406,59555577,NEW[파데프리/톤업선/톤업선크림] 체이싱래빗 올어바웃 글로우 톤업 선 70ml,체이싱래빗,suncare,5.0,"원래 퍼플 크림 잘 바르고 있었는데 신상 나왔다길래 궁금해서 써봤어요!
+(➡️박스에 끝부터 눌러 사용하라고 되어있어요)
+우선 촉촉한 제형이라 발림성이 진짜 좋더라고요. 부드럽게 스르륵 펴 발리면서 베이스 깔기 딱 좋았어요. 원래 톤업 제품들은 촉촉한 대신 유분이 많이 올라오는 경우가 많은데 이건 보송하게 마무리돼서 곧 여름인데도 부담 없이 쓸 수 있을 것 같아요!
+특히 설명대로 커버크림이랑 섞어서 바르니까 커버력도 올라가고 자연스럽게 톤업돼서 완전 굿이었어요🫶🏻 묻어나는 것도 거의 없고 하루 종일 다크닝 없이 유지되더라고요.
+올 여름에 데일리 선크림으로 잘 쓸 것 같아요. 촉촉하면서도 보송하게 마무리되는 톤업 제품 찾는다면 추천해요ㅎㅎ",positive,positive,positive,민감성,민감성,['민감성'],[],ok,"미백, C11",['미백'],['C11'],ok
+skin_concern_code_samples,oliveyoung,oliveyoung::A000000244392,A000000244392,53011899,[1등 초밀착 겔/단독기획] 러븀 겔 마스크 4매 (어린시카/PDRN/그린시트러스/유자),러븀,maskpack,5.0,"쿨링감 있어서 
+운동 + 사우나 갔다온 홍조 남은 볼에 붙이면 
+진짜 ...좋아요 
+진정 효과는 딱히 몰라도 
+러븀은 늘 팩 떼고 나면 속은 꽉 찼는데 겉은 보송 마무리감이 깔끔한 느낌이라 늘 선호하는 제품입미다
+누구 공구 안하남...?....",positive,positive,positive,,,[],[],missing,"보습, C09",['보습'],['C09'],ok
+skin_concern_code_samples,oliveyoung,oliveyoung::A000000251277,A000000251277,22723801,[1등 미스트] 아벤느 오 떼르말 300ml 3입 기획,아벤느,skincare,5.0,진짜 무난하게 누구든 쓸 수 있는 미스트예요 대용량에다가 기획도 늘 원플!,positive,positive,positive,지성,지성,['지성'],[],ok,"홍조, C12",['홍조'],['C12'],ok
+skin_concern_code_samples,oliveyoung,oliveyoung::A000000185115,A000000185115,44200990,[1분진정] 브링그린 티트리 시카 트러블 수딩 토너패드 90매 (리필기획/단품),브링그린,maskpack,5.0,"두번째 구매를 했어요~
+진정용으로 사용을 하는데
+일단 패드가 얇아서 밀착이 잘되니
+좋아요👍",positive,positive,positive,지성,지성,['지성'],[],ok,"미백, C11",['미백'],['C11'],ok
+skin_concern_code_samples,oliveyoung,oliveyoung::A000000222839,A000000222839,59152117,에스트라 에이시카365 흔적진정세럼 pH4.5 40ml 기획 (+세럼 20ml+크림 1ml),에스트라,skincare,5.0,울긋불긋 민감해졌을 때 바르면 진정이 되는것같아욤!!!,positive,neutral,neutral,지성,지성,['지성'],[],ok,"홍조, C09",['홍조'],['C09'],ok
+skin_concern_code_samples,oliveyoung,oliveyoung::A000000243433,A000000243433,51809754,[청담샵 화잘먹미스트/키오프 하늘 PICK] 메디큐브 PDRN 핑크 콜라겐 글로우 젤리 미스트 100ml 더블기획,메디큐브,skincare,5.0,"건조할 때마다 뿌려주면 피부가 바로 편안해져요.
+광채도 과하지 않고 은은해서 메이크업 위에도 잘 맞습니다. 구성도 좋아요.",positive,positive,positive,건성,건성,['건성'],[],ok,"모공, C13",['모공'],['C13'],ok
+skin_concern_code_samples,oliveyoung,oliveyoung::A000000231589,A000000231589,34265073,[5월 올영픽][대용량] 제로이드 수딩 크림 80ml 기획 (+50ml),제로이드,skincare,5.0,"제로이드 병원에서도 사용하는 장벽크림으로 유명한데, 겨울 맞이 해서 장벽크림이 하나 필요해서 구매했습니다
+@ 제형
+- 핸드크림에 가까운 유백색의 꾸덕한 크림이에요
+@ 향
+- 뭔가 좀 쨍한 향이나요
+- 약간 수영장에 들어가면 나는 소독약 같은 냄새인데 엄청 거슬링 정도는 아닌데 살짝은 신경 쓰이네요
+@ 사용감
+- 제형에 비해서 생각보다는 꽤 부드럽게 발립니다.
+- 흡수가 완전 빠르지는 않지만 장벽크림 중에서는 꽤 흡수가 빠른 편입니다
+- 제형이 꾸덕한데 처음 바를 때는 수분감이 꽤 느껴지는 편이고, 그 다음에 유분감으로 마무리가 됩니다
+- 약건성 기준 한겨울에는 사용하기 좀 어려워 보이고 지금 사용하기 딱 좋은 정도입니다.",positive,positive,positive,중성,중성,['중성'],[],ok,"모공, C09",['모공'],['C09'],ok
+skin_concern_code_samples,oliveyoung,oliveyoung::A000000212817,A000000212817,49388909,[1+1] 토리든 패드 다이브인/밸런스풀 리필기획 2종 택 1(수분/진정),토리든,maskpack,5.0,다이브인 시리즈는 진짜 가성비좋고 피부에 자극이 없어 좋은 거 같아요,positive,positive,positive,지성,지성,['지성'],[],ok,"C11, C12",[],['C11' 'C12'],code_only
+skin_concern_code_samples,oliveyoung,oliveyoung::A000000243440,A000000243440,44701916,[5월 올영픽/올리브영 단독런칭]리쥬란 힐러 스킨 프로텍션 마스크 10매 기획(+1매),리쥬란,maskpack,5.0,"이 마스크팩을 젤 좋아해요.
+최애 마스크팩 ! 보습 영양 많이 원하시는 분들에게 추천",positive,positive,positive,지성,지성,['지성'],[],ok,"주름, C10",['주름'],['C10'],ok
+skin_concern_code_samples,oliveyoung,oliveyoung::A000000185112,A000000185112,37357804,브링그린 프레시 마스크 1매/10매 (히알루 수분/티트리 진정/글루타치온 톤업/알로에 수딩),브링그린,maskpack,5.0,알로에 수딩 마스크팩이라 피부가 촉촉해져서 좋아요 ~~~,positive,positive,positive,민감성,민감성,['민감성'],[],ok,C09,[],['C09'],code_only
+skin_concern_code_samples,oliveyoung,oliveyoung::A000000254058,A000000254058,58648313,[포켓몬 에디션]VT 리들샷100 에센스 50ml기획 (리들샷300 1ml+PDRN에센스1.5ml+포켓몬아크릴포스트잇),VT,skincare,5.0,꾸준히 쓰니까 너무 좋아요. 브이티 pdrn이랑 궁합 좋습니다. 피부 맨질맨질거려요. 300 쓰고 싶었는데 데일리로는 이게 나아서 더 편한 거 같기도 해요. 강추합니다.,positive,neutral,neutral,지성,지성,['지성'],[],ok,"보습, C09",['보습'],['C09'],ok
+mismatch_samples,oliveyoung,oliveyoung::A000000205435,A000000205435,43692231,[빙하수쿨링패드/더블기획] 셀퓨전씨 포스트 알파 쿨링 패드 70매 더블기획(쿨링/시카쿨링),셀퓨전씨,maskpack,2.0,"생각보다 안 시원함... 너무 기대를 해서 그런것도 있는걱
+같은데 ㅠㅠ 생각보다 엄청 시원하다! 이건 아녜요",negative,neutral,neutral,복합성,복합성,['복합성'],[],ok,주름,['주름'],[],ok
+mismatch_samples,oliveyoung,oliveyoung::A000000231175,A000000231175,53320933,[5월 올영픽/포켓몬에디션] 듀이트리 하이아미노 올 클렌징 밀크 200ml 기획 (+리필200ml+50ml+세안밴드),듀이트리,cleansing,1.0,가성비는 좋은데...... 세정력이 별로에요. 걍 다른 거 사세요,negative,neutral,neutral,,,[],[],missing,,[],[],missing
+mismatch_samples,oliveyoung,oliveyoung::A000000232724,A000000232724,59650673,[NO.1 미스트세럼] 달바 퍼스트 스프레이 세럼 100ml 2개 기획,달바,skincare,4.0,자극 없는데 눈에 들어가면 엄청 아파서 조심해서 쓰세용^_^제품력은 딱히 모르겠고 그냥 다이소에 파는 품절대란 토너 사서 쓸듯,positive,negative,negative,지성,지성,['지성'],[],ok,"미백, 보습",['미백' '보습'],[],ok
+mismatch_samples,musinsa,musinsa::1619465,1619465,musinsa_1619465_0d3f8ac1,울트라리페어 로션 350ml 2 pack + 트러블 미스트 30ml 증정,illiyoon,beauty,4.0,지금까지 썼던 제품 중에서는 제일 좋은 것 같아요! 아쉬운 점은 유분감이 조금 느껴지고 흡수되는 데 시간이 좀 걸려용ㅠ 무거운 제형이라 어쩔 수 없는 것 같아요,positive,neutral,neutral,복합성 · 진정/보습 · 여드름 · 유수분조절,복합성,['복합성'],['진정' '보습' '트러블' '유수분 조절'],ok,,[],[],missing
+mismatch_samples,oliveyoung,oliveyoung::A000000226493,A000000226493,44539077,[저자극클렌저] 메디큐브 PDRN 젤투폼 클렌저 200ml 기획(+클렌징브러쉬 증정),메디큐브,cleansing,5.0,올영에서 보다가 궁금에서 구매 했어요!!메디큐브는 믿고 쓰니까 pbrn라인 다른 제품도 같이 사용 하고 싶어요😍🫶🩷,positive,neutral,neutral,,,[],[],missing,,[],[],missing
+mismatch_samples,oliveyoung,oliveyoung::A000000235364,A000000235364,58974700,[3D진동클렌징/모공케어] 메디큐브 에이지알 부스터 진동 클렌저 헤드 (베이지/핑크),메디큐브 에이지알,cleansing,4.0,화장 잘 지워지고 괜찮은데 ems 기능은 효과 있는 건지 잘 모르겠어요,positive,neutral,neutral,,,[],[],missing,,[],[],missing
+mismatch_samples,musinsa,musinsa::2172345,2172345,musinsa_2172345_9192cabc,아토베리어365 크림 80ml,aestura,beauty,5.0,묵직한 느낌에 부드러움이 있어서 바르기 좋음. 여름에는 좀 어려울 것 같지만 그 외 건조할때 바르면 좋을듯,positive,neutral,neutral,복합성 · 진정/보습 · 여드름 · 모공,복합성,['복합성'],['진정' '보습' '트러블' '모공'],ok,,[],[],missing
+mismatch_samples,musinsa,musinsa::4701719,4701719,musinsa_4701719_3fd41dfe,레이저 UV 썬스크린 50ml,cellfusionc,beauty,5.0,제가 얼굴에 땀이나 유분이 많은 편은 아닌데도 다른 썬크림은 바르고 시간이 지나면 너무 기름져서 힘든데 이건 좀 덜한 것 같아요!,positive,neutral,neutral,복합성 · 진정/보습 · 미백,복합성,['복합성'],['진정' '보습' '미백'],ok,,[],[],missing
+mismatch_samples,oliveyoung,oliveyoung::A000000231833,A000000231833,59974820,[화잘먹] 한율 쑥히알 수분 크림 60ml 기획(+31ml),한율,skincare,5.0,다른 곳은 괜찮은데 코 옆에 바를 때마다 살짝 따가워요 얇은 쪽 피부는 조심해서 발라야 할 거 같아요,positive,negative,negative,,,[],[],missing,,[],[],missing
+mismatch_samples,oliveyoung,oliveyoung::A000000250344,A000000250344,61587024,[자극도ZERO]아이오페 레티놀 슈퍼 바운스 세럼 20ml 기획 (+15ml),아이오페,skincare,3.0,정말 자극이 없는데 그렇다고해서 큰 효과보기도 좀 어려워요ㅠㅠ,positive,neutral,neutral,,,[],[],missing,,[],[],missing
+mismatch_samples,oliveyoung,oliveyoung::A000000245794,A000000245794,55773998,[화잘먹/단독기획]폴라초이스 바하 리퀴드 엑스폴리언트 118ml 기획 (+바하 리퀴드 30ml),폴라초이스,skincare,4.0,아직은 잘 모르겠어요 꾸준히 쓰고 있긴 한데 우선 한 병 다 써봐야 알 것 같음,positive,neutral,neutral,,,[],[],missing,,[],[],missing
+mismatch_samples,musinsa,musinsa::3098202,3098202,musinsa_3098202_278cd4c8,레티놀 시카 흔적 앰플 30mL,innisfree,beauty,4.0,냄새는 좀 이상한데 발림성 괜찮구여 사실 효과 있는지 모르겠고 안 바른 것 보단 나을 거 같아서 발라요,positive,neutral,neutral,복합성 · 모공 · 여드름,복합성,['복합성'],['모공' '트러블'],ok,,[],[],missing
+mismatch_samples,musinsa,musinsa::2458627,2458627,musinsa_2458627_d82aef7b,RC BB557 GREEN 선글라스,reclow,beauty,5.0,겉 모습이나 디자인적으로는 이쁘네요. 선글라스의 기능을 제대로 하는지는 아직 사용해보지 않아사 모르겠습니다. 그래도 디자인은 이쁘니 잘 사용할게요,positive,neutral,neutral,nan,,[],[],missing,,[],[],missing
+mismatch_samples,oliveyoung,oliveyoung::A000000225606,A000000225606,46721162,듀댑 요거트팩 클렌저 150ml+15ml 3종 (시카티/듀톡스/레몬 커스터드),듀댑,cleansing,3.0,"세안과 팩을 동시에 할 수 있어 정말 간편했어요. 부드러운 크림 제형이 피부에 밀착되어 노폐물을 흡착하면서도 자극 없이 순하게 마무리돼 예민한 피부도 부담 없이 사용할 수 있었습니다. 세안 후 당김이 없고 촉촉함이 오래 유지되어 건조함 걱정이 줄었고, 꾸준히 사용하니 피부결이 정돈되고 진정 효과도 확실히 느껴졌어요.",neutral,positive,positive,,,[],[],missing,,[],[],missing
+mismatch_samples,musinsa,musinsa::1619465,1619465,musinsa_1619465_03aac3c9,울트라리페어 로션 350ml 2 pack + 트러블 미스트 30ml 증정,illiyoon,beauty,5.0,극건성한테 맞습니다 피부가 진짜 건조한 편인데 잘 쓰고있습니다 보습력이 좋아요,positive,neutral,neutral,nan,,[],[],missing,,[],[],missing
+mismatch_samples,musinsa,musinsa::5837298,5837298,musinsa_5837298_2f4826f9,[2pack] 메디힐 마데카소사이드 수분 선세럼 흔적 리페어 더블 기획세트,mediheal,beauty,3.0,메디힐 제품 마니쓰는데 선크림도 조으네요 수분감 조아요,neutral,positive,positive,복합성 · 진정/보습 · 탄력 · 영양공급,복합성,['복합성'],['진정' '보습' '탄력' '영양공급'],ok,,[],[],missing
+mismatch_samples,oliveyoung,oliveyoung::A000000245680,A000000245680,58129972,[망곰 콜라보] 넘버즈인 3번 도자기결 파데스킵 톤업베이지 50ml 기획 (+35ml+스패츌라),넘버즈인,suncare,2.0,처음 화장을 하는거라 파데프리형식인걸 구매하고싶어서 구매를 했는데 지인이 추천해줘서 구매하게 됬는데 저랑은 안맞는것같아요 그래서 조금 아쉬웠는데 톤 보정은 짱인것같아요 근데 밝은 호수 쓰고 계신분은 밝은 파데랑 섞어서 쓰면 좋을것같아요,negative,neutral,neutral,,,[],[],missing,,[],[],missing
+mismatch_samples,oliveyoung,oliveyoung::A000000185429,A000000185429,33016758,[1+1] 프리메라 필링 투 폼 클렌저 120ml 1+1 기획/단품,프리메라,cleansing,4.0,"냅다 얼굴에 올리지말고 손에 거품내서 쓰고있는데
+이럴거면 다른거살게융..",positive,negative,negative,민감성,민감성,['민감성'],[],ok,"C11, C12",[],['C11' 'C12'],code_only
+mismatch_samples,oliveyoung,oliveyoung::A000000253295,A000000253295,58999911,[구매인증이벤트/수분촉촉선] 닥터지 스킨부스트 PDRN 선세럼 50ml 기획 (+10ml),닥터지,suncare,3.0,0.1도 안끈적거리는건 좋은데 자꾸 때처럼 밀려서 선세럼 바르기 전에 바르는 앰플 때문인 줄 알고 안밀리는거 찾으려고 집에 있는 앰플들 돌려가면서 써봤는데 진짜 어떤 앰플을 쓰든 다 밀림;;;;,neutral,negative,negative,,,[],[],missing,,[],[],missing
+mismatch_samples,musinsa,musinsa::3317081,3317081,musinsa_3317081_fc02290f,포어제로 오일 컨트롤 선스틱 2개 세트,obge,beauty,5.0,썬스틱 사용하면 일반 썬크림 귀찮아서 이것만 써요,positive,neutral,neutral,복합성 · 유수분조절,복합성,['복합성'],['유수분 조절'],ok,,[],[],missing
+platform_samples,musinsa,musinsa::2637406,2637406,musinsa_2637406_cfa77e11,어반쉐이드 쿨카밍 선스틱 SPF50+ PA++++ 20g,dewytree,beauty,5.0,발림성 좋아요 그리고 시원해지지는 않고 냄새만 시원,positive,positive,positive,복합성 · 진정/보습 · 모공 · 미백,복합성,['복합성'],['진정' '보습' '모공' '미백'],ok,,[],[],missing
+platform_samples,musinsa,musinsa::3098201,3098201,musinsa_3098201_ec8ef9b9,[사은품 증정] (대용량) 레티놀 시카 흔적 앰플 50mL + 10mL 2개,innisfree,beauty,5.0,이젠 없어선 안되는 필수 스킨케어 제품입니다 좋아요,positive,positive,positive,복합성 · 여드름 · 유수분조절 · 진정/보습,복합성,['복합성'],['트러블' '유수분 조절' '진정' '보습'],ok,,[],[],missing
+platform_samples,musinsa,musinsa::4265743,4265743,musinsa_4265743_bb5e212a,[강력고정/24시간 지속력] 포뷰트 프리즈 헤어 스프레이 200ml,forbeaut,beauty,5.0,행사기간이라 합리적인 가격에 좋은 제품을 구매할 수 있었습니다. 고정력도 우수한데 세척력도 좋은 제품이네요,positive,positive,positive,nan,,[],[],missing,,[],[],missing
+platform_samples,musinsa,musinsa::2570504,2570504,musinsa_2570504_d74a9caa,DMT 페이셜 수분 크림 150ml+추가증정,physiogel,beauty,5.0,매번쓰는건데 할인 많이 받아서 구매했어요 짱짱맨~,positive,positive,positive,복합성 · 진정/보습,복합성,['복합성'],['진정' '보습'],ok,,[],[],missing
+platform_samples,musinsa,musinsa::3505072,3505072,musinsa_3505072_329fab50,[SET] 다이브인 저분자 히알루론산 토너 300ml  x  2개 (+다이브인 크림 20ml),torriden,beauty,5.0,토리든 토너 가격도 괜찮아서 여러번 구매하게 되네요,positive,positive,positive,지성 · 진정/보습,지성,['지성'],['진정' '보습'],ok,,[],[],missing
+platform_samples,musinsa,musinsa::4240698,4240698,musinsa_4240698_98454150,퍼퓸 버블 대용량 핸드워시 515ml 5종 선물세트,hetrasbeauty,beauty,5.0,세정력 좋고 대용량이라 좋아요 가성비 너무좋은데요? 디자인도 깔꿈하고 향은 전부 대중적인향이라 호불호 없이 잘쓸거같아요,positive,positive,positive,복합성 · 모공 · 진정/보습 · 유수분조절,복합성,['복합성'],['모공' '진정' '보습' '유수분 조절'],ok,,[],[],missing
+platform_samples,musinsa,musinsa::2959816,2959816,musinsa_2959816_1c00ad65,[SET] 다이브인 저분자 히알루론산 세럼 50ml+40ml (+시카컨트롤세럼 10ml),torriden,beauty,5.0,몇년째 꾸준히 사용하고 있는 토리든 세럼입니다~,positive,positive,positive,진정/보습 · 유수분조절,,[],['진정' '보습' '유수분 조절'],no_base_skin_type,,[],[],missing
+platform_samples,oliveyoung,oliveyoung::A000000197743,A000000197743,58411870,[5분 마스크팩] 스킨푸드 데일리 마스크 30매 6종,스킨푸드,maskpack,5.0,편하게 꺼내 쓰기좋아여 감자써봤는데 무난한거수같습니다,positive,positive,positive,,,[],[],missing,,[],[],missing
+platform_samples,oliveyoung,oliveyoung::A000000205435,A000000205435,43692231,[빙하수쿨링패드/더블기획] 셀퓨전씨 포스트 알파 쿨링 패드 70매 더블기획(쿨링/시카쿨링),셀퓨전씨,maskpack,2.0,"생각보다 안 시원함... 너무 기대를 해서 그런것도 있는걱
+같은데 ㅠㅠ 생각보다 엄청 시원하다! 이건 아녜요",negative,neutral,neutral,복합성,복합성,['복합성'],[],ok,주름,['주름'],[],ok
+platform_samples,oliveyoung,oliveyoung::A000000182782,A000000182782,31237564,[산뜻진정] 구달 맑은 어성초 진정 쿨링 선스틱 19g 1+1 기획,구달,suncare,3.0,"장단점이긴 한데
+
+끈적거림이 없는대신 밀착력이 없어서 뭔가 지우개똥처럼
+톡톡 떨어짐
+
+그래서 손으로 한번 더 문질해줘야되는 귀찮음 있음",negative,negative,negative,,,[],[],missing,,[],[],missing
+platform_samples,oliveyoung,oliveyoung::A000000190369,A000000190369,28781790,[판매량 1억개 돌파/대용량] AHC 텐 레볼루션 리얼 아이크림 포 페이스 더블 기획,AHC,skincare,5.0,"사용해보니 눈시림 아주 사알짝 잇어요 
+노화의 시작은 25세라더니.  눈 밑 주름까지 신경쓰야서 구매했어요 용량도 많아서 아직까지 잘 쓰고잇어요",positive,positive,positive,민감성,민감성,['민감성'],[],ok,"보습, C09",['보습'],['C09'],ok
+platform_samples,oliveyoung,oliveyoung::A000000185112,A000000185112,36578381,브링그린 프레시 마스크 1매/10매 (히알루 수분/티트리 진정/글루타치온 톤업/알로에 수딩),브링그린,maskpack,5.0,알로에 수딩 마스크팩이라서 수분감이 넘쳐서 좋아요 ~~!!,positive,positive,positive,건성,건성,['건성'],[],ok,미백,['미백'],[],ok
+platform_samples,oliveyoung,oliveyoung::A000000231175,A000000231175,53320933,[5월 올영픽/포켓몬에디션] 듀이트리 하이아미노 올 클렌징 밀크 200ml 기획 (+리필200ml+50ml+세안밴드),듀이트리,cleansing,1.0,가성비는 좋은데...... 세정력이 별로에요. 걍 다른 거 사세요,negative,neutral,neutral,,,[],[],missing,,[],[],missing
+platform_samples,oliveyoung,oliveyoung::A000000208231,A000000208231,18269940,[15년연속 1위/4매] 메디힐 에센셜 마스크팩 고기능 7종 골라담기,메디힐,maskpack,1.0,저에게는 맞지 않은 마스크팩이였습니다.. 메디힐 티트리는 잘맞는데 마데카소사이드는 잘 안맞나봐요 다시는 구매 안하려구요.. 트러블난거 진정시키느라 1주일 넘게 걸렸어요ㅠㅠ 재구매의사 없습니다,negative,negative,negative,,,[],[],missing,,[],[],missing
+platform_samples,coupang,coupang::coupang_9488566,coupang_9488566,coupang_13509394,"보닌 더 스타일 남성 기초 2종 세트, 1세트할인51%55,000원26,870원(1세트당 26,870원)내일",,beauty,5.0,"어제 구매하고 오늘 아침에받았어여~~ ㅎ
+타업체에서 구매하려다가,
+쿠팡에서 찾아보니,
+금액차가있어서 저렴히 구입했어여~^^",positive,positive,positive,,,[],[],missing,,[],[],missing
+platform_samples,coupang,coupang::coupang_18114848,coupang_18114848,coupang_182927413,"토니모리 루미너스 여신광채 비비크림 SPF37 PA++, 1호 화사한 베이지, 45g, 1개32%15,000",,beauty,5.0,"예전에 토리모리 여신광채 써서 괜찮다는 느낌을 
+받았어서~ 
+다시 한번 발라보려고 주문해봤어용~^^
+가격이 정말 저렴한것 같아요~ 
+좀 매트한 느낌은 있어서 좀묽은 비비크림이라든지
+썬크림 섞어발라도 괜찮아요~^^ 
+썬지수도 35면 좋고~ 
+제가 얼굴이 좀  까무잡잡한편이라~ 
+바르면 하애지지만 좀있음 살짝 날아가긴해요~ 
+발림성도 가격대비 너무 괜찮아서~ 
+아주 굿굿굿~ 
+사실 비싼것도 그락저락 이드라구요ㅜㅜ
+어떻게 요가격에 요런제품이 나올수가 있는지~ 
+남는게 있나요?ㅎ 
+양도 많아서~ 오래쓴 기억입니다~ 
+이번에도 써보고 좋으면 궂이 비싼거 쓸필요없이
+토리모리제품 으로 갈아타야될듯요~^^",positive,positive,positive,,,[],[],missing,,[],[],missing
+platform_samples,coupang,coupang::coupang_18481065,coupang_18481065,coupang_862821178,"AHC 온리포맨 폼 클렌저, 140ml, 1개68%24,000원7,510원(10ml당 536원)내일(목)도착",,beauty,5.0,"쿠팡체험단 이벤트로 상품을 무료 제공받아 작성한 리뷰입니다.
+
+평소에 사용하던 폼클렌징이 다 떨어져서 새로운걸 찾다가
+선택하게 된 제품인데 거품도 적당하고 세정력이 너무 좋네요
+무엇보다 건성이 사용하기에도 나쁘지 않아요
+세안 후에 얼굴 속당김이 심한데 이번에는 촉촉하게 마무리가 돼어서 그런가 스킨 바르기 전 까지 괜찮았어요!!!
+완전 완전 추천하고 싶어요!!
+
+쿠팡체험단을 통해 무상으로 제품을 제공받아 직접 사용해보고 작성한 솔직 리뷰입니다",positive,positive,positive,,,[],[],missing,,[],[],missing
+platform_samples,coupang,coupang::coupang_5166844155,coupang_5166844155,coupang_695426845,"미샤 비타씨플러스 잡티씨 탄력앰플 20ml + 15ml, 35ml, 1개41%27,000원15,680원(10",,beauty,5.0,"전에 썼다가 한 동안 안쓰다가
+얼굴이 다시 칙칙해지는거 같아서 다시 시켰어요~
+
+흡수는 뭐 말해 모하나요~
+찹찹 잘 흡수되구용~
+냄새도 은은하니 좋구~
+
+꾸준히 발라서 칙칙한 얼굴에서 탈출해야겠어요~
+저는 아침. 저녁으로 발라 줄 생각이에요
+
+
+♥️ 제 리뷰가 도움이 되셧다면 아래 버튼을 눌러주세요 ~~^^",positive,positive,positive,,,[],[],missing,,[],[],missing
+platform_samples,coupang,coupang::coupang_6965145129,coupang_6965145129,coupang_240368282,"루나 롱래스팅 팁 컨실러 픽싱핏 7.5g, 1개, 1호 바닐라쿠폰할인15,000원34%9,900원(10g당",,beauty,4.0,"아주 오래전부터 사용했던 브랜드!!
+홍조있는 제 얼굴 커버를 잘 맡아줍니다~~^^",positive,positive,positive,,,[],[],missing,,[],[],missing
+platform_samples,coupang,coupang::coupang_5273142550,coupang_5273142550,coupang_508356703,"메디힐 비타 토닝 에센스 마스크팩 20ml, 1개입, 15개22,500원38%13,900원(1개당 927원)",,beauty,5.0,"메디힐 비타 토닝 에센스 마스크팩 20ml 구입했어요!!
+
+매일매일 메디힐 한장으로 끝내는 피부고민
+피부힐링을 위해 1일1팩은 필수에요
+1일1팩은 힘들지만
+메디힐로 메디힐링 하려고 노력중이에요
+
+매일 다른 피부 고민을 케어해주는 메디힐의 로켓솔루션
+잠잠하게 재워주고 빈틈없이 채워주고 탄탄하게 잡아주는 미백마스크팩 찾으시는 분들 강추해요!!
+
+스키니시트로 빠르게 밀착 흡수해서
+붙인 듯 안 붙인 듯 투명한 편안함과 자석같은 밀착감으로 피부에 빠르게 착붙 흡수되는 마스크팩이에요
+
+
+메디힐 비타 토닝 에센스 마스크는 칙칙해진 피부 고민을 가지고 계신분들을 위한 생기 충전 에센스 타입으로
+미백 기능성 화장품이에요
+칙칙해진 피부를 환하게 밝혀주는 미백 레시피로
+비타 에센스를 담아 맑고 투명하게 브라이트닝 케어가 가능해요
+비타9 콤플렉스에 레시틴 성분을 더해 투명에너지를 충전해주고 피부를 화사하게 생기케어가 가능해요
+
+다음날 약속있으면 꼭 요 마스크팩 하는데
+피부가 진짜 촉촉해요
+흘러내리지 않아 하고 뭐든 가능 집안이롣 가능합니다",positive,positive,positive,,,[],[],missing,,[],[],missing
+platform_samples,coupang,coupang::coupang_5511214,coupang_5511214,coupang_107630927,"코리아나 발효 화이트닝 3종 세트, 1세트74%110,000원28,150원(1세트당 28,150원)내일(목)",,beauty,1.0,"다쓰고 나서 후기를 쓰다보니 지각후기입니다
+환절기가 되면서 피부가 너무 아프다
+나이먹어서 피부가 안좋아졌나
+요즘잠을 잘 못자서 당기고 아픈가 싶었는데
+다른 화장품 사용하니 피부가 아프고 당기는 문제가
+해결됐네요
+이건 무슨 의미일까 제품이 별로라는 거 겠죠
+사람마다 체질이 다르고 피부가 다르겠지만
+다시는 구매하지 않겠노라 다짐했습니다~!!!",negative,negative,negative,,,[],[],missing,,[],[],missing

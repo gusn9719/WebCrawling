@@ -1,0 +1,24 @@
+{
+  "run_name": "transformer_final_v3",
+  "model_name": "klue/bert-base",
+  "text_column": "clean_review",
+  "max_length": 160,
+  "epochs": 5.0,
+  "batch_size": 16,
+  "learning_rate": 2e-05,
+  "weight_decay": 0.01,
+  "warmup_ratio": 0.1,
+  "class_weight": "balanced",
+  "fp16": false,
+  "rationale": {
+    "model_name": "Use a Korean BERT-family checkpoint as the first Transformer baseline for Korean review text.",
+    "text_column": "Use clean_review because pretrained Transformer tokenizers should see natural Korean text rather than Okt token strings.",
+    "max_length": "160 tokens keeps most short product reviews while reducing memory cost versus the 512-token maximum.",
+    "epochs": "3 epochs is a common fine-tuning starting point and limits overfitting on weak rule-based labels.",
+    "batch_size": "16 is a conservative BERT-base batch size for typical single-GPU memory; reduce to 8 if memory is tight.",
+    "learning_rate": "2e-5 is a standard small fine-tuning learning rate for pretrained BERT-style encoders.",
+    "weight_decay": "0.01 adds mild regularization for the classification head and encoder weights.",
+    "warmup_ratio": "0.1 stabilizes early fine-tuning before applying the full learning rate.",
+    "class_weight": "balanced keeps the comparison aligned with existing imbalance experiments and protects minority neutral examples."
+  }
+}

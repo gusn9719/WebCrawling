@@ -6,6 +6,8 @@
 """
 import json
 import logging
+import threading
+from pathlib import Path
 
 from .config import OUTPUT_DIR
 from .schema import ReviewSchema
@@ -16,11 +18,13 @@ logger = logging.getLogger(__name__)
 class ReviewStorage:
     """카테고리 1개 = JSONL 파일 1개. 중복 review_id 는 저장하지 않는다."""
 
-    def __init__(self, category: str):
-        OUTPUT_DIR.mkdir(exist_ok=True)
-        self.path = OUTPUT_DIR / f"{category}_reviews.jsonl"
+    def __init__(self, category: str, base_dir: Path | None = None):
+        root = base_dir or OUTPUT_DIR
+        root.mkdir(exist_ok=True)
+        self.path = root / f"{category}_reviews.jsonl"
         self.seen_ids: set[str] = set()
         self.done_products: set[str] = set()
+        self._lock = threading.Lock()
         self._restore_state()
 
     def _restore_state(self) -> None:
@@ -65,13 +69,14 @@ class ReviewStorage:
             return 0
 
         saved = 0
-        with open(self.path, "a", encoding="utf-8") as f:
-            for review in reviews:
-                if review.review_id in self.seen_ids:
-                    continue
-                f.write(review.to_json_line() + "\n")
-                self.seen_ids.add(review.review_id)
-                saved += 1
+        with self._lock:
+            with open(self.path, "a", encoding="utf-8") as f:
+                for review in reviews:
+                    if review.review_id in self.seen_ids:
+                        continue
+                    f.write(review.to_json_line() + "\n")
+                    self.seen_ids.add(review.review_id)
+                    saved += 1
 
         if saved:
             logger.info("[storage] %d개 저장 (누적 %d개)", saved, len(self.seen_ids))

@@ -1,0 +1,844 @@
+{
+  "generated_at": "2026-06-27 15:10:56",
+  "service_reviews": {
+    "row_count": 402438,
+    "dup_review_id": 0,
+    "null_product_key": 0,
+    "null_predicted_sentiment": 0,
+    "has_base_skin_type": 189665,
+    "no_base_skin_type": 831,
+    "product_key_count": 2221,
+    "skin_type_dist": {
+      "nan": 212773,
+      "복합성": 74016,
+      "지성": 58062,
+      "건성": 37605,
+      "민감성": 18974,
+      "중성": 1008
+    }
+  },
+  "overall": {
+    "product_count_in_service_reviews": 2221,
+    "product_count_in_skin_aggregates": 1521
+  },
+  "skin_aggregates": {
+    "row_count": 6008,
+    "reloaded_row_count": 6008,
+    "by_skin_type": {
+      "지성": {
+        "row_count": 1383,
+        "total_review_count": 58062,
+        "positive_count": 50144,
+        "neutral_count": 4749,
+        "negative_count": 3169,
+        "positive_rate": 0.8636,
+        "neutral_rate": 0.0818,
+        "negative_rate": 0.0546,
+        "avg_skin_review_count": 41.98,
+        "high_negative_signal_products": 29,
+        "insufficient_evidence_products": 249
+      },
+      "건성": {
+        "row_count": 1392,
+        "total_review_count": 37605,
+        "positive_count": 33115,
+        "neutral_count": 2747,
+        "negative_count": 1743,
+        "positive_rate": 0.8806,
+        "neutral_rate": 0.073,
+        "negative_rate": 0.0464,
+        "avg_skin_review_count": 27.02,
+        "high_negative_signal_products": 89,
+        "insufficient_evidence_products": 323
+      },
+      "민감성": {
+        "row_count": 1282,
+        "total_review_count": 18974,
+        "positive_count": 16295,
+        "neutral_count": 1543,
+        "negative_count": 1136,
+        "positive_rate": 0.8588,
+        "neutral_rate": 0.0813,
+        "negative_rate": 0.0599,
+        "avg_skin_review_count": 14.8,
+        "high_negative_signal_products": 114,
+        "insufficient_evidence_products": 368
+      },
+      "복합성": {
+        "row_count": 1461,
+        "total_review_count": 74016,
+        "positive_count": 66881,
+        "neutral_count": 4882,
+        "negative_count": 2253,
+        "positive_rate": 0.9036,
+        "neutral_rate": 0.066,
+        "negative_rate": 0.0304,
+        "avg_skin_review_count": 50.66,
+        "high_negative_signal_products": 41,
+        "insufficient_evidence_products": 216
+      },
+      "중성": {
+        "row_count": 490,
+        "total_review_count": 1008,
+        "positive_count": 771,
+        "neutral_count": 113,
+        "negative_count": 124,
+        "positive_rate": 0.7649,
+        "neutral_rate": 0.1121,
+        "negative_rate": 0.123,
+        "avg_skin_review_count": 2.06,
+        "high_negative_signal_products": 2,
+        "insufficient_evidence_products": 460
+      }
+    },
+    "by_platform_in_skin_aggregates": {
+      "musinsa": {
+        "product_key_count": 691,
+        "skin_aggregate_rows": 2275
+      },
+      "oliveyoung": {
+        "product_key_count": 830,
+        "skin_aggregate_rows": 3733
+      }
+    },
+    "caution_level_dist": {
+      "normal": 3599,
+      "insufficient_evidence": 1616,
+      "moderate_negative_signal": 518,
+      "high_negative_signal": 275
+    },
+    "confidence_label_dist": {
+      "참고 가능": 2229,
+      "비교적 신뢰 가능": 2163,
+      "근거 부족": 1616
+    },
+    "skin_reviews_used": 189665,
+    "skin_reviews_excluded": 212773,
+    "exclusion_breakdown": {
+      "base_skin_type_missing": 211942,
+      "no_base_skin_type": 831,
+      "predicted_sentiment_null": 0
+    }
+  },
+  "top_products": {
+    "by_total_review_count": [
+      {
+        "product_key": "musinsa::2959816",
+        "product_name": "[SET] 다이브인 저분자 히알루론산 세럼 50ml+40ml (+시카컨트롤세럼 10ml)",
+        "brand": "torriden",
+        "base_skin_type": "건성",
+        "total_review_count": 11221
+      },
+      {
+        "product_key": "musinsa::2172345",
+        "product_name": "아토베리어365 크림 80ml",
+        "brand": "aestura",
+        "base_skin_type": "복합성",
+        "total_review_count": 5697
+      },
+      {
+        "product_key": "musinsa::1246381",
+        "product_name": "[+바디워시 증정] 퍼퓸 데오 바디스프레이 200ml 프레쉬향",
+        "brand": "dashu",
+        "base_skin_type": "지성",
+        "total_review_count": 5123
+      },
+      {
+        "product_key": "musinsa::2632600",
+        "product_name": "아쿠아 오아시스 토너 300ml",
+        "brand": "snature",
+        "base_skin_type": "복합성",
+        "total_review_count": 3075
+      },
+      {
+        "product_key": "musinsa::2172337",
+        "product_name": "아토베리어365 로션 150ml",
+        "brand": "aestura",
+        "base_skin_type": "민감성",
+        "total_review_count": 3048
+      },
+      {
+        "product_key": "musinsa::2417998",
+        "product_name": "리얼 히알루로닉 블루 100 앰플 100ml",
+        "brand": "wellage",
+        "base_skin_type": "복합성",
+        "total_review_count": 2856
+      },
+      {
+        "product_key": "musinsa::2638240",
+        "product_name": "[2EA] 아쿠아 콜라겐 펩타이드 EX 멀티 크림 80ml(토너 9ml 증정)",
+        "brand": "dewytree",
+        "base_skin_type": "복합성",
+        "total_review_count": 2820
+      },
+      {
+        "product_key": "musinsa::6239507",
+        "product_name": "피브 하이퍼 하이드로 세럼 100ml",
+        "brand": "feev",
+        "base_skin_type": "지성",
+        "total_review_count": 2656
+      },
+      {
+        "product_key": "musinsa::3098201",
+        "product_name": "[사은품 증정] (대용량) 레티놀 시카 흔적 앰플 50mL + 10mL 2개",
+        "brand": "innisfree",
+        "base_skin_type": "복합성",
+        "total_review_count": 2631
+      },
+      {
+        "product_key": "musinsa::2775186",
+        "product_name": "어드밴스드 더 비타민씨 23 세럼",
+        "brand": "cosrx",
+        "base_skin_type": "민감성",
+        "total_review_count": 2444
+      },
+      {
+        "product_key": "musinsa::2725216",
+        "product_name": "[SET] 다이브인 저분자 히알루론산 크림 80ml x 2개 [총 160ml] (+다이브인 크림 20ml)",
+        "brand": "torriden",
+        "base_skin_type": "복합성",
+        "total_review_count": 2438
+      },
+      {
+        "product_key": "musinsa::2822853",
+        "product_name": "[무신사단독] 포 맨 1025 독도 올인원 플루이드 200ml (+독도 클렌저 40ml 증정)",
+        "brand": "roundlab",
+        "base_skin_type": "건성",
+        "total_review_count": 2356
+      },
+      {
+        "product_key": "musinsa::1218467",
+        "product_name": "1025 독도 토너 500ml(+독도 클렌저 40ml + 워터겔 마스크 1매 증정)",
+        "brand": "roundlab",
+        "base_skin_type": "복합성",
+        "total_review_count": 2287
+      },
+      {
+        "product_key": "musinsa::6239322",
+        "product_name": "스킨 베리어 카밍 로션 이엑스 220ml",
+        "brand": "ongredients",
+        "base_skin_type": "지성",
+        "total_review_count": 2189
+      },
+      {
+        "product_key": "musinsa::2436679",
+        "product_name": "순정 디렉터 선크림 2pack 기획세트",
+        "brand": "etude",
+        "base_skin_type": "지성",
+        "total_review_count": 2007
+      },
+      {
+        "product_key": "musinsa::1532646",
+        "product_name": "스킨 워시 500ml",
+        "brand": "ulos",
+        "base_skin_type": "지성",
+        "total_review_count": 1791
+      },
+      {
+        "product_key": "musinsa::3162357",
+        "product_name": "원더 히알루론산 촉촉 앰플 100ml(+히알루론산 마스크 증정)",
+        "brand": "tonymoly",
+        "base_skin_type": "지성",
+        "total_review_count": 1769
+      },
+      {
+        "product_key": "musinsa::2496302",
+        "product_name": "그린 마일드 업 선 플러스 50mL 2개",
+        "brand": "drg",
+        "base_skin_type": "지성",
+        "total_review_count": 1766
+      },
+      {
+        "product_key": "musinsa::3578031",
+        "product_name": "[SET] 다이브인 저분자 히알루론산 수딩크림 80ml X 2개 (+다이브인 세럼 20ml)",
+        "brand": "torriden",
+        "base_skin_type": "복합성",
+        "total_review_count": 1757
+      },
+      {
+        "product_key": "musinsa::3748858",
+        "product_name": "[무신사 단독] [2pack] 소나무 진정 시카 앰플 대용량 50ml (+동백 선세럼 7ml + 소나무 마스크 1매)",
+        "brand": "roundlab",
+        "base_skin_type": "민감성",
+        "total_review_count": 1687
+      }
+    ],
+    "by_skin_review_count": [
+      {
+        "product_key": "musinsa::2959816",
+        "product_name": "[SET] 다이브인 저분자 히알루론산 세럼 50ml+40ml (+시카컨트롤세럼 10ml)",
+        "brand": "torriden",
+        "base_skin_type": "복합성",
+        "skin_review_count": 3924
+      },
+      {
+        "product_key": "musinsa::2172345",
+        "product_name": "아토베리어365 크림 80ml",
+        "brand": "aestura",
+        "base_skin_type": "복합성",
+        "skin_review_count": 2410
+      },
+      {
+        "product_key": "musinsa::2959816",
+        "product_name": "[SET] 다이브인 저분자 히알루론산 세럼 50ml+40ml (+시카컨트롤세럼 10ml)",
+        "brand": "torriden",
+        "base_skin_type": "지성",
+        "skin_review_count": 2018
+      },
+      {
+        "product_key": "musinsa::2959816",
+        "product_name": "[SET] 다이브인 저분자 히알루론산 세럼 50ml+40ml (+시카컨트롤세럼 10ml)",
+        "brand": "torriden",
+        "base_skin_type": "건성",
+        "skin_review_count": 1642
+      },
+      {
+        "product_key": "musinsa::2172345",
+        "product_name": "아토베리어365 크림 80ml",
+        "brand": "aestura",
+        "base_skin_type": "건성",
+        "skin_review_count": 1369
+      },
+      {
+        "product_key": "musinsa::2638240",
+        "product_name": "[2EA] 아쿠아 콜라겐 펩타이드 EX 멀티 크림 80ml(토너 9ml 증정)",
+        "brand": "dewytree",
+        "base_skin_type": "복합성",
+        "skin_review_count": 1113
+      },
+      {
+        "product_key": "musinsa::2172337",
+        "product_name": "아토베리어365 로션 150ml",
+        "brand": "aestura",
+        "base_skin_type": "복합성",
+        "skin_review_count": 1107
+      },
+      {
+        "product_key": "musinsa::2632600",
+        "product_name": "아쿠아 오아시스 토너 300ml",
+        "brand": "snature",
+        "base_skin_type": "복합성",
+        "skin_review_count": 1098
+      },
+      {
+        "product_key": "musinsa::6239507",
+        "product_name": "피브 하이퍼 하이드로 세럼 100ml",
+        "brand": "feev",
+        "base_skin_type": "복합성",
+        "skin_review_count": 1092
+      },
+      {
+        "product_key": "musinsa::2417998",
+        "product_name": "리얼 히알루로닉 블루 100 앰플 100ml",
+        "brand": "wellage",
+        "base_skin_type": "복합성",
+        "skin_review_count": 1058
+      },
+      {
+        "product_key": "musinsa::2725216",
+        "product_name": "[SET] 다이브인 저분자 히알루론산 크림 80ml x 2개 [총 160ml] (+다이브인 크림 20ml)",
+        "brand": "torriden",
+        "base_skin_type": "복합성",
+        "skin_review_count": 1013
+      },
+      {
+        "product_key": "musinsa::6239322",
+        "product_name": "스킨 베리어 카밍 로션 이엑스 220ml",
+        "brand": "ongredients",
+        "base_skin_type": "복합성",
+        "skin_review_count": 927
+      },
+      {
+        "product_key": "musinsa::1246381",
+        "product_name": "[+바디워시 증정] 퍼퓸 데오 바디스프레이 200ml 프레쉬향",
+        "brand": "dashu",
+        "base_skin_type": "복합성",
+        "skin_review_count": 909
+      },
+      {
+        "product_key": "musinsa::3098201",
+        "product_name": "[사은품 증정] (대용량) 레티놀 시카 흔적 앰플 50mL + 10mL 2개",
+        "brand": "innisfree",
+        "base_skin_type": "복합성",
+        "skin_review_count": 886
+      },
+      {
+        "product_key": "musinsa::6239507",
+        "product_name": "피브 하이퍼 하이드로 세럼 100ml",
+        "brand": "feev",
+        "base_skin_type": "지성",
+        "skin_review_count": 863
+      },
+      {
+        "product_key": "musinsa::2172345",
+        "product_name": "아토베리어365 크림 80ml",
+        "brand": "aestura",
+        "base_skin_type": "지성",
+        "skin_review_count": 846
+      },
+      {
+        "product_key": "musinsa::1246381",
+        "product_name": "[+바디워시 증정] 퍼퓸 데오 바디스프레이 200ml 프레쉬향",
+        "brand": "dashu",
+        "base_skin_type": "지성",
+        "skin_review_count": 844
+      },
+      {
+        "product_key": "musinsa::2822853",
+        "product_name": "[무신사단독] 포 맨 1025 독도 올인원 플루이드 200ml (+독도 클렌저 40ml 증정)",
+        "brand": "roundlab",
+        "base_skin_type": "복합성",
+        "skin_review_count": 815
+      },
+      {
+        "product_key": "musinsa::2775186",
+        "product_name": "어드밴스드 더 비타민씨 23 세럼",
+        "brand": "cosrx",
+        "base_skin_type": "복합성",
+        "skin_review_count": 790
+      },
+      {
+        "product_key": "musinsa::3162357",
+        "product_name": "원더 히알루론산 촉촉 앰플 100ml(+히알루론산 마스크 증정)",
+        "brand": "tonymoly",
+        "base_skin_type": "복합성",
+        "skin_review_count": 783
+      }
+    ],
+    "by_skin_negative_rate_all": [
+      {
+        "product_key": "oliveyoung::A000000184159",
+        "product_name": "[추가증정기획/뽀송 무기자차] 메이크프렘 유브이 디펜스 미 노세범 선크림 40ml+40ml 기획 (택 1)",
+        "brand": "메이크프렘",
+        "base_skin_type": "중성",
+        "skin_negative_rate": 1.0
+      },
+      {
+        "product_key": "musinsa::2757203",
+        "product_name": "바디워시 바디로션 2 pack (샌달우드/블랙티앤피그)",
+        "brand": "longtake",
+        "base_skin_type": "복합성",
+        "skin_negative_rate": 1.0
+      },
+      {
+        "product_key": "oliveyoung::A000000250764",
+        "product_name": "[역대급증정/자극제로/쌀뜨물클렌징밀크] 에스네이처 아쿠아 라이스 클렌징밀크 280ml 기획(+리필100ml+모공브러쉬)",
+        "brand": "에스네이처",
+        "base_skin_type": "중성",
+        "skin_negative_rate": 1.0
+      },
+      {
+        "product_key": "musinsa::6226471",
+        "product_name": "맑은쌀선크림 : 고아미+프로바이오틱스 (SPF 50+ PA++++)",
+        "brand": "beautyofjoseon",
+        "base_skin_type": "민감성",
+        "skin_negative_rate": 1.0
+      },
+      {
+        "product_key": "musinsa::6023311",
+        "product_name": "문제성 손발톱 집중 케어 2종 세트",
+        "brand": "withshyan",
+        "base_skin_type": "복합성",
+        "skin_negative_rate": 1.0
+      },
+      {
+        "product_key": "oliveyoung::A000000237449",
+        "product_name": "[수지pick/뽀용뇽 공동개발] 아누아 피디알엔 히알루론산 수분 캡슐 미스트 100ml",
+        "brand": "아누아",
+        "base_skin_type": "중성",
+        "skin_negative_rate": 1.0
+      },
+      {
+        "product_key": "oliveyoung::A000000251033",
+        "product_name": "[NEW/쿨링&차단] 라운드랩 자작나무 수분 선 스프레이 100ml 1+1 기획",
+        "brand": "라운드랩",
+        "base_skin_type": "중성",
+        "skin_negative_rate": 1.0
+      },
+      {
+        "product_key": "oliveyoung::A000000158243",
+        "product_name": "브링그린 프레시볼 팩 8g 8종",
+        "brand": "브링그린",
+        "base_skin_type": "중성",
+        "skin_negative_rate": 1.0
+      },
+      {
+        "product_key": "oliveyoung::A000000253334",
+        "product_name": "[포켓몬 에디션] 닥터지 그린마일드 업 선 플러스 40ml 트리플 기획",
+        "brand": "닥터지",
+        "base_skin_type": "중성",
+        "skin_negative_rate": 1.0
+      },
+      {
+        "product_key": "oliveyoung::A000000175069",
+        "product_name": "[곽민경PICK/단독기획] CKD 겔마스크 4+1매 (모공탄력/기미잡티) 2종",
+        "brand": "CKD",
+        "base_skin_type": "중성",
+        "skin_negative_rate": 1.0
+      },
+      {
+        "product_key": "musinsa::6337083",
+        "product_name": "아쿠아 365 유브이 글로우 핏 톤업선 40ml",
+        "brand": "snature",
+        "base_skin_type": "지성",
+        "skin_negative_rate": 1.0
+      },
+      {
+        "product_key": "oliveyoung::A000000161581",
+        "product_name": "[누적판매 1700만]스킨1004 마다가스카르 센텔라 앰플 55ml",
+        "brand": "스킨1004",
+        "base_skin_type": "중성",
+        "skin_negative_rate": 1.0
+      },
+      {
+        "product_key": "oliveyoung::A000000223239",
+        "product_name": "식물나라 제주 탄산수 딥 클렌징티슈 80매",
+        "brand": "식물나라",
+        "base_skin_type": "중성",
+        "skin_negative_rate": 1.0
+      },
+      {
+        "product_key": "oliveyoung::A000000247573",
+        "product_name": "[5월올영픽] [스킨부스팅/윤곽관리] 메디큐브 에이지알 부스터 브이롤러 한정기획 (+미니플러스, 브이롤러헤드)",
+        "brand": "메디큐브 에이지알",
+        "base_skin_type": "민감성",
+        "skin_negative_rate": 1.0
+      },
+      {
+        "product_key": "oliveyoung::A000000162279",
+        "product_name": "[1등필링/화잘먹] 닥터지 브라이트닝 필링젤 기획 (120g+60g+히알시카세럼2ml/120g+120g+10g)",
+        "brand": "닥터지",
+        "base_skin_type": "중성",
+        "skin_negative_rate": 1.0
+      },
+      {
+        "product_key": "oliveyoung::A000000248305",
+        "product_name": "[NEW] 라로슈포제 안뗄리오스 선 플루이드 50ml",
+        "brand": "라로슈포제",
+        "base_skin_type": "건성",
+        "skin_negative_rate": 1.0
+      },
+      {
+        "product_key": "oliveyoung::A000000237728",
+        "product_name": "[1등 진정세럼] 파넬 시카마누 92세럼 30ml 리필기획(+30ml 리필+15ml)",
+        "brand": "파넬",
+        "base_skin_type": "중성",
+        "skin_negative_rate": 1.0
+      },
+      {
+        "product_key": "oliveyoung::A000000254249",
+        "product_name": "[최초구성/케이스증정] 라운드랩 자작나무 수분 패드 80매 더블기획(+패드 케이스 증정)",
+        "brand": "라운드랩",
+        "base_skin_type": "건성",
+        "skin_negative_rate": 1.0
+      },
+      {
+        "product_key": "oliveyoung::A000000165598",
+        "product_name": "[더블기획/1+1] 토리든 다이브인 히알루론산 수딩 크림 더블기획 (100ml+100ml)",
+        "brand": "토리든",
+        "base_skin_type": "중성",
+        "skin_negative_rate": 1.0
+      },
+      {
+        "product_key": "oliveyoung::A000000223233",
+        "product_name": "[선크림 세정]식물나라 제주 탄산수 딥 모공 클렌징 폼 120ml,150ml 단품/1+1기획",
+        "brand": "식물나라",
+        "base_skin_type": "중성",
+        "skin_negative_rate": 1.0
+      }
+    ],
+    "by_skin_negative_rate_min5": [
+      {
+        "product_key": "oliveyoung::A000000184368",
+        "product_name": "[모공&블랙헤드/노란티스] 티스 딥 오프 클렌징오일 320ml",
+        "brand": "티스",
+        "base_skin_type": "민감성",
+        "skin_negative_rate": 0.8
+      },
+      {
+        "product_key": "oliveyoung::A000000212570",
+        "product_name": "바이오더마 시카비오 크림+ 100ml 기획 (크림 + 40ml 본품 추가 증정)",
+        "brand": "바이오더마",
+        "base_skin_type": "건성",
+        "skin_negative_rate": 0.6666666666666666
+      },
+      {
+        "product_key": "oliveyoung::A000000254058",
+        "product_name": "[포켓몬 에디션]VT 리들샷100 에센스 50ml기획 (리들샷300 1ml+PDRN에센스1.5ml+포켓몬아크릴포스트잇)",
+        "brand": "VT",
+        "base_skin_type": "민감성",
+        "skin_negative_rate": 0.6363636363636364
+      },
+      {
+        "product_key": "oliveyoung::A000000120938",
+        "product_name": "[10매/5종] 아비브 약산성 pH 시트 마스크 핏 10매 (어성초/부활초/아쿠아/글루타치온좀/허니)",
+        "brand": "아비브",
+        "base_skin_type": "민감성",
+        "skin_negative_rate": 0.625
+      },
+      {
+        "product_key": "oliveyoung::A000000212555",
+        "product_name": "[강력차단]식물나라 워터프루프/알로에쿨링 선 스프레이 100ml (단품/1+1/트리플기획)",
+        "brand": "식물나라",
+        "base_skin_type": "중성",
+        "skin_negative_rate": 0.6
+      },
+      {
+        "product_key": "oliveyoung::A000000166586",
+        "product_name": "[단독/대용량] 라운드랩 자작나무 수분 크림 120ml 기획 (+수분패드 4매)",
+        "brand": "라운드랩",
+        "base_skin_type": "민감성",
+        "skin_negative_rate": 0.6
+      },
+      {
+        "product_key": "oliveyoung::A000000216311",
+        "product_name": "[*피지잡는 *약산성클렌저 *클렌징폼] 아벤느 클리낭스 클렌징 젤 400ml 더블 기획",
+        "brand": "아벤느",
+        "base_skin_type": "건성",
+        "skin_negative_rate": 0.6
+      },
+      {
+        "product_key": "oliveyoung::A000000237449",
+        "product_name": "[수지pick/뽀용뇽 공동개발] 아누아 피디알엔 히알루론산 수분 캡슐 미스트 100ml",
+        "brand": "아누아",
+        "base_skin_type": "민감성",
+        "skin_negative_rate": 0.6
+      },
+      {
+        "product_key": "oliveyoung::A000000231315",
+        "product_name": "[1+1] 프리메라 마일드 앤 퍼펙트 클렌징 오일 투 폼 200ml 리필기획/단품",
+        "brand": "프리메라",
+        "base_skin_type": "건성",
+        "skin_negative_rate": 0.5714285714285714
+      },
+      {
+        "product_key": "oliveyoung::A000000193133",
+        "product_name": "브링그린 모델링 팩 28g [티트리 시카/대나무 히알루/슈퍼 레몬 글루타치온]",
+        "brand": "브링그린",
+        "base_skin_type": "복합성",
+        "skin_negative_rate": 0.5625
+      },
+      {
+        "product_key": "oliveyoung::A000000247726",
+        "product_name": "[한정기획] 메이크프렘 인테카 수딩크림 70ml 기획 (+크림 31ml*2+NMN 앰플 7ml)",
+        "brand": "메이크프렘",
+        "base_skin_type": "민감성",
+        "skin_negative_rate": 0.5555555555555556
+      },
+      {
+        "product_key": "oliveyoung::A000000213921",
+        "product_name": "[올영단독400ml] 포인트앤 딥 클린 올킬 립앤아이 리무버 200ml 1+1 기획",
+        "brand": "포인트앤",
+        "base_skin_type": "건성",
+        "skin_negative_rate": 0.5384615384615384
+      },
+      {
+        "product_key": "oliveyoung::A000000251313",
+        "product_name": "비건이펙트 청보리 라하 젤 클렌저 205ml 기획 (+클렌징오일 20g)",
+        "brand": "비건이펙트",
+        "base_skin_type": "건성",
+        "skin_negative_rate": 0.5
+      },
+      {
+        "product_key": "oliveyoung::A000000184159",
+        "product_name": "[추가증정기획/뽀송 무기자차] 메이크프렘 유브이 디펜스 미 노세범 선크림 40ml+40ml 기획 (택 1)",
+        "brand": "메이크프렘",
+        "base_skin_type": "민감성",
+        "skin_negative_rate": 0.5
+      },
+      {
+        "product_key": "oliveyoung::A000000206904",
+        "product_name": "라로슈포제 시카플라스트 밤 B5+ 100ml 기획 (+3ml 추가증정)",
+        "brand": "라로슈포제",
+        "base_skin_type": "민감성",
+        "skin_negative_rate": 0.5
+      },
+      {
+        "product_key": "oliveyoung::A000000235364",
+        "product_name": "[3D진동클렌징/모공케어] 메디큐브 에이지알 부스터 진동 클렌저 헤드 (베이지/핑크)",
+        "brand": "메디큐브 에이지알",
+        "base_skin_type": "지성",
+        "skin_negative_rate": 0.5
+      },
+      {
+        "product_key": "oliveyoung::A000000202947",
+        "product_name": "[온열소금팩/화잘먹/모공] 토르홉 사우난지앙 솔트마스크 90+7g 미니 기획",
+        "brand": "토르홉",
+        "base_skin_type": "민감성",
+        "skin_negative_rate": 0.5
+      },
+      {
+        "product_key": "oliveyoung::A000000169035",
+        "product_name": "[올리브영 단독기획] 믹순 콩 에센스 50ml 기획 (+병풀 에센스 20ml)",
+        "brand": "믹순",
+        "base_skin_type": "민감성",
+        "skin_negative_rate": 0.5
+      },
+      {
+        "product_key": "oliveyoung::A000000157350",
+        "product_name": "[트러블모공] 디오디너리 나이아신아마이드 10% + 징크 1% 30ml",
+        "brand": "디오디너리",
+        "base_skin_type": "민감성",
+        "skin_negative_rate": 0.5
+      },
+      {
+        "product_key": "oliveyoung::A000000212570",
+        "product_name": "바이오더마 시카비오 크림+ 100ml 기획 (크림 + 40ml 본품 추가 증정)",
+        "brand": "바이오더마",
+        "base_skin_type": "민감성",
+        "skin_negative_rate": 0.5
+      }
+    ],
+    "by_skin_negative_rate_min20": [
+      {
+        "product_key": "oliveyoung::A000000193133",
+        "product_name": "브링그린 모델링 팩 28g [티트리 시카/대나무 히알루/슈퍼 레몬 글루타치온]",
+        "brand": "브링그린",
+        "base_skin_type": "복합성",
+        "skin_negative_rate": 0.5625
+      },
+      {
+        "product_key": "oliveyoung::A000000202899",
+        "product_name": "[스패츌러 증정] 메디힐 블랙헤드 멜팅 클리어 코팩 4매 피지연화",
+        "brand": "메디힐",
+        "base_skin_type": "복합성",
+        "skin_negative_rate": 0.42857142857142855
+      },
+      {
+        "product_key": "oliveyoung::A000000207439",
+        "product_name": "[블랙헤드케어템]브링그린 티트리 시카 포어 코팩 5매입",
+        "brand": "브링그린",
+        "base_skin_type": "복합성",
+        "skin_negative_rate": 0.4074074074074074
+      },
+      {
+        "product_key": "oliveyoung::A000000232304",
+        "product_name": "[단독기획/대용량] 파티온 노스카나인 트러블 크림 75ml 기획(+5ml)",
+        "brand": "파티온",
+        "base_skin_type": "지성",
+        "skin_negative_rate": 0.38461538461538464
+      },
+      {
+        "product_key": "oliveyoung::A000000224494",
+        "product_name": "[더보이즈 영훈PICK/트러블1등] 셀라딕스 트러블 세범 리밸런싱 131 앰플 30ml",
+        "brand": "셀라딕스",
+        "base_skin_type": "지성",
+        "skin_negative_rate": 0.38095238095238093
+      },
+      {
+        "product_key": "oliveyoung::A000000223906",
+        "product_name": "식물나라 가벼운 수분 선 젤 60ml 단품/2입 기획",
+        "brand": "식물나라",
+        "base_skin_type": "건성",
+        "skin_negative_rate": 0.38095238095238093
+      },
+      {
+        "product_key": "oliveyoung::A000000231589",
+        "product_name": "[5월 올영픽][대용량] 제로이드 수딩 크림 80ml 기획 (+50ml)",
+        "brand": "제로이드",
+        "base_skin_type": "건성",
+        "skin_negative_rate": 0.37037037037037035
+      },
+      {
+        "product_key": "oliveyoung::A000000177758",
+        "product_name": "[추가증정] 넘버즈인 토너패드 증정 기획 중 택 1(1번, 5번)",
+        "brand": "넘버즈인",
+        "base_skin_type": "건성",
+        "skin_negative_rate": 0.37037037037037035
+      },
+      {
+        "product_key": "oliveyoung::A000000225573",
+        "product_name": "[파데프리/톤업] 조선미녀 데일리 틴티드 선세럼 50ml (+커버핏 퍼프 증정), (기획/단품)",
+        "brand": "조선미녀",
+        "base_skin_type": "건성",
+        "skin_negative_rate": 0.36363636363636365
+      },
+      {
+        "product_key": "oliveyoung::A000000148023",
+        "product_name": "[추가증정/저자극] 닥터지 약산성 클렌징 젤 폼 200ml+100ml 증정 기획",
+        "brand": "닥터지",
+        "base_skin_type": "건성",
+        "skin_negative_rate": 0.36
+      },
+      {
+        "product_key": "oliveyoung::A000000252917",
+        "product_name": "[온라인단독] 라로슈포제 시카플라스트 밤 B5+& 멀티리페어 크림 B5 100ml 기획 (+시카에센스 7.5ml*2)",
+        "brand": "라로슈포제",
+        "base_skin_type": "지성",
+        "skin_negative_rate": 0.35135135135135137
+      },
+      {
+        "product_key": "oliveyoung::A000000149179",
+        "product_name": "메디힐 티트리 임팩트인 밸런싱 마스크 1매",
+        "brand": "메디힐",
+        "base_skin_type": "복합성",
+        "skin_negative_rate": 0.35
+      },
+      {
+        "product_key": "oliveyoung::A000000012609",
+        "product_name": "아이소이 에센셜 마스크팩 1매 3종 택 1 (잡티 / 진정 / 수분)",
+        "brand": "아이소이",
+        "base_skin_type": "건성",
+        "skin_negative_rate": 0.34782608695652173
+      },
+      {
+        "product_key": "oliveyoung::A000000226515",
+        "product_name": "[포켓몬에디션]브링그린 징크테카 트러블세럼(대용량/기획)",
+        "brand": "브링그린",
+        "base_skin_type": "복합성",
+        "skin_negative_rate": 0.34782608695652173
+      },
+      {
+        "product_key": "oliveyoung::A000000157350",
+        "product_name": "[트러블모공] 디오디너리 나이아신아마이드 10% + 징크 1% 30ml",
+        "brand": "디오디너리",
+        "base_skin_type": "건성",
+        "skin_negative_rate": 0.34782608695652173
+      },
+      {
+        "product_key": "oliveyoung::A000000187480",
+        "product_name": "[여배우PICK] 바이오던스 바이오 콜라겐 리얼 딥 마스크 7매",
+        "brand": "바이오던스",
+        "base_skin_type": "지성",
+        "skin_negative_rate": 0.3404255319148936
+      },
+      {
+        "product_key": "oliveyoung::A000000189181",
+        "product_name": "[수부지토너]브링그린 티트리 시카 수딩 토너 (500ml/250ml)",
+        "brand": "브링그린",
+        "base_skin_type": "건성",
+        "skin_negative_rate": 0.3333333333333333
+      },
+      {
+        "product_key": "oliveyoung::A000000219609",
+        "product_name": "[대용량/트러블1등] 파티온 노스카나인 트러블 세럼 50ml 리필 기획(+리필40ml+크림10ml)",
+        "brand": "파티온",
+        "base_skin_type": "지성",
+        "skin_negative_rate": 0.3225806451612903
+      },
+      {
+        "product_key": "oliveyoung::A000000248829",
+        "product_name": "[트러블 스케일링] 이옴 트러블 패치 마스크 3매",
+        "brand": "이옴",
+        "base_skin_type": "지성",
+        "skin_negative_rate": 0.32
+      },
+      {
+        "product_key": "oliveyoung::A000000204081",
+        "product_name": "[오선우pick/파데프리] 아누아 매트벗글로우 커버 베이지 50ml",
+        "brand": "아누아",
+        "base_skin_type": "지성",
+        "skin_negative_rate": 0.32
+      }
+    ]
+  },
+  "validation": {
+    "dup_product_skin_type": 0,
+    "null_base_skin_type": 0,
+    "zero_skin_review_count": 0,
+    "skin_count_mismatch": 0,
+    "overall_count_mismatch": 0,
+    "max_skin_rate_deviation": 1.1102230246251565e-16,
+    "max_overall_rate_deviation": 1.1102230246251565e-16
+  }
+}

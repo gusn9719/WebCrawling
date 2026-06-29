@@ -36,22 +36,52 @@ output_external/
 output_recovered_*/
 preprocessed/
 preprocessed_v2/
-*.parquet
 
-# 모델/전처리 직렬화 산출물 (재생성 가능, 대용량 가능)
-models/
+# 전처리 v3 — 대용량 파일만 개별 제외
+# (product_recommendation_scores.parquet, product_skin_aggregates.parquet,
+#  lstm_v3_preds.parquet, transformer_v3_preds.parquet 는 소용량이므로 포함)
+preprocessed_v3/train.parquet
+preprocessed_v3/val.parquet
+preprocessed_v3/service_reviews.parquet
+preprocessed_v3/ambiguous.parquet
+preprocessed_v3/*_preview.csv
+
+# 모델 대용량 파일 — Releases 제공 (소용량 tokenizer/vocab/config는 직접 Git)
+*.keras
+*.h5
+*.joblib
+*.pkl
+*.npy
+*.npz
 *.pt
 *.pth
 *.ckpt
-*.keras
-*.h5
-*.pkl
-*.joblib
-*.npy
-*.npz
+
+# Transformer safetensors (대용량, Releases 제공)
+models/transformer_final_v3/model.safetensors
+models/transformer_final_v3/training_args.bin
+
+# Transformer 학습 중간 체크포인트 (불필요)
+models/transformer_final_v3/checkpoint-*/
+
+# 이전 버전 모델 폴더 (Releases에도 미포함)
+models/transformer_final_v2/
+models/transformer_final_v3/runs/
+models/transformer_klue-bert-base_balanced/
 
 # AI 어시스턴트 가이드 (로컬 전용 — 깃에 올리지 않음)
 CLAUDE.md
 
 # 상세 구현 해설 (로컬 전용)
 README2*.md
+
+# 오류/실행 로그 파일
+*.err
+precompute_preds.log
+
+# 백업 폴더
+backups/
+
+# 개발 중 임시 확인 파일 (문서 반영 후 제거 예정)
+inspect_*.txt
+edge_case_analysis.txt
