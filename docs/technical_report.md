@@ -34,7 +34,7 @@
   scripts/build_recommendation_scores.py → product_recommendation_scores.parquet
        ↓
 [Streamlit 배포]
-  streamlit_app_v2.py (5개 탭)
+  streamlit_app.py (5개 탭)
 ```
 
 ---
@@ -455,7 +455,7 @@ def load_lstm_v3():
 
 ## 12. Streamlit 앱 구조
 
-**파일**: `streamlit_app_v2.py`
+**파일**: `streamlit_app.py`
 
 ### 5개 탭
 

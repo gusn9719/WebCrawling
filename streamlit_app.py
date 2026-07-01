@@ -1,4 +1,4 @@
-"""올리브영·무신사·쿠팡 리뷰 감성 분석 Streamlit 서비스 v2 — 리뷰핏."""
+"""화장품 리뷰 기반 피부타입 맞춤 부정 신호 확인 Streamlit 서비스."""
 
 from __future__ import annotations
 
@@ -160,7 +160,7 @@ def render_result(result: dict[str, float]) -> None:
     elif result["positive"] >= 0.6:
         st.success("✅ 긍정적인 리뷰로 분류됩니다.")
     elif result["negative"] >= 0.4:
-        st.error("⚠️ 부정적인 내용을 포함하는 리뷰입니다.")
+        st.warning("모델이 부정 신호를 감지했습니다. 실제 의미는 리뷰 본문을 함께 확인하세요.")
     else:
         st.info("ℹ️ 긍정/부정 판정이 불확실한 리뷰입니다.")
 
@@ -171,7 +171,6 @@ def render_result(result: dict[str, float]) -> None:
 _LSTM_PREDS_PATH = DATA_DIR / "lstm_v3_preds.parquet"
 _TRANSFORMER_PREDS_PATH = DATA_DIR / "transformer_v3_preds.parquet"
 
-# TODO: 재학습 완료 후 MODEL_OPTIONS 레이블도 v3로 업데이트할 것
 _PRED_COL = {
     "lstm_v3":        ("lstm_v3_pred",        _LSTM_PREDS_PATH),
     "transformer_v3": ("transformer_v3_pred", _TRANSFORMER_PREDS_PATH),
@@ -182,8 +181,24 @@ _PRED_COL = {
 def load_and_aggregate(model_key: str):
     # 플랫폼 필터를 캐시 키에서 제거 — 모델 변경 시만 parquet 재로딩,
     # 플랫폼 전환은 apply_filters()에서 in-memory 처리
-    train = pd.read_parquet(DATA_DIR / "train.parquet")
-    val = pd.read_parquet(DATA_DIR / "val.parquet")
+    train_path = DATA_DIR / "train.parquet"
+    val_path = DATA_DIR / "val.parquet"
+    if not train_path.exists() or not val_path.exists():
+        _meta_cols = [
+            "product_id", "product_name", "brand", "category", "price",
+            "platform", "review_count", "avg_rating", "raw_url",
+            "positive_rate", "negative_rate", "neutral_rate",
+            "positive_count", "negative_count", "neutral_count", "score",
+        ]
+        _full_cols = [
+            "product_id", "product_name", "brand", "category", "price",
+            "platform", "review_id", "rating", "review_text", "clean_review",
+            "tokens_str", "sentiment_label", "skin_type", "helpful_count",
+            "raw_url", "pred_label",
+        ]
+        return pd.DataFrame(columns=_meta_cols), pd.DataFrame(columns=_full_cols)
+    train = pd.read_parquet(train_path)
+    val = pd.read_parquet(val_path)
     df = pd.concat([train, val], ignore_index=True)
 
     pred_col, pred_path = _PRED_COL.get(model_key, (None, None))
@@ -317,8 +332,7 @@ def load_personalized_recommendation_data():
     _SVC_OPTIONAL = ["clean_review", "rating", "helpful_count", "platform", "skin_type", "skin_concern"]
     svc_path = DATA_DIR / "service_reviews.parquet"
     if not svc_path.exists():
-        st.error(f"service_reviews.parquet 파일을 찾을 수 없습니다: {svc_path}")
-        st.stop()
+        return score_df, None
     try:
         service_df = pd.read_parquet(svc_path, columns=_SVC_REQUIRED + _SVC_OPTIONAL)
     except Exception:
@@ -511,7 +525,7 @@ def _reset_skin_filters() -> None:
     st.session_state["skin_sort"]        = "피부타입 리뷰 수"
 
 
-def _render_skin_product_detail(row: pd.Series, service_df: pd.DataFrame) -> None:
+def _render_skin_product_detail(row: pd.Series, service_df: pd.DataFrame | None) -> None:
     _EVIDENCE_KO = {
         "strong_evidence":       "충분한 근거 (20건+)",
         "limited_evidence":      "제한된 근거 (5-19건)",
@@ -555,6 +569,16 @@ def _render_skin_product_detail(row: pd.Series, service_df: pd.DataFrame) -> Non
     _msg = str(row.get("display_message", ""))
     if _msg and _msg not in ("nan", "None", ""):
         st.info(_msg)
+
+    raw_url = row.get("raw_url")
+    if service_df is None:
+        st.info(
+            "리뷰 본문을 표시하려면 service_reviews.parquet가 필요합니다.  \n"
+            "GitHub Releases에서 다운로드 후 preprocessed_v3/ 폴더에 배치하세요."
+        )
+        if raw_url and pd.notna(raw_url):
+            st.link_button("상품 페이지 바로가기", str(raw_url))
+        return
 
     negative_count = _get_review_count(row, service_df, "negative")
     positive_count = _get_review_count(row, service_df, "positive")
@@ -645,11 +669,6 @@ def _render_skin_product_detail(row: pd.Series, service_df: pd.DataFrame) -> Non
 # ─────────────────────────────────────────────
 st.set_page_config(page_title="🌿 리뷰핏", layout="wide")
 st.title("🌿 리뷰핏 — 멀티 플랫폼 리뷰 감성 분석")
-
-_EXPECTED_ROOT = Path("D:/_WebCrawling/oliveyoung_crawler").resolve()
-if BASE_DIR.resolve() != _EXPECTED_ROOT:
-    st.error(f"[루트 불일치] 현재: {BASE_DIR}  예상: {_EXPECTED_ROOT}")
-    st.stop()
 
 # ─────────────────────────────────────────────
 # 사이드바
@@ -995,7 +1014,12 @@ with tab1:
 
     st.subheader(f"추천 상품 ({len(filtered):,}개)")
 
-    if filtered.empty:
+    if stats.empty:
+        st.info(
+            "서비스 데이터 파일(train.parquet, val.parquet)이 없습니다.  \n"
+            "GitHub Releases에서 파일을 다운로드한 후 preprocessed_v3/ 폴더에 배치하면 이 탭을 사용할 수 있습니다."
+        )
+    elif filtered.empty:
         st.info("필터 조건에 맞는 상품이 없습니다")
     else:
         col_sort, col_n = st.columns([2, 1])

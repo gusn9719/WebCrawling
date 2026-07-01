@@ -64,7 +64,7 @@ git clone 후 이미 포함된 파일:
 ```bash
 conda activate oliveyoung
 pip install -r requirements.txt
-streamlit run streamlit_app_v2.py
+streamlit run streamlit_app.py
 ```
 
 브라우저에서 `http://localhost:8501`을 열어 "피부타입 맞춤 추천" 탭이 정상 표시되면 완료.
@@ -99,7 +99,7 @@ GitHub Releases 페이지에서 아래 파일을 다운로드한다.
 ### 디렉터리 구조 확인
 
 ```
-oliveyoung_crawler/
+WebCrawling/
 ├── preprocessed_v3/
 │   ├── product_recommendation_scores.parquet  ← git 포함
 │   ├── product_skin_aggregates.parquet        ← git 포함
@@ -117,7 +117,7 @@ oliveyoung_crawler/
 
 ```bash
 conda activate oliveyoung
-streamlit run streamlit_app_v2.py
+streamlit run streamlit_app.py
 ```
 
 ### 검증 체크리스트
@@ -216,7 +216,7 @@ python scripts/build_recommendation_scores.py
 ### 5단계: Streamlit 실행
 
 ```bash
-streamlit run streamlit_app_v2.py
+streamlit run streamlit_app.py
 ```
 
 ### 전체 재현 예상 소요 시간
@@ -235,7 +235,7 @@ streamlit run streamlit_app_v2.py
 
 ## 자주 발생하는 오류
 
-### streamlit_app_v2.py 실행 시 "FileNotFoundError: service_reviews.parquet"
+### streamlit_app.py 실행 시 "FileNotFoundError: service_reviews.parquet"
 
 원인: 모드 A로 실행 시 service_reviews.parquet 없음  
 해결: Releases에서 다운로드 후 `preprocessed_v3/service_reviews.parquet`로 배치 (모드 B)

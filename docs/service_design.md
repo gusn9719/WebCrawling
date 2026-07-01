@@ -37,7 +37,7 @@ scripts/build_product_skin_aggregates.py → product_skin_aggregates.parquet
 scripts/build_recommendation_scores.py → product_recommendation_scores.parquet
         ↓
 [Streamlit]
-streamlit_app_v2.py (5개 탭)
+streamlit_app.py (5개 탭)
 ```
 
 ---

@@ -171,7 +171,7 @@ ambiguous 집합은 "별점과 텍스트가 충돌하는" 데이터다. 그 중 
 
 ## 10. 모델 예측을 서비스에서 단정적으로 표현하면 안 된다
 
-**확인한 파일**: `recommendation/scoring.py`, `streamlit_app_v2.py`
+**확인한 파일**: `recommendation/scoring.py`, `streamlit_app.py`
 
 모델이 예측한 감성 라벨을 그대로 "부정 리뷰", "이 상품은 안 맞아요" 식으로 표현하면 오해를 준다.
 
@@ -186,7 +186,7 @@ LSTM v3 neutral_precision=0.196은 "neutral로 예측된 리뷰 중 80%가 실�
 | "이 피부타입에 맞지 않음" | "해당 피부타입에서 부정 신호 리뷰 비율이 높음" |
 | "안전한 상품" | "부정 신호가 낮은 상품" |
 
-이 표현 방식이 `scoring.py`의 tier 이름(`strong_candidate`, `caution_check`, `negative_review_first`)과 `streamlit_app_v2.py`의 UI 텍스트에 반영됐다.
+이 표현 방식이 `scoring.py`의 tier 이름(`strong_candidate`, `caution_check`, `negative_review_first`)과 `streamlit_app.py`의 UI 텍스트에 반영됐다.
 
 ---
 
@@ -249,4 +249,4 @@ Step 5(Streamlit 개발) 중에 기능 추가 단계마다 백업했다:
 - `step5c`: 모델 리포트 탭, 데이터 통계 탭
 - `step5d`: 탭4 실시간 분석 + KoNLPy fallback
 
-이 백업 파일들은 UI 개발 중 되돌릴 수 있는 체크포인트였다. 최종 `streamlit_app_v2.py`가 이 단계들을 통합한 결과다. 개발 단계가 git history에도 별도 커밋으로 남아있으므로, 백업 파일 자체는 최종 레포에서 제외한다.
+이 백업 파일들은 UI 개발 중 되돌릴 수 있는 체크포인트였다. 최종 `streamlit_app.py`가 이 단계들을 통합한 결과다. 개발 단계가 git history에도 별도 커밋으로 남아있으므로, 백업 파일 자체는 최종 레포에서 제외한다.

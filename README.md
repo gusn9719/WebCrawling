@@ -25,7 +25,7 @@
 | 크롤링, 전처리, 모델 학습 상세 | `docs/technical_report.md` |
 | 개발 중 판단 흐름과 결정 근거 | `docs/development_journal.md` |
 | 모델 평가 지표와 수동 검수 샘플 | `reports/` |
-| 최종 서비스 실행 파일 | `streamlit_app_v2.py` |
+| 최종 서비스 실행 파일 | `streamlit_app.py` |
 
 ---
 
@@ -58,7 +58,7 @@
   build_recommendation_scores.py → product_recommendation_scores.parquet
         ↓
 [Streamlit 배포]
-  streamlit_app_v2.py (5개 탭)
+  streamlit_app.py (5개 탭)
 ```
 
 ---
@@ -328,7 +328,7 @@ caution_penalty          = 부정 신호 높음 → 20 / 중간 → 10 / 기타 
 
 ## 서비스 구조 (Streamlit 5개 탭)
 
-**파일**: `streamlit_app_v2.py`
+**파일**: `streamlit_app.py`
 
 | 탭 | 이름 | 주요 기능 |
 |---|---|---|
@@ -345,7 +345,7 @@ caution_penalty          = 부정 신호 높음 → 20 / 중간 → 10 / 기타 
 ## 프로젝트 디렉터리 구조
 
 ```
-oliveyoung_crawler/
+WebCrawling/
 ├── README.md
 ├── requirements.txt
 ├── .gitignore
@@ -358,7 +358,7 @@ oliveyoung_crawler/
 ├── train_transformer.py             # KLUE-BERT 학습
 ├── precompute_preds.py              # BiLSTM 사전 추론
 ├── precompute_transformer.py        # Transformer 사전 추론
-├── streamlit_app_v2.py              # Streamlit 앱 (최종)
+├── streamlit_app.py                 # Streamlit 앱 (최종)
 │
 ├── oliveyoung/                      # 크롤러 패키지
 │   ├── crawlers/ (category, product, review)
@@ -446,7 +446,7 @@ pip install konlpy
 별도 다운로드 없이 바로 실행 가능. 피부타입 추천 탭만 동작.
 
 ```bash
-streamlit run streamlit_app_v2.py
+streamlit run streamlit_app.py
 ```
 
 ### 모드 B — 표준 실행
@@ -461,7 +461,7 @@ streamlit run streamlit_app_v2.py
 | `lstm_final_v3.keras` | `models/lstm_final_v3.keras` |
 
 ```bash
-streamlit run streamlit_app_v2.py
+streamlit run streamlit_app.py
 ```
 
 ### 모드 C — 전체 재현 (크롤링~배포)
@@ -488,7 +488,7 @@ python scripts/build_product_skin_aggregates.py
 python scripts/build_recommendation_scores.py
 
 # 6. Streamlit 실행
-streamlit run streamlit_app_v2.py
+streamlit run streamlit_app.py
 ```
 
 자세한 내용: `docs/setup_verification.md`
